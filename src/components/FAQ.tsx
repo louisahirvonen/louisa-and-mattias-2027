@@ -55,12 +55,14 @@ const FAQ = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">Common Questions</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            Common Questions
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             Frequently Asked
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
         </motion.div>
 
@@ -75,7 +77,7 @@ const FAQ = () => {
             >
               <AccordionItem
                 value={`item-${i}`}
-                className="bg-background/60 backdrop-blur-sm border border-border rounded-sm px-6"
+                className="bg-background/70 backdrop-blur-sm border border-border px-6"
               >
                 <AccordionTrigger className="font-display text-base text-foreground font-medium hover:no-underline">
                   {faq.question}

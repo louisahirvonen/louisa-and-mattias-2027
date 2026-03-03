@@ -22,19 +22,19 @@ const WeddingNav = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <button onClick={() => scrollTo("#home")} className="font-script text-2xl text-primary">
-          E & B
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-md border-b border-border">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+        <button onClick={() => scrollTo("#home")} className="font-names text-xl text-foreground tracking-[0.15em]">
+          L & M
         </button>
 
         {/* Desktop */}
-        <div className="hidden md:flex gap-6">
+        <div className="hidden md:flex gap-8">
           {navItems.map((item) => (
             <button
               key={item.href}
               onClick={() => scrollTo(item.href)}
-              className="font-body text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+              className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors"
             >
               {item.label}
             </button>
@@ -43,7 +43,7 @@ const WeddingNav = () => {
 
         {/* Mobile toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -61,7 +61,7 @@ const WeddingNav = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollTo(item.href)}
-                  className="font-body text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                  className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </button>

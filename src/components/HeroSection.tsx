@@ -1,70 +1,68 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
-import heroFloral from "@/assets/hero-floral.jpg";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 overflow-hidden">
-      
-      {/* Background floral */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url(${heroFloral})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }} />
-      
-      <div className="absolute inset-0 bg-background/70 opacity-100" />
-
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 overflow-hidden bg-background"
+    >
       <motion.div
         className="relative z-10 text-center max-w-2xl"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}>
-        
-        <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        <p className="font-body text-sm tracking-[0.35em] uppercase text-taupe mb-8">
           Together with their families
         </p>
 
-        <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-primary mb-2">Louisa
-
+        <h1 className="font-names text-5xl sm:text-7xl md:text-8xl text-foreground tracking-[0.08em] mb-1">
+          Louisa
         </h1>
-        <div className="flex items-center justify-center gap-4 my-2">
-          <span className="h-px w-12 bg-primary/30" />
-          <span className="font-display text-lg text-gold">&</span>
-          <span className="h-px w-12 bg-primary/30" />
+        <div className="flex items-center justify-center gap-5 my-3">
+          <span className="h-px w-16 bg-border" />
+          <span className="font-body text-lg text-taupe">&</span>
+          <span className="h-px w-16 bg-border" />
         </div>
-        <h1 className="font-script text-5xl sm:text-7xl md:text-8xl text-primary mb-6">Mattias
-
+        <h1 className="font-names text-5xl sm:text-7xl md:text-8xl text-foreground tracking-[0.08em] mb-8">
+          Mattias
         </h1>
 
-        <p className="font-display text-lg sm:text-xl text-foreground tracking-wide mb-2">
+        <p className="font-body text-lg sm:text-xl text-muted-foreground tracking-wide mb-1">
           Request the pleasure of your company
         </p>
-        <p className="font-display text-lg sm:text-xl text-foreground tracking-wide mb-1">
+        <p className="font-body text-lg sm:text-xl text-muted-foreground tracking-wide">
           at the celebration of their marriage
         </p>
 
-        <div className="flex items-center justify-center gap-3 my-8">
-          <span className="h-px w-16 bg-gold/40" />
-          <span className="text-gold text-sm">✦ ✦ ✦</span>
-          <span className="h-px w-16 bg-gold/40" />
+        <div className="my-10">
+          <span className="text-taupe text-xs tracking-[0.5em]">—</span>
         </div>
 
         <p className="font-display text-2xl sm:text-3xl text-foreground font-medium mb-2">
           Saturday, July 24th, 2027
         </p>
-        <p className="font-body text-base text-muted-foreground mb-10">Fiholm, Västerås, Sweden
-
+        <p className="font-body text-base text-muted-foreground mb-12">
+          Fiholm, Västerås, Sweden
         </p>
+
+        {/* Couple photo placeholder */}
+        <div className="w-full max-w-md mx-auto mb-14">
+          <div
+            className="aspect-[3/4] rounded-sm flex items-center justify-center"
+            style={{ backgroundColor: "hsl(var(--cream-dark))" }}
+          >
+            <p className="font-body text-sm text-muted-foreground/40 tracking-wider uppercase">
+              Your photo here
+            </p>
+          </div>
+        </div>
 
         <Countdown />
       </motion.div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HeroSection;

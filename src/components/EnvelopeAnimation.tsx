@@ -39,7 +39,7 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
               className="relative w-[340px] h-[220px] sm:w-[440px] sm:h-[280px] rounded-sm overflow-visible"
               style={{
                 backgroundColor: "hsl(var(--envelope-outer))",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
+                boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
               }}
               animate={
                 stage === "zooming"
@@ -105,9 +105,9 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                 style={{
                   height: "85%",
                   bottom: "8%",
-                  backgroundColor: "hsl(var(--cream))",
-                  border: "1px solid hsl(var(--rose-light))",
-                  boxShadow: "0 2px 15px rgba(0,0,0,0.08)",
+                  backgroundColor: "hsl(var(--warm-white))",
+                  border: "1px solid hsl(var(--border))",
+                  boxShadow: "0 2px 15px rgba(0,0,0,0.05)",
                 }}
                 animate={
                   stage === "sliding" || stage === "zooming"
@@ -116,19 +116,17 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                 }
                 transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                {/* Card content preview */}
                 <div className="flex flex-col items-center justify-center h-full p-4 text-center">
-                  <p className="font-script text-primary text-lg sm:text-xl mb-1">You are invited to</p>
-                  <p className="font-display text-foreground text-xl sm:text-2xl font-semibold tracking-wide">
-                    The Wedding of
+                  <p className="font-body text-muted-foreground text-sm sm:text-base tracking-wider uppercase mb-2">
+                    You are invited to the wedding of
                   </p>
-                  <p className="font-script text-primary text-2xl sm:text-3xl mt-1">
-                    Eleanor & Benedict
+                  <p className="font-names text-foreground text-2xl sm:text-3xl tracking-[0.08em]">
+                    Louisa & Mattias
                   </p>
-                  <div className="flex items-center gap-2 mt-3">
-                    <span className="h-px w-8 bg-primary/30" />
-                    <span className="text-gold text-xs">✦</span>
-                    <span className="h-px w-8 bg-primary/30" />
+                  <div className="flex items-center gap-3 mt-3">
+                    <span className="h-px w-10 bg-border" />
+                    <span className="text-taupe text-xs">—</span>
+                    <span className="h-px w-10 bg-border" />
                   </div>
                   <p className="font-body text-muted-foreground text-sm mt-2">
                     July 24th, 2027
@@ -157,14 +155,14 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
             </AnimatePresence>
           </div>
 
-          {/* Tap to open text */}
+          {/* Loading text */}
           {stage === "sealed" && (
             <motion.p
-              className="absolute bottom-16 font-body text-muted-foreground text-sm tracking-widest uppercase"
-              animate={{ opacity: [0.4, 1, 0.4] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="absolute bottom-16 font-body text-muted-foreground text-xs tracking-[0.3em] uppercase"
+              animate={{ opacity: [0.3, 0.8, 0.3] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
             >
-              Opening your invitation...
+              Opening your invitation…
             </motion.p>
           )}
         </motion.div>

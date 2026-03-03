@@ -23,7 +23,7 @@ const milestones = [
 
 const OurStory = () => {
   return (
-    <section id="story" className="py-24 px-4">
+    <section id="story" className="py-24 px-4 bg-warm-white">
       <div className="max-w-3xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -32,18 +32,20 @@ const OurStory = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">How It All Began</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            How It All Began
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             Our Story
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px bg-primary/20 -translate-x-px" />
+          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px -translate-x-px" style={{ backgroundColor: "hsl(var(--taupe) / 0.2)" }} />
 
           {milestones.map((milestone, i) => (
             <motion.div
@@ -57,14 +59,14 @@ const OurStory = () => {
               transition={{ duration: 0.6, delay: i * 0.15 }}
             >
               {/* Dot */}
-              <div className="absolute left-6 sm:left-1/2 w-3 h-3 rounded-full bg-primary -translate-x-1.5 mt-2 z-10" />
+              <div className="absolute left-6 sm:left-1/2 w-2.5 h-2.5 rounded-full bg-primary/60 -translate-x-1 mt-2 z-10" />
 
               {/* Content */}
               <div className={`ml-14 sm:ml-0 sm:w-1/2 ${i % 2 === 0 ? "sm:text-right sm:pr-12" : "sm:pl-12"}`}>
-                <span className="font-display text-sm text-gold tracking-[0.2em] uppercase">
+                <span className="font-body text-xs text-taupe tracking-[0.25em] uppercase">
                   {milestone.year}
                 </span>
-                <h3 className="font-display text-xl text-foreground font-semibold mt-1 mb-2">
+                <h3 className="font-display text-xl text-foreground font-medium mt-1 mb-2">
                   {milestone.title}
                 </h3>
                 <p className="font-body text-base text-muted-foreground leading-relaxed">
