@@ -25,8 +25,8 @@ const accommodations = [
 const travelInfo = [
   {
     icon: Plane,
-    title: "By Air",
-    description: "The nearest airports are Birmingham (BHX) and London Heathrow (LHR). From either airport, the Cotswolds are roughly a 90-minute drive.",
+    title: "By Public Transport",
+    description: "TPickup from the station is available upon request. Please reach out to ",
   },
   {
     icon: Car,

@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const milestones = [
   {
-    year: "2023",
+    year: "2019",
     title: "The Meet-Cute",
     description:
       "Louisa and Mattias met at a summer camp in Ardingly, England. They started talking while being locked in an escape room together. Mattias spent most of the camp thinking Louisa was called \"Elenor\" and even bit her during a game of mop hockey - but redeemed himself by sacrificing a beach trip to help her with dish duty and winning a hobbyhorse competition in borrowed shoes. Their connection was sealed by a night of watching shooting stars and exchanging hand-painted rocks.",
   },
   {
-    year: "2024",
+    year: "2020",
     title: "Official At Last",
     description:
       "They stayed close throughout autumn, spending every spare weekend together in Ekebyholm or Skogås. Mattias had a prophetic dream that they would get married. The year ended with Louisa and Mattias celebrating New Year's Eve together with friends in a forest lodge. At 3 AM, they officially became a couple.",
   },
   {
-    year: "2025",
+    year: "2021",
     title: "Two Cities, One Us",
     description:
       "When Louisa moved to Linköping for her university studies, their relationship became long distance. What was scary and painful ended up leading to new friendships and a stronger relationship.",

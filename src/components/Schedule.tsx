@@ -6,13 +6,13 @@ const events = [
     time: "3:00 PM",
     title: "Ceremony",
     location: "Stora Rytterne Kyrkoruin",
-    description: "Join us as we exchange our vows surrounded by climbing roses and the fragrance of the English countryside.",
+    description: "Join us as we exchange our vows below the arch of Rytterne church ruin.",
   },
   {
     time: "4:30 PM",
     title: "Cocktail Hour",
     location: "Fiholm orangeri",
-    description: "Enjoy champagne, hors d'oeuvres, and live string quartet music as the sun begins its golden descent.",
+    description: "Enjoy champagne, hors d'oeuvres, and mingling. ",
   },
   {
     time: "6:00 PM",
@@ -22,7 +22,7 @@ const events = [
   },
   {
     time: "8:30 PM",
-    title: "Dancing & Revelry",
+    title: "Dancing Begins",
     location: "Fiholm orangeri",
     description: "The orchestra strikes up for our first dance — and then the floor is yours for an evening of joy and celebration.",
   },
