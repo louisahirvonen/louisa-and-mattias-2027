@@ -11,7 +11,7 @@ const events = [
   {
     time: "4:30 PM",
     title: "Cocktail Hour",
-    location: "The West Terrace",
+    location: "Fiholm orangeri",
     description: "Enjoy champagne, hors d'oeuvres, and live string quartet music as the sun begins its golden descent.",
   },
   {
