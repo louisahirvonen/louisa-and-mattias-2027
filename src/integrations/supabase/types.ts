@@ -22,8 +22,10 @@ export type Database = {
           email: string | null
           full_name: string
           guest_count: number
+          guest_names: string[]
           id: string
           message: string | null
+          station_pickup: boolean
         }
         Insert: {
           attending?: boolean
@@ -32,8 +34,10 @@ export type Database = {
           email?: string | null
           full_name: string
           guest_count?: number
+          guest_names?: string[]
           id?: string
           message?: string | null
+          station_pickup?: boolean
         }
         Update: {
           attending?: boolean
@@ -42,8 +46,10 @@ export type Database = {
           email?: string | null
           full_name?: string
           guest_count?: number
+          guest_names?: string[]
           id?: string
           message?: string | null
+          station_pickup?: boolean
         }
         Relationships: []
       }
