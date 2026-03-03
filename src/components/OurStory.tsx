@@ -2,28 +2,22 @@ import { motion } from "framer-motion";
 
 const milestones = [
   {
-    year: "2019",
-    title: "A Chance Encounter",
+    year: "2023",
+    title: "The Meet-Cute",
     description:
-      "They first met at a summer garden party in the Cotswolds, exchanging glances across a sea of peonies and parasols. Neither could have known that evening would change their lives forever.",
+      "Louisa and Mattias met at a summer camp in Ardingly, England. They started talking while being locked in an escape room together. Mattias spent most of the camp thinking Louisa was called \"Elenor\" and even bit her during a game of mop hockey - but redeemed himself by sacrificing a beach trip to help her with dish duty and winning a hobbyhorse competition in borrowed shoes. Their connection was sealed by a night of watching shooting stars and exchanging hand-painted rocks.",
   },
   {
-    year: "2020",
-    title: "Letters & Longing",
+    year: "2024",
+    title: "Official At Last",
     description:
-      "Separated by circumstance, they exchanged letters that grew ever more tender. Every word written was a step closer to the life they would build together.",
-  },
-  {
-    year: "2022",
-    title: "A Promenade to Remember",
-    description:
-      "A walk through Hyde Park on an autumn afternoon sealed their devotion. Beneath golden leaves, they promised to never let go of each other's hand.",
+      "They stayed close throughout autumn, spending every spare weekend together in Ekebyholm or Skogås. Mattias had a prophetic dream that they would get married. The year ended with Louisa and Mattias celebrating New Year's Eve together with friends in a forest lodge. At 3 AM, they officially became a couple.",
   },
   {
     year: "2025",
-    title: "The Proposal",
+    title: "Two Cities, One Us",
     description:
-      "On a moonlit terrace overlooking the Thames, Benedict knelt and asked the question that Eleanor had been hoping to hear. Through happy tears, she whispered 'Yes.'",
+      "When Louisa moved to Linköping for her university studies, their relationship became long distance. What was scary and painful ended up leading to new friendships and a stronger relationship.",
   },
 ];
 
