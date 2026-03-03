@@ -5,7 +5,7 @@ const events = [
   {
     time: "3:00 PM",
     title: "Ceremony",
-    location: "The Rose Garden, Thornfield Manor",
+    location: "Stora Rytterne Kyrkoruin",
     description: "Join us as we exchange our vows surrounded by climbing roses and the fragrance of the English countryside.",
   },
   {
