@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const milestones = [
   {
-    year: "2023",
+    year: "2019",
     title: "The Meet-Cute",
     description:
       "Louisa and Mattias met at a summer camp in Ardingly, England. They started talking while being locked in an escape room together. Mattias spent most of the camp thinking Louisa was called \"Elenor\" and even bit her during a game of mop hockey - but redeemed himself by sacrificing a beach trip to help her with dish duty and winning a hobbyhorse competition in borrowed shoes. Their connection was sealed by a night of watching shooting stars and exchanging hand-painted rocks.",
