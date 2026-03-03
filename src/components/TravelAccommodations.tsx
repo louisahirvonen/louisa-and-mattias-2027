@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Hotel, Plane, Car, MapPin } from "lucide-react";
+import { Train, Car, MapPin, Hotel } from "lucide-react";
 
 const accommodations = [
   {
@@ -24,7 +24,7 @@ const accommodations = [
 
 const travelInfo = [
   {
-    icon: Plane,
+    icon: Train,
     title: "By Public Transport",
     description: "TPickup from the station is available upon request. Please reach out to ",
   },
@@ -51,12 +51,14 @@ const TravelAccommodations = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">Getting There</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            Getting There
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             Travel & Accommodations
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
         </motion.div>
 
@@ -65,38 +67,38 @@ const TravelAccommodations = () => {
           {travelInfo.map((info, i) => (
             <motion.div
               key={info.title}
-              className="text-center p-6 rounded-sm border border-border bg-card"
+              className="text-center p-6 border border-border bg-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <info.icon className="mx-auto text-primary mb-3" size={28} />
-              <h3 className="font-display text-lg text-foreground font-semibold mb-2">{info.title}</h3>
+              <info.icon className="mx-auto text-taupe mb-3" size={24} />
+              <h3 className="font-display text-lg text-foreground font-medium mb-2">{info.title}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{info.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Accommodations */}
-        <h3 className="font-display text-2xl text-foreground font-semibold text-center mb-8">
+        <h3 className="font-display text-2xl text-foreground font-medium text-center mb-8">
           Where to Stay
         </h3>
-        <div className="space-y-6">
+        <div className="space-y-4">
           {accommodations.map((acc, i) => (
             <motion.div
               key={acc.title}
-              className="flex gap-4 p-6 rounded-sm border border-border bg-card"
+              className="flex gap-4 p-6 border border-border bg-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <acc.icon className="text-primary flex-shrink-0 mt-1" size={24} />
+              <acc.icon className="text-taupe flex-shrink-0 mt-1" size={22} />
               <div>
-                <h4 className="font-display text-lg text-foreground font-semibold">{acc.title}</h4>
+                <h4 className="font-display text-lg text-foreground font-medium">{acc.title}</h4>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed mb-1">{acc.description}</p>
-                <p className="font-body text-sm text-primary font-medium">{acc.detail}</p>
+                <p className="font-body text-sm text-primary">{acc.detail}</p>
               </div>
             </motion.div>
           ))}

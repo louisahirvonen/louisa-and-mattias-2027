@@ -30,13 +30,13 @@ const Countdown = () => {
   ];
 
   return (
-    <div className="flex gap-4 sm:gap-8 justify-center">
+    <div className="flex gap-6 sm:gap-10 justify-center">
       {units.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center">
-          <span className="font-display text-3xl sm:text-5xl font-semibold text-foreground">
+          <span className="font-names text-3xl sm:text-5xl text-foreground tracking-wider">
             {String(unit.value).padStart(2, "0")}
           </span>
-          <span className="font-body text-xs sm:text-sm text-muted-foreground tracking-[0.2em] uppercase mt-1">
+          <span className="font-body text-[10px] sm:text-xs text-muted-foreground tracking-[0.25em] uppercase mt-1">
             {unit.label}
           </span>
         </div>

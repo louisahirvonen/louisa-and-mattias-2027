@@ -27,14 +27,14 @@ const pages = [
 ];
 
 const placeholderColors = [
-  "hsl(340, 30%, 80%)",
-  "hsl(150, 18%, 80%)",
-  "hsl(270, 15%, 85%)",
-  "hsl(42, 50%, 82%)",
-  "hsl(350, 40%, 85%)",
-  "hsl(200, 20%, 82%)",
-  "hsl(30, 30%, 80%)",
-  "hsl(160, 20%, 78%)",
+  "hsl(35, 15%, 90%)",
+  "hsl(155, 12%, 88%)",
+  "hsl(260, 10%, 91%)",
+  "hsl(38, 18%, 89%)",
+  "hsl(350, 15%, 91%)",
+  "hsl(200, 10%, 90%)",
+  "hsl(30, 12%, 89%)",
+  "hsl(160, 10%, 88%)",
 ];
 
 const Photobook = () => {
@@ -76,7 +76,7 @@ const Photobook = () => {
     if (side.type === "text") {
       return (
         <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-          <p className="font-script text-3xl sm:text-4xl text-primary mb-3">{side.content}</p>
+          <p className="font-names text-3xl sm:text-4xl text-foreground mb-3">{side.content}</p>
           {"subtitle" in side && (
             <p className="font-body text-sm text-muted-foreground">{side.subtitle}</p>
           )}
@@ -86,10 +86,12 @@ const Photobook = () => {
     return (
       <div className="h-full flex flex-col">
         <div
-          className="flex-1 rounded-sm m-3 mb-2 flex items-center justify-center"
+          className="flex-1 m-3 mb-2 flex items-center justify-center"
           style={{ backgroundColor: placeholderColors[colorIndex % placeholderColors.length] }}
         >
-          <p className="font-body text-xs text-foreground/40 px-4 text-center">Photo placeholder</p>
+          <p className="font-body text-xs text-muted-foreground/30 px-4 text-center tracking-wider uppercase">
+            Photo
+          </p>
         </div>
         <p className="font-body text-xs text-muted-foreground text-center px-4 pb-3 italic">
           {side.caption}
@@ -99,7 +101,7 @@ const Photobook = () => {
   };
 
   return (
-    <section id="photobook" className="py-24 px-4">
+    <section id="photobook" className="py-24 px-4 bg-warm-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -108,12 +110,14 @@ const Photobook = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">Through the Years</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            Through the Years
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             Our Photobook
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
         </motion.div>
 
@@ -122,9 +126,9 @@ const Photobook = () => {
           <button
             onClick={goPrev}
             disabled={currentPage === 0}
-            className="p-2 text-primary disabled:text-muted-foreground/30 transition-colors"
+            className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft size={28} />
           </button>
 
           <div
@@ -140,7 +144,7 @@ const Photobook = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="bg-card border border-border rounded-sm shadow-lg overflow-hidden"
+                className="bg-card border border-border shadow-sm overflow-hidden"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 min-h-[320px] sm:min-h-[400px]">
@@ -158,9 +162,9 @@ const Photobook = () => {
           <button
             onClick={goNext}
             disabled={currentPage === pages.length - 1}
-            className="p-2 text-primary disabled:text-muted-foreground/30 transition-colors"
+            className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
-            <ChevronRight size={32} />
+            <ChevronRight size={28} />
           </button>
         </div>
 
@@ -173,8 +177,8 @@ const Photobook = () => {
                 setDirection(i > currentPage ? 1 : -1);
                 setCurrentPage(i);
               }}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                i === currentPage ? "bg-primary" : "bg-primary/20"
+              className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                i === currentPage ? "bg-foreground/50" : "bg-foreground/10"
               }`}
             />
           ))}

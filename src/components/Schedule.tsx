@@ -39,36 +39,38 @@ const Schedule = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">The Celebration</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            The Celebration
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             Schedule of Events
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {events.map((event, i) => (
             <motion.div
               key={event.title}
-              className="bg-background/60 backdrop-blur-sm rounded-sm border border-border p-6 sm:p-8"
+              className="bg-background/70 backdrop-blur-sm border border-border p-6 sm:p-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                <div className="flex items-center gap-2 text-primary sm:w-32 flex-shrink-0">
-                  <Clock size={16} />
-                  <span className="font-display text-lg font-medium">{event.time}</span>
+                <div className="flex items-center gap-2 text-muted-foreground sm:w-32 flex-shrink-0">
+                  <Clock size={14} className="text-taupe" />
+                  <span className="font-body text-base tracking-wider">{event.time}</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-xl text-foreground font-semibold mb-1">
+                  <h3 className="font-display text-xl text-foreground font-medium mb-1">
                     {event.title}
                   </h3>
                   <div className="flex items-center gap-1.5 text-muted-foreground mb-3">
-                    <MapPin size={14} />
+                    <MapPin size={13} className="text-taupe" />
                     <span className="font-body text-sm">{event.location}</span>
                   </div>
                   <p className="font-body text-base text-muted-foreground leading-relaxed">

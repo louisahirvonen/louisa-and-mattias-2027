@@ -53,10 +53,10 @@ const RSVPForm = () => {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 font-body text-base bg-background border border-border rounded-sm focus:outline-none focus:ring-1 focus:ring-primary text-foreground placeholder:text-muted-foreground/50";
+    "w-full px-4 py-3 font-body text-base bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/40";
 
   return (
-    <section id="rsvp" className="py-24 px-4 bg-blush">
+    <section id="rsvp" className="py-24 px-4 bg-sage-light">
       <div className="max-w-xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -65,12 +65,14 @@ const RSVPForm = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-3xl text-primary mb-2">We Hope You Can Join Us</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-semibold tracking-wide">
+          <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            We Hope You Can Join Us
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
             RSVP
           </h2>
-          <div className="section-divider mt-4">
-            <span className="text-gold text-sm">✦</span>
+          <div className="section-divider mt-2">
+            <span className="text-taupe text-xs">—</span>
           </div>
           <p className="font-body text-base text-muted-foreground mt-4">
             Kindly respond by June 1st, 2027
@@ -84,7 +86,7 @@ const RSVPForm = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-script text-4xl text-primary mb-4">Thank You!</p>
+            <p className="font-names text-4xl text-foreground mb-4">Thank You</p>
             <p className="font-body text-base text-muted-foreground">
               Your response has been recorded. We look forward to celebrating with you!
             </p>
@@ -99,7 +101,7 @@ const RSVPForm = () => {
             transition={{ duration: 0.6 }}
           >
             <div>
-              <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                 Full Name *
               </label>
               <input
@@ -114,7 +116,7 @@ const RSVPForm = () => {
             </div>
 
             <div>
-              <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                 Email
               </label>
               <input
@@ -128,7 +130,7 @@ const RSVPForm = () => {
             </div>
 
             <div>
-              <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                 Will you be attending? *
               </label>
               <div className="flex gap-4">
@@ -140,10 +142,10 @@ const RSVPForm = () => {
                     key={String(opt.value)}
                     type="button"
                     onClick={() => setForm({ ...form, attending: opt.value })}
-                    className={`flex-1 py-3 px-4 font-body text-sm border rounded-sm transition-colors ${
+                    className={`flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
                       form.attending === opt.value
                         ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-background text-muted-foreground border-border hover:border-primary/50"
+                        : "bg-background text-muted-foreground border-border hover:border-primary/30"
                     }`}
                   >
                     {opt.label}
@@ -154,7 +156,7 @@ const RSVPForm = () => {
 
             {form.attending && (
               <div>
-                <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+                <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                   Number of Guests
                 </label>
                 <select
@@ -173,7 +175,7 @@ const RSVPForm = () => {
 
             {form.attending && (
               <div>
-                <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+                <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                   Dietary Restrictions
                 </label>
                 <input
@@ -188,7 +190,7 @@ const RSVPForm = () => {
             )}
 
             <div>
-              <label className="font-display text-sm text-foreground font-medium block mb-1.5">
+              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
                 Message for the Couple
               </label>
               <textarea
@@ -203,7 +205,7 @@ const RSVPForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 font-display text-base tracking-[0.15em] uppercase bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+              className="w-full py-3.5 font-body text-xs tracking-[0.25em] uppercase bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send RSVP"}
             </button>
