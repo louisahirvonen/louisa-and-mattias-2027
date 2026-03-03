@@ -2,9 +2,9 @@ const Footer = () => {
   return (
     <footer className="py-16 px-4 text-center">
       <div className="max-w-md mx-auto">
-        <p className="font-script text-4xl text-primary mb-4">Eleanor & Benedict</p>
-        <p className="font-body text-sm text-muted-foreground tracking-[0.2em] uppercase">
-          July 24th, 2027 · Cotswolds, England
+        <p className="font-script text-4xl text-primary mb-4">Louisa & Mattias</p>
+        <p className="font-body text-sm text-muted-foreground tracking-[0.2em] uppercase">JULY 24TH, 2027 · FIHOLM, VÄSTERÅS
+
         </p>
         <div className="flex items-center justify-center gap-3 mt-6">
           <span className="h-px w-12 bg-primary/20" />
@@ -15,8 +15,8 @@ const Footer = () => {
           Made with love for the most anticipated day
         </p>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;

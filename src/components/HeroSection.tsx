@@ -17,7 +17,7 @@ const HeroSection = () => {
           backgroundPosition: "center"
         }} />
       
-      <div className="absolute inset-0 bg-background/70" />
+      <div className="absolute inset-0 bg-background/70 opacity-100" />
 
       <motion.div
         className="relative z-10 text-center max-w-2xl"
