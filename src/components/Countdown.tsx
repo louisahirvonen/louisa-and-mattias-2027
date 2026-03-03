@@ -25,18 +25,18 @@ const Countdown = () => {
   const units = [
     { label: "Days", value: timeLeft.days },
     { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
+    { label: "Min", value: timeLeft.minutes },
+    { label: "Sec", value: timeLeft.seconds },
   ];
 
   return (
-    <div className="flex gap-6 sm:gap-10 justify-center">
+    <div className="flex gap-5 sm:gap-8 justify-center">
       {units.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center">
-          <span className="font-names text-3xl sm:text-5xl text-foreground tracking-wider">
+          <span className="font-names text-2xl sm:text-4xl text-foreground tracking-wider">
             {String(unit.value).padStart(2, "0")}
           </span>
-          <span className="font-body text-[10px] sm:text-xs text-muted-foreground tracking-[0.25em] uppercase mt-1">
+          <span className="font-body text-[9px] sm:text-[10px] text-muted-foreground tracking-[0.2em] uppercase mt-0.5">
             {unit.label}
           </span>
         </div>

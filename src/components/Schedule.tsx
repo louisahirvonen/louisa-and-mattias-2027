@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock, MapPin } from "lucide-react";
+import FloralDecoration from "./FloralDecoration";
 
 const events = [
   {
@@ -30,8 +31,10 @@ const events = [
 
 const Schedule = () => {
   return (
-    <section id="schedule" className="py-24 px-4 bg-blush">
-      <div className="max-w-3xl mx-auto">
+    <section id="schedule" className="relative py-24 px-4 bg-blush overflow-hidden">
+      <FloralDecoration variant="corner-top-right" className="absolute top-0 right-0 w-28 sm:w-40 opacity-35 pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +49,7 @@ const Schedule = () => {
             Schedule of Events
           </h2>
           <div className="section-divider mt-2">
-            <span className="text-taupe text-xs">—</span>
+            <FloralDecoration variant="divider" className="w-40" />
           </div>
         </motion.div>
 
