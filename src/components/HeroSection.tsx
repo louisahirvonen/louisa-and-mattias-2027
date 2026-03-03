@@ -1,64 +1,59 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
+import FloralDecoration from "./FloralDecoration";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 overflow-hidden bg-background"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-14 pb-6 overflow-hidden bg-background"
     >
+      {/* Corner florals */}
+      <FloralDecoration variant="corner-top-right" className="absolute top-0 right-0 w-36 sm:w-52 opacity-70 pointer-events-none" />
+      <FloralDecoration variant="corner-top-left" className="absolute top-0 left-0 w-36 sm:w-52 opacity-70 pointer-events-none" />
+      <FloralDecoration variant="corner-bottom-right" className="absolute bottom-0 right-0 w-28 sm:w-44 opacity-50 pointer-events-none" />
+      <FloralDecoration variant="corner-bottom-left" className="absolute bottom-0 left-0 w-28 sm:w-44 opacity-50 pointer-events-none" />
+
       <motion.div
-        className="relative z-10 text-center max-w-2xl"
-        initial={{ opacity: 0, y: 30 }}
+        className="relative z-10 text-center w-full max-w-lg flex flex-col items-center"
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        <p className="font-body text-sm tracking-[0.35em] uppercase text-taupe mb-8">
-          Together with their families
-        </p>
-
-        <h1 className="font-names text-5xl sm:text-7xl md:text-8xl text-foreground tracking-[0.08em] mb-1">
+        {/* Names */}
+        <h1 className="font-names text-4xl sm:text-6xl md:text-7xl text-foreground tracking-[0.08em] mb-1">
           Louisa
         </h1>
-        <div className="flex items-center justify-center gap-5 my-3">
-          <span className="h-px w-16 bg-border" />
-          <span className="font-body text-lg text-taupe">&</span>
-          <span className="h-px w-16 bg-border" />
+        <div className="flex items-center justify-center gap-4 my-1.5">
+          <span className="h-px w-12 bg-border" />
+          <span className="font-body text-base text-taupe">&</span>
+          <span className="h-px w-12 bg-border" />
         </div>
-        <h1 className="font-names text-5xl sm:text-7xl md:text-8xl text-foreground tracking-[0.08em] mb-8">
+        <h1 className="font-names text-4xl sm:text-6xl md:text-7xl text-foreground tracking-[0.08em] mb-4">
           Mattias
         </h1>
 
-        <p className="font-body text-lg sm:text-xl text-muted-foreground tracking-wide mb-1">
-          Request the pleasure of your company
-        </p>
-        <p className="font-body text-lg sm:text-xl text-muted-foreground tracking-wide">
-          at the celebration of their marriage
-        </p>
-
-        <div className="my-10">
-          <span className="text-taupe text-xs tracking-[0.5em]">—</span>
-        </div>
-
-        <p className="font-display text-2xl sm:text-3xl text-foreground font-medium mb-2">
+        {/* Date & Location */}
+        <p className="font-display text-lg sm:text-xl text-foreground font-medium mb-0.5">
           Saturday, July 24th, 2027
         </p>
-        <p className="font-body text-base text-muted-foreground mb-12">
+        <p className="font-body text-sm text-muted-foreground mb-4">
           Fiholm, Västerås, Sweden
         </p>
 
-        {/* Couple photo placeholder */}
-        <div className="w-full max-w-md mx-auto mb-14">
+        {/* Photo */}
+        <div className="w-full max-w-xs sm:max-w-sm mx-auto mb-5">
           <div
-            className="aspect-[3/4] rounded-sm flex items-center justify-center"
+            className="aspect-[4/5] rounded-sm flex items-center justify-center border border-border/50"
             style={{ backgroundColor: "hsl(var(--cream-dark))" }}
           >
-            <p className="font-body text-sm text-muted-foreground/40 tracking-wider uppercase">
+            <p className="font-body text-xs text-muted-foreground/40 tracking-wider uppercase">
               Your photo here
             </p>
           </div>
         </div>
 
+        {/* Countdown */}
         <Countdown />
       </motion.div>
     </section>

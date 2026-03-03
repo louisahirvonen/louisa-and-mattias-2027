@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FloralDecoration from "./FloralDecoration";
 
 const milestones = [
   {
@@ -23,8 +24,11 @@ const milestones = [
 
 const OurStory = () => {
   return (
-    <section id="story" className="py-24 px-4 bg-warm-white">
-      <div className="max-w-3xl mx-auto">
+    <section id="story" className="relative py-24 px-4 bg-warm-white overflow-hidden">
+      <FloralDecoration variant="corner-top-left" className="absolute top-0 left-0 w-32 sm:w-44 opacity-40 pointer-events-none" />
+      <FloralDecoration variant="corner-bottom-right" className="absolute bottom-0 right-0 w-28 sm:w-40 opacity-30 pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -39,13 +43,12 @@ const OurStory = () => {
             Our Story
           </h2>
           <div className="section-divider mt-2">
-            <span className="text-taupe text-xs">—</span>
+            <FloralDecoration variant="divider" className="w-40" />
           </div>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px -translate-x-px" style={{ backgroundColor: "hsl(var(--taupe) / 0.2)" }} />
+          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px -translate-x-px" style={{ backgroundColor: "hsl(var(--rose-light) / 0.4)" }} />
 
           {milestones.map((milestone, i) => (
             <motion.div
@@ -58,10 +61,8 @@ const OurStory = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
             >
-              {/* Dot */}
-              <div className="absolute left-6 sm:left-1/2 w-2.5 h-2.5 rounded-full bg-primary/60 -translate-x-1 mt-2 z-10" />
+              <div className="absolute left-6 sm:left-1/2 w-2.5 h-2.5 rounded-full -translate-x-1 mt-2 z-10" style={{ backgroundColor: "hsl(var(--rose-light))" }} />
 
-              {/* Content */}
               <div className={`ml-14 sm:ml-0 sm:w-1/2 ${i % 2 === 0 ? "sm:text-right sm:pr-12" : "sm:pl-12"}`}>
                 <span className="font-body text-xs text-taupe tracking-[0.25em] uppercase">
                   {milestone.year}

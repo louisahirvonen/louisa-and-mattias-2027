@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import FloralDecoration from "./FloralDecoration";
 
 const faqs = [
   {
@@ -46,8 +47,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 px-4 bg-blush">
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="relative py-24 px-4 bg-blush overflow-hidden">
+      <FloralDecoration variant="corner-top-left" className="absolute top-0 left-0 w-28 sm:w-40 opacity-35 pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +65,7 @@ const FAQ = () => {
             Frequently Asked
           </h2>
           <div className="section-divider mt-2">
-            <span className="text-taupe text-xs">—</span>
+            <FloralDecoration variant="divider" className="w-40" />
           </div>
         </motion.div>
 

@@ -10,13 +10,13 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
   const [stage, setStage] = useState<"sealed" | "opening" | "sliding" | "zooming" | "done">("sealed");
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStage("opening"), 1200);
-    const timer2 = setTimeout(() => setStage("sliding"), 2200);
-    const timer3 = setTimeout(() => setStage("zooming"), 3500);
+    const timer1 = setTimeout(() => setStage("opening"), 1800);
+    const timer2 = setTimeout(() => setStage("sliding"), 3200);
+    const timer3 = setTimeout(() => setStage("zooming"), 5000);
     const timer4 = setTimeout(() => {
       setStage("done");
       onComplete();
-    }, 5000);
+    }, 7000);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -29,32 +29,76 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
     <AnimatePresence>
       {stage !== "done" && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: "linear-gradient(160deg, hsl(var(--lavender)), hsl(var(--cream)), hsl(var(--rose-light) / 0.3))" }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
+          {/* Floating petals background */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: 6 + Math.random() * 8,
+                height: 8 + Math.random() * 10,
+                background: i % 3 === 0
+                  ? "hsl(var(--rose-light))"
+                  : i % 3 === 1
+                  ? "hsl(var(--lavender))"
+                  : "hsl(var(--sage) / 0.4)",
+                left: `${10 + Math.random() * 80}%`,
+                top: `${10 + Math.random() * 80}%`,
+                borderRadius: "50% 50% 50% 0%",
+                opacity: 0.25,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, (Math.random() - 0.5) * 15, 0],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 4 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+
           <div className="relative" style={{ perspective: "1000px" }}>
             {/* Envelope body */}
             <motion.div
-              className="relative w-[340px] h-[220px] sm:w-[440px] sm:h-[280px] rounded-sm overflow-visible"
+              className="relative w-[320px] h-[210px] sm:w-[420px] sm:h-[270px] overflow-visible"
               style={{
-                backgroundColor: "hsl(var(--envelope-outer))",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
+                background: "linear-gradient(145deg, hsl(var(--lavender)), hsl(var(--rose-light) / 0.5), hsl(var(--cream)))",
+                borderRadius: "4px",
+                boxShadow: "0 8px 32px hsl(var(--rose-light) / 0.3), 0 2px 8px hsl(var(--sage) / 0.1)",
               }}
               animate={
                 stage === "zooming"
-                  ? { scale: 0.8, opacity: 0.5, y: 100 }
+                  ? { scale: 0.7, opacity: 0.4, y: 120 }
                   : {}
               }
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             >
-              {/* Envelope inner (V shape) */}
+              {/* Inner V pattern */}
               <div
                 className="absolute inset-0"
                 style={{
-                  background: `linear-gradient(135deg, transparent 38%, hsl(var(--envelope-inner)) 38%, hsl(var(--envelope-inner)) 62%, transparent 62%)`,
+                  background: `linear-gradient(135deg, transparent 38%, hsl(var(--cream) / 0.8) 38%, hsl(var(--cream) / 0.8) 62%, transparent 62%)`,
                 }}
               />
+
+              {/* Small floral detail on envelope */}
+              <svg className="absolute bottom-2 right-3 w-12 h-12 opacity-30" viewBox="0 0 40 40" fill="none">
+                <ellipse cx="20" cy="18" rx="5" ry="7" fill="hsl(var(--rose-light))" opacity="0.5" transform="rotate(-15 20 18)" />
+                <ellipse cx="17" cy="20" rx="4" ry="6" fill="hsl(var(--rose-light))" opacity="0.4" transform="rotate(-40 17 20)" />
+                <ellipse cx="23" cy="20" rx="4" ry="6" fill="hsl(var(--rose-light))" opacity="0.4" transform="rotate(10 23 20)" />
+                <circle cx="20" cy="19" r="2" fill="hsl(var(--gold-light))" opacity="0.5" />
+                <ellipse cx="28" cy="22" rx="3" ry="1.5" fill="hsl(var(--sage))" opacity="0.3" transform="rotate(20 28 22)" />
+                <ellipse cx="12" cy="22" rx="3" ry="1.5" fill="hsl(var(--sage))" opacity="0.3" transform="rotate(-20 12 22)" />
+              </svg>
 
               {/* Envelope flap */}
               <motion.div
@@ -69,12 +113,12 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                     ? { rotateX: 0 }
                     : { rotateX: -180 }
                 }
-                transition={{ duration: 0.8, ease: "easeInOut" }}
+                transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <div
                   className="w-full h-full"
                   style={{
-                    backgroundColor: "hsl(var(--envelope-outer))",
+                    background: "linear-gradient(135deg, hsl(var(--lavender)), hsl(var(--rose-light) / 0.6))",
                     clipPath: "polygon(0 0, 50% 100%, 100% 0)",
                     backfaceVisibility: "hidden",
                   }}
@@ -85,7 +129,7 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
               <motion.div
                 className="absolute z-10"
                 style={{
-                  top: "-10px",
+                  top: "-12px",
                   left: "50%",
                   transform: "translateX(-50%)",
                 }}
@@ -94,9 +138,9 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                     ? { opacity: 1, scale: 1 }
                     : { opacity: 0, scale: 0.5 }
                 }
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <img src={waxSeal} alt="" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full" />
+                <img src={waxSeal} alt="" className="w-14 h-14 sm:w-18 sm:h-18 rounded-full drop-shadow-md" />
               </motion.div>
 
               {/* Card sliding out */}
@@ -105,30 +149,40 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                 style={{
                   height: "85%",
                   bottom: "8%",
-                  backgroundColor: "hsl(var(--warm-white))",
-                  border: "1px solid hsl(var(--border))",
-                  boxShadow: "0 2px 15px rgba(0,0,0,0.05)",
+                  background: "linear-gradient(170deg, hsl(var(--cream)), hsl(var(--warm-white)))",
+                  border: "1px solid hsl(var(--rose-light) / 0.4)",
+                  boxShadow: "0 2px 12px hsl(var(--rose-light) / 0.15)",
                 }}
                 animate={
                   stage === "sliding" || stage === "zooming"
-                    ? { y: -180 }
+                    ? { y: -190 }
                     : { y: 0 }
                 }
-                transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 1.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <div className="flex flex-col items-center justify-center h-full p-4 text-center">
-                  <p className="font-body text-muted-foreground text-sm sm:text-base tracking-wider uppercase mb-2">
-                    You are invited to the wedding of
+                  {/* Small floral on card */}
+                  <svg className="w-16 h-10 mb-2 opacity-50" viewBox="0 0 60 30" fill="none">
+                    <path d="M30 25 C20 18, 10 20, 5 18" stroke="hsl(var(--sage))" strokeWidth="0.6" opacity="0.4" />
+                    <path d="M30 25 C40 18, 50 20, 55 18" stroke="hsl(var(--sage))" strokeWidth="0.6" opacity="0.4" />
+                    <ellipse cx="18" cy="15" rx="4" ry="5.5" fill="hsl(var(--rose-light))" opacity="0.35" transform="rotate(-15 18 15)" />
+                    <ellipse cx="42" cy="15" rx="4" ry="5.5" fill="hsl(var(--rose-light))" opacity="0.35" transform="rotate(15 42 15)" />
+                    <circle cx="18" cy="15" r="1.5" fill="hsl(var(--gold-light))" opacity="0.4" />
+                    <circle cx="42" cy="15" r="1.5" fill="hsl(var(--gold-light))" opacity="0.4" />
+                    <ellipse cx="30" cy="12" rx="3" ry="4.5" fill="hsl(var(--lavender))" opacity="0.3" />
+                  </svg>
+                  <p className="font-body text-muted-foreground text-xs sm:text-sm tracking-[0.2em] uppercase mb-2">
+                    You are invited
                   </p>
                   <p className="font-names text-foreground text-2xl sm:text-3xl tracking-[0.08em]">
                     Louisa & Mattias
                   </p>
-                  <div className="flex items-center gap-3 mt-3">
-                    <span className="h-px w-10 bg-border" />
-                    <span className="text-taupe text-xs">—</span>
-                    <span className="h-px w-10 bg-border" />
+                  <div className="flex items-center gap-3 mt-2">
+                    <span className="h-px w-8 bg-rose-light" />
+                    <span className="text-taupe text-xs">♥</span>
+                    <span className="h-px w-8 bg-rose-light" />
                   </div>
-                  <p className="font-body text-muted-foreground text-sm mt-2">
+                  <p className="font-body text-muted-foreground text-xs mt-2">
                     July 24th, 2027
                   </p>
                 </div>
@@ -142,13 +196,13 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                   className="fixed inset-0 z-10 flex items-center justify-center"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <motion.div
                     className="bg-background rounded-sm"
-                    initial={{ width: "320px", height: "200px", opacity: 0 }}
+                    initial={{ width: "300px", height: "200px", opacity: 0 }}
                     animate={{ width: "100vw", height: "100vh", opacity: 1 }}
-                    transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                   />
                 </motion.div>
               )}
@@ -159,8 +213,8 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
           {stage === "sealed" && (
             <motion.p
               className="absolute bottom-16 font-body text-muted-foreground text-xs tracking-[0.3em] uppercase"
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity }}
             >
               Opening your invitation…
             </motion.p>
