@@ -22,7 +22,7 @@ const events = [
   },
   {
     time: "8:30 PM",
-    title: "Dancing & Revelry",
+    title: "Dancing Begins",
     location: "Fiholm orangeri",
     description: "The orchestra strikes up for our first dance — and then the floor is yours for an evening of joy and celebration.",
   },
