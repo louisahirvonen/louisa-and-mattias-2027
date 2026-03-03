@@ -17,7 +17,7 @@ const events = [
   {
     time: "6:00 PM",
     title: "Dinner Reception",
-    location: "The Grand Ballroom",
+    location: "Fiholm orangeri",
     description: "A candlelit evening of fine dining, heartfelt toasts, and the company of loved ones.",
   },
   {
