@@ -5,25 +5,25 @@ const events = [
   {
     time: "3:00 PM",
     title: "Ceremony",
-    location: "The Rose Garden, Thornfield Manor",
+    location: "Stora Rytterne Kyrkoruin",
     description: "Join us as we exchange our vows surrounded by climbing roses and the fragrance of the English countryside.",
   },
   {
     time: "4:30 PM",
     title: "Cocktail Hour",
-    location: "The West Terrace",
+    location: "Fiholm orangeri",
     description: "Enjoy champagne, hors d'oeuvres, and live string quartet music as the sun begins its golden descent.",
   },
   {
     time: "6:00 PM",
     title: "Dinner Reception",
-    location: "The Grand Ballroom",
+    location: "Fiholm orangeri",
     description: "A candlelit evening of fine dining, heartfelt toasts, and the company of loved ones.",
   },
   {
     time: "8:30 PM",
     title: "Dancing & Revelry",
-    location: "The Grand Ballroom",
+    location: "Fiholm orangeri",
     description: "The orchestra strikes up for our first dance — and then the floor is yours for an evening of joy and celebration.",
   },
 ];
