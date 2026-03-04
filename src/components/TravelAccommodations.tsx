@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Train, Car, MapPin, Hotel } from "lucide-react";
+import venuePhoto from "@/assets/venue-photo.jpeg";
 
 const accommodations = [
   {
@@ -59,6 +60,28 @@ const TravelAccommodations = () => {
           </h2>
           <div className="section-divider mt-2">
             <span className="text-taupe text-xs">—</span>
+          </div>
+        </motion.div>
+
+        {/* Venue Photo */}
+        <motion.div
+          className="mb-12 overflow-hidden rounded-sm border border-border/50 shadow-md"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="aspect-[16/9] overflow-hidden">
+            <img
+              src={venuePhoto}
+              alt="Fiholm Manor — the wedding venue"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="py-3 text-center bg-card">
+            <p className="font-display text-sm text-muted-foreground tracking-wider">
+              Fiholm Manor · Västerås, Sweden
+            </p>
           </div>
         </motion.div>
 

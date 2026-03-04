@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
 import FloralDecoration from "./FloralDecoration";
+import ringPhoto from "@/assets/ring-photo.jpg";
 
 const HeroSection = () => {
   return (
@@ -43,13 +44,12 @@ const HeroSection = () => {
 
         {/* Photo */}
         <div className="w-full max-w-xs sm:max-w-sm mx-auto mb-5">
-          <div
-            className="aspect-[4/5] rounded-sm flex items-center justify-center border border-border/50"
-            style={{ backgroundColor: "hsl(var(--cream-dark))" }}
-          >
-            <p className="font-body text-xs text-muted-foreground/40 tracking-wider uppercase">
-              Your photo here
-            </p>
+          <div className="aspect-[4/5] rounded-sm overflow-hidden border border-border/50 shadow-md">
+            <img
+              src={ringPhoto}
+              alt="Louisa's hand with engagement ring on Mattias' chest"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
