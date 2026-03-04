@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Train, Car, MapPin, Hotel } from "lucide-react";
+import venuePhoto from "@/assets/venue-photo.jpeg";
 
 const accommodations = [
   {
