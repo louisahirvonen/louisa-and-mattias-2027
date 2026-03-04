@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
 import FloralDecoration from "./FloralDecoration";
+import ringPhoto from "@/assets/ring-photo.jpg";
 
 const HeroSection = () => {
   return (
