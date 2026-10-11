@@ -9,12 +9,12 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const RSVPForm = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<"accepted" | "declined" | null>(null);
   const [loading, setLoading] = useState(false);
   const [guestNames, setGuestNames] = useState([""]);
   const [form, setForm] = useState({
     email: "",
-    attending: true,
+    attending: null as boolean | null, // nothing selected until the guest chooses
     dietary_restrictions: "",
     message: "",
     station_pickup: false,
@@ -44,6 +44,11 @@ const RSVPForm = () => {
       return;
     }
 
+    if (form.attending === null) {
+      toast({ title: t.rsvp.chooseAttending, variant: "destructive" });
+      return;
+    }
+
     if (!isGoogleFormConfigured()) {
       toast({ title: t.rsvp.notOpen, description: t.rsvp.notOpenDescription, variant: "destructive" });
       return;
@@ -66,7 +71,7 @@ const RSVPForm = () => {
     } finally {
       setLoading(false);
     }
-    setSubmitted(true);
+    setSubmitted(form.attending ? "accepted" : "declined");
   };
 
   const inputClasses =
@@ -108,7 +113,7 @@ const RSVPForm = () => {
           >
             <p className="font-names text-4xl text-foreground mb-4">{t.rsvp.thankYou}</p>
             <p className="font-body text-base text-muted-foreground">
-              {t.rsvp.recorded}
+              {submitted === "accepted" ? t.rsvp.recorded : t.rsvp.recordedDecline}
             </p>
           </motion.div>
         ) : (

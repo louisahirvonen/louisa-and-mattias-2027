@@ -55,25 +55,25 @@ const en = {
       {
         time: "3:00 PM",
         title: "Ceremony",
-        location: "Stora Rytterne Kyrkoruin",
+        location: "Stora Rytterne church ruin",
         description: "Join us as we exchange our vows below the arch of Rytterne church ruin.",
       },
       {
         time: "4:30 PM",
         title: "Cocktail Hour",
-        location: "Fiholm orangeri",
+        location: "The Orangery at Fiholm",
         description: "Enjoy champagne, hors d'oeuvres, and mingling.",
       },
       {
         time: "6:00 PM",
         title: "Dinner Reception",
-        location: "Fiholm orangeri",
+        location: "The Orangery at Fiholm",
         description: "A candlelit evening of fine dining, heartfelt toasts, and the company of loved ones.",
       },
       {
         time: "8:30 PM",
         title: "Dancing Begins",
-        location: "Fiholm orangeri",
+        location: "The Orangery at Fiholm",
         description:
           "The orchestra strikes up for our first dance — and then the floor is yours for an evening of joy and celebration.",
       },
@@ -82,40 +82,49 @@ const en = {
   travel: {
     eyebrow: "Getting There",
     title: "Travel & Accommodations",
-    venueAlt: "Fiholm Manor — the wedding venue",
-    venueCaption: "Fiholm Manor · Västerås, Sweden",
+    venueAlt: "Fiholm Manor near Västerås, where we celebrate",
+    venueCaption: "Fiholm Manor · Rytterne, Västerås, Sweden",
     // Same order as the icons in TravelAccommodations: train, car, address
     info: [
       {
-        title: "By Public Transport",
-        description: "Pickup from Västerås Centralstation is available on request — just let us know when you RSVP.",
+        title: "By Train",
+        description: "Trains run regularly from Stockholm Central to Västerås Central (about 55 minutes). From Stockholm Arlanda Airport, change trains at Stockholm Central and allow 1½–2 hours in total. There are hardly any buses out to Rytterne, so we will happily collect you from Västerås Central: just tick the box when you RSVP.",
       },
       {
         title: "By Car",
-        description:
-          "Thornfield Manor is located just off the A44 between Chipping Norton and Moreton-in-Marsh. Ample parking is available on site.",
+        description: "Fiholm lies about 25 km southwest of Västerås, around 30 minutes by car, and about 1 hour 45 minutes from Stockholm. Take the E18, then road 56 towards Kvicksund. Set your navigation to “Fiholm, 725 92 Västerås”, not Fiholms slott near Eskilstuna, which is a different place.",
       },
       {
-        title: "Address",
-        description: "Thornfield Manor, Chipping Norton Road, Cotswolds, Oxfordshire OX7 5YH, England",
+        title: "Addresses",
+        description: "Ceremony: Stora Rytterne church ruin, Rytterne, Västerås. Celebration: The Orangery, Fiholm, 725 92 Västerås. The two are only 3 km apart, about five minutes by car.",
+        links: [
+          {
+            label: "Church ruin on the map",
+            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
+          },
+          {
+            label: "Fiholm on the map",
+            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
+          },
+        ],
       },
     ],
     whereToStay: "Where to Stay",
     accommodations: [
       {
-        title: "Thornfield Manor Guest Rooms",
-        description: "A limited number of rooms are available on the estate grounds. Contact us for availability and booking.",
-        detail: "From £250/night",
+        title: "Thottska Villan, Strömsholm",
+        description: "A lovingly restored 18th-century villa by Strömsholm Palace, with breakfast included and a peaceful countryside setting.",
+        detail: "About 15 minutes from Fiholm · from approx. 1,500 SEK/night",
       },
       {
-        title: "The Cotswold Arms Inn",
-        description: "A charming country inn just 5 minutes from the venue. We have reserved a block of rooms at a special rate.",
-        detail: "Use code ELEANOR&BENEDICT",
+        title: "Elite Stadshotellet Västerås",
+        description: "A grand Art Nouveau hotel from 1907 on the main square in Västerås, a short walk from the station where our guest pickup leaves from.",
+        detail: "Central Västerås · about 30 minutes from Fiholm · approx. 900–1,600 SEK/night",
       },
       {
-        title: "The Lavender House B&B",
-        description: "A lovely bed and breakfast in the nearby village of Chipping Norton with beautiful garden views.",
-        detail: "From £120/night",
+        title: "Comfort Hotel Västerås",
+        description: "A simple, good-value hotel right next to Västerås Central Station, handy if you are arriving by train.",
+        detail: "By the station · about 30 minutes from Fiholm",
       },
     ],
   },
@@ -139,9 +148,8 @@ const en = {
           "While we adore your little ones, we have chosen to make our wedding an adults-only celebration. We hope you understand and enjoy the evening!",
       },
       {
-        question: "Will there be transportation from the hotels?",
-        answer:
-          "Yes! We will be arranging horse-drawn carriages (weather permitting) and shuttle buses between the recommended hotels and Thornfield Manor.",
+        question: "Will there be transport to the venue?",
+        answer: "We would be delighted to collect you from Västerås Central Station. Just tick the pickup box when you RSVP and we will be in touch with times closer to the day. Fiholm lies in quiet countryside with very little public transport, so if you are making your own way, please book a taxi in advance.",
       },
       {
         question: "What about dietary requirements?",
@@ -154,8 +162,12 @@ const en = {
           "We kindly ask that our ceremony be an unplugged event. Our photographer will capture every moment. You are welcome to take photos during the reception!",
       },
       {
-        question: "Is there parking at the venue?",
-        answer: "Yes, complimentary parking is available on the manor grounds. Please follow the signs upon arrival.",
+        question: "Is there parking?",
+        answer: "We will share parking details for the church ruin and Fiholm closer to the day. As the ceremony and the celebration are only five minutes apart, we warmly encourage car-sharing. Sweden's drink-driving limit is very strict (0.2‰), so please plan for a sober driver, a taxi or our pickup.",
+      },
+      {
+        question: "I'm travelling from abroad. Anything I should know?",
+        answer: "Fly into Stockholm Arlanda (ARN) and take the train to Västerås via Stockholm Central (about 1½–2 hours). In July, Sweden is 7 hours ahead of Peru. Cards are accepted almost everywhere, and many places don't take cash at all. Citizens of many countries, including Peru, the UK and the US, don't need a visa for short stays, but please check before you travel whether the EU's new ETIAS travel authorisation has started: travel-europe.europa.eu/etias.",
       },
     ],
   },
@@ -192,6 +204,7 @@ const en = {
     email: "Email",
     emailPlaceholder: "your@email.com",
     attending: "Will you be attending? *",
+    chooseAttending: "Please let us know whether you can attend",
     accept: "Joyfully Accept",
     decline: "Regretfully Decline",
     dietary: "Dietary Restrictions",
@@ -205,6 +218,7 @@ const en = {
     sending: "Sending...",
     thankYou: "Thank You",
     recorded: "Your response has been recorded. We look forward to celebrating with you!",
+    recordedDecline: "Your response has been recorded. We will miss you, and thank you for letting us know.",
     needName: "Please enter at least one guest name",
     notOpen: "RSVP isn't set up yet",
     notOpenDescription: "Please check back soon.",
@@ -303,39 +317,48 @@ const sv: Translations = {
   travel: {
     eyebrow: "Hitta hit",
     title: "Resa & boende",
-    venueAlt: "Fiholms slott – platsen för bröllopet",
-    venueCaption: "Fiholms slott · Västerås",
+    venueAlt: "Fiholm utanför Västerås, där vi firar",
+    venueCaption: "Fiholm · Rytterne, Västerås",
     info: [
       {
-        title: "Med kollektivtrafik",
-        description: "Vi kan hämta upp dig vid Västerås centralstation – säg bara till när du OSA:r.",
+        title: "Med tåg",
+        description: "Tåg går regelbundet från Stockholm C till Västerås C (cirka 55 minuter). Från Arlanda byter du tåg i Stockholm C – räkna med 1,5–2 timmar totalt. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig gärna vid Västerås C – kryssa bara i rutan när du OSA:r.",
       },
       {
         title: "Med bil",
-        description:
-          "Thornfield Manor ligger precis vid A44 mellan Chipping Norton och Moreton-in-Marsh. Det finns gott om parkering på plats.",
+        description: "Fiholm ligger cirka 2,5 mil sydväst om Västerås, ungefär 30 minuter med bil och 1 timme 45 minuter från Stockholm. Ta E18 och sedan väg 56 mot Kvicksund. Ställ in navigationen på ”Fiholm, 725 92 Västerås” – inte Fiholms slott vid Eskilstuna, som är en helt annan plats.",
       },
       {
-        title: "Adress",
-        description: "Thornfield Manor, Chipping Norton Road, Cotswolds, Oxfordshire OX7 5YH, England",
+        title: "Adresser",
+        description: "Vigsel: Stora Rytterne kyrkoruin, Rytterne, Västerås. Fest: Orangeriet, Fiholm, 725 92 Västerås. Det är bara 3 km mellan dem – ungefär fem minuter med bil.",
+        links: [
+          {
+            label: "Kyrkoruinen på kartan",
+            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
+          },
+          {
+            label: "Fiholm på kartan",
+            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
+          },
+        ],
       },
     ],
     whereToStay: "Boende",
     accommodations: [
       {
-        title: "Gästrum på Thornfield Manor",
-        description: "Ett begränsat antal rum finns på godset. Hör av dig till oss för tillgänglighet och bokning.",
-        detail: "Från 250 £/natt",
+        title: "Thottska Villan, Strömsholm",
+        description: "En varsamt renoverad 1700-talsvilla vid Strömsholms slott, med frukost och lugn landsbygdsmiljö.",
+        detail: "Cirka 15 minuter från Fiholm · från ca 1 500 kr/natt",
       },
       {
-        title: "The Cotswold Arms Inn",
-        description: "Ett charmigt värdshus på landet bara 5 minuter från festplatsen. Vi har reserverat ett antal rum till specialpris.",
-        detail: "Använd koden ELEANOR&BENEDICT",
+        title: "Elite Stadshotellet Västerås",
+        description: "Anrikt jugendhotell från 1907 vid Stora torget, en kort promenad från stationen där vår upphämtning utgår.",
+        detail: "Centrala Västerås · cirka 30 minuter från Fiholm · ca 900–1 600 kr/natt",
       },
       {
-        title: "The Lavender House B&B",
-        description: "Ett mysigt bed and breakfast i den närliggande byn Chipping Norton med vacker utsikt över trädgården.",
-        detail: "Från 120 £/natt",
+        title: "Comfort Hotel Västerås",
+        description: "Enkelt och prisvärt hotell precis vid Västerås centralstation – smidigt om du kommer med tåg.",
+        detail: "Vid stationen · cirka 30 minuter från Fiholm",
       },
     ],
   },
@@ -359,9 +382,8 @@ const sv: Translations = {
           "Hur mycket vi än älskar era små har vi valt att ha ett bröllop för enbart vuxna. Vi hoppas att ni förstår och får en härlig kväll!",
       },
       {
-        question: "Ordnas det transport från hotellen?",
-        answer:
-          "Ja! Vi ordnar hästdroskor (om vädret tillåter) och bussar mellan de rekommenderade hotellen och Thornfield Manor.",
+        question: "Ordnas det transport till festen?",
+        answer: "Vi hämtar dig gärna vid Västerås centralstation – kryssa i rutan för upphämtning när du OSA:r, så hör vi av oss med tider närmare dagen. Fiholm ligger lugnt på landet med väldigt lite kollektivtrafik, så tar du dig dit själv rekommenderar vi att du förbokar taxi.",
       },
       {
         question: "Hur gör jag med specialkost?",
@@ -374,7 +396,11 @@ const sv: Translations = {
       },
       {
         question: "Finns det parkering?",
-        answer: "Ja, det finns kostnadsfri parkering på slottsområdet. Följ skyltarna när du kommer fram.",
+        answer: "Vi skickar information om parkering vid kyrkoruinen och på Fiholm närmare dagen. Eftersom vigseln och festen bara ligger fem minuter från varandra uppmuntrar vi samåkning. Kom ihåg att gränsen för rattfylleri är 0,2 promille – planera för en nykter chaufför, taxi eller vår upphämtning.",
+      },
+      {
+        question: "Jag reser från utlandet – vad behöver jag veta?",
+        answer: "Flyg till Stockholm Arlanda (ARN) och ta tåget till Västerås via Stockholm C (cirka 1,5–2 timmar). I juli ligger Sverige 7 timmar före Peru. Kort fungerar nästan överallt och många ställen tar inte kontanter alls. Medborgare i bland annat Peru, Storbritannien och USA behöver inget visum för kortare besök, men kolla före resan om EU:s nya inresetillstånd ETIAS har börjat gälla: travel-europe.europa.eu/etias.",
       },
     ],
   },
@@ -410,7 +436,8 @@ const sv: Translations = {
     removeGuest: "Ta bort gäst",
     email: "E-post",
     emailPlaceholder: "din@epost.se",
-    attending: "Kommer du? *",
+    attending: "Kommer du/ni? *",
+    chooseAttending: "Berätta om du kan komma",
     accept: "Ja, med glädje",
     decline: "Tyvärr inte",
     dietary: "Specialkost",
@@ -424,6 +451,7 @@ const sv: Translations = {
     sending: "Skickar…",
     thankYou: "Tack!",
     recorded: "Vi har tagit emot ditt svar. Vi ser fram emot att fira med dig!",
+    recordedDecline: "Vi har tagit emot ditt svar. Vi kommer att sakna dig – tack för att du hörde av dig.",
     needName: "Skriv minst ett gästnamn",
     notOpen: "OSA är inte öppet än",
     notOpenDescription: "Titta gärna in igen snart.",
@@ -520,39 +548,48 @@ const es: Translations = {
   travel: {
     eyebrow: "Cómo llegar",
     title: "Viaje y hospedaje",
-    venueAlt: "Castillo de Fiholm, el lugar de la boda",
-    venueCaption: "Castillo de Fiholm · Västerås, Suecia",
+    venueAlt: "Fiholm, cerca de Västerås, donde celebraremos",
+    venueCaption: "Fiholm · Rytterne, Västerås, Suecia",
     info: [
       {
-        title: "En transporte público",
-        description: "Podemos recogerte en la estación central de Västerås si lo necesitas; solo indícalo al confirmar tu asistencia.",
+        title: "En tren",
+        description: "Hay trenes frecuentes desde la estación central de Estocolmo hasta la estación central de Västerås (unos 55 minutos). Desde el aeropuerto de Arlanda, cambia de tren en la estación central de Estocolmo; calcula entre 1 h 30 min y 2 horas en total. Casi no hay buses hacia Rytterne, así que con gusto te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
       },
       {
         title: "En auto",
-        description:
-          "Thornfield Manor está muy cerca de la carretera A44, entre Chipping Norton y Moreton-in-Marsh. Hay amplio estacionamiento en el lugar.",
+        description: "Fiholm está a unos 25 km al suroeste de Västerås, a unos 30 minutos en auto, y a 1 hora 45 minutos de Estocolmo. Toma la E18 y luego la carretera 56 hacia Kvicksund. Ingresa “Fiholm, 725 92 Västerås” en tu GPS, no “Fiholms slott” cerca de Eskilstuna, que es otro lugar.",
       },
       {
-        title: "Dirección",
-        description: "Thornfield Manor, Chipping Norton Road, Cotswolds, Oxfordshire OX7 5YH, Inglaterra",
+        title: "Direcciones",
+        description: "Ceremonia: ruinas de la iglesia de Stora Rytterne, Rytterne, Västerås. Celebración: la Orangería, Fiholm, 725 92 Västerås. Están a solo 3 km de distancia, unos cinco minutos en auto.",
+        links: [
+          {
+            label: "Ver las ruinas en el mapa",
+            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
+          },
+          {
+            label: "Ver Fiholm en el mapa",
+            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
+          },
+        ],
       },
     ],
     whereToStay: "Dónde hospedarse",
     accommodations: [
       {
-        title: "Habitaciones en Thornfield Manor",
-        description: "Hay un número limitado de habitaciones dentro de la propiedad. Escríbenos para consultar la disponibilidad y hacer tu reserva.",
-        detail: "Desde £250 por noche",
+        title: "Thottska Villan, Strömsholm",
+        description: "Una villa del siglo XVIII restaurada con mucho cariño junto al palacio de Strömsholm, con desayuno incluido y un entorno campestre muy tranquilo.",
+        detail: "A unos 15 minutos de Fiholm · desde aprox. 1500 coronas suecas por noche",
       },
       {
-        title: "The Cotswold Arms Inn",
-        description: "Una encantadora posada campestre a solo 5 minutos del local de la boda. Hemos reservado varias habitaciones con una tarifa especial.",
-        detail: "Usa el código ELEANOR&BENEDICT",
+        title: "Elite Stadshotellet Västerås",
+        description: "Un elegante hotel art nouveau de 1907 en la plaza principal de Västerås, a pocos minutos a pie de la estación desde donde sale nuestro recojo.",
+        detail: "Centro de Västerås · a unos 30 minutos de Fiholm · aprox. 900–1600 coronas suecas por noche",
       },
       {
-        title: "The Lavender House B&B",
-        description: "Un lindo bed & breakfast en el pueblo cercano de Chipping Norton, con hermosas vistas al jardín.",
-        detail: "Desde £120 por noche",
+        title: "Comfort Hotel Västerås",
+        description: "Un hotel sencillo y económico justo al lado de la estación central de Västerås, ideal si llegas en tren.",
+        detail: "Junto a la estación · a unos 30 minutos de Fiholm",
       },
     ],
   },
@@ -576,9 +613,8 @@ const es: Translations = {
           "Aunque adoramos a tus pequeños, hemos decidido que nuestra boda sea una celebración solo para adultos. ¡Esperamos que lo entiendas y disfrutes de la noche!",
       },
       {
-        question: "¿Habrá transporte desde los hoteles?",
-        answer:
-          "¡Sí! Organizaremos carruajes tirados por caballos (si el clima lo permite) y buses de traslado entre los hoteles recomendados y Thornfield Manor.",
+        question: "¿Habrá transporte hasta el local?",
+        answer: "Con gusto te recogemos en la estación central de Västerås: marca la opción de recojo al confirmar tu asistencia y te escribiremos con los horarios cuando se acerque la fecha. Fiholm está en pleno campo y casi no hay transporte público, así que si llegas por tu cuenta te recomendamos reservar un taxi con anticipación.",
       },
       {
         question: "¿Y si tengo alguna restricción alimentaria?",
@@ -592,7 +628,11 @@ const es: Translations = {
       },
       {
         question: "¿Hay estacionamiento?",
-        answer: "Sí, hay estacionamiento gratuito dentro de la propiedad. Sigue la señalización al llegar.",
+        answer: "Te enviaremos los detalles del estacionamiento en las ruinas y en Fiholm cuando se acerque la fecha. Como la ceremonia y la celebración están a solo cinco minutos, te animamos a compartir el auto. En Suecia el límite de alcohol para manejar es muy estricto (0,2 g/l), así que planifica un conductor designado, un taxi o nuestro recojo.",
+      },
+      {
+        question: "Viajo desde el extranjero, ¿qué debo saber?",
+        answer: "Vuela al aeropuerto de Estocolmo-Arlanda (ARN) y toma el tren a Västerås vía la estación central de Estocolmo (entre 1 h 30 min y 2 horas). En julio, Suecia está 7 horas adelante de Perú. Se paga con tarjeta casi en todas partes y muchos lugares ya no aceptan efectivo. Los peruanos no necesitan visa para estadías cortas (hasta 90 días), pero antes de viajar revisa si ya está vigente el nuevo permiso de viaje ETIAS de la Unión Europea: travel-europe.europa.eu/etias. Tu pasaporte debe tener al menos 3 meses de vigencia después de la fecha de tu regreso.",
       },
     ],
   },
@@ -629,6 +669,7 @@ const es: Translations = {
     email: "Correo electrónico",
     emailPlaceholder: "tu@correo.com",
     attending: "¿Nos acompañarás? *",
+    chooseAttending: "Cuéntanos si podrás acompañarnos",
     accept: "Con mucho gusto asistiré",
     decline: "Lamentablemente, no podré asistir",
     dietary: "Restricciones alimentarias",
@@ -642,6 +683,7 @@ const es: Translations = {
     sending: "Enviando…",
     thankYou: "¡Gracias!",
     recorded: "Recibimos tu respuesta. ¡Qué ganas de celebrar contigo!",
+    recordedDecline: "Recibimos tu respuesta. Te vamos a extrañar; gracias por avisarnos.",
     needName: "Ingresa al menos el nombre de un invitado",
     notOpen: "La confirmación todavía no está disponible",
     notOpenDescription: "Vuelve a visitarnos pronto.",

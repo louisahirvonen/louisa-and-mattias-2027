@@ -3,7 +3,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const Countdown = () => {
   const { t } = useLanguage();
-  const targetDate = new Date("2027-07-24T00:00:00").getTime();
+  // Counts down to the ceremony in Swedish time, wherever the guest is
+  const targetDate = new Date("2027-07-24T15:00:00+02:00").getTime();
 
   const calculateTimeLeft = () => {
     const now = new Date().getTime();

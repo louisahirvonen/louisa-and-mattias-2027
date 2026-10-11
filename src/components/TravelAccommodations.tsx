@@ -67,6 +67,21 @@ const TravelAccommodations = () => {
               <Icon className="mx-auto text-taupe mb-3" size={24} />
               <h3 className="font-display text-lg text-foreground font-medium mb-2">{info.title}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{info.description}</p>
+              {info.links && (
+                <div className="mt-3 flex flex-col gap-1">
+                  {info.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body text-sm text-primary underline underline-offset-4 hover:opacity-80"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </motion.div>
             );
           })}
