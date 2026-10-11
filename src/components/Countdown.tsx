@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Countdown = () => {
+  const { t } = useLanguage();
   const targetDate = new Date("2027-07-24T00:00:00").getTime();
 
   const calculateTimeLeft = () => {
@@ -23,10 +25,10 @@ const Countdown = () => {
   }, []);
 
   const units = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Min", value: timeLeft.minutes },
-    { label: "Sec", value: timeLeft.seconds },
+    { label: t.countdown.days, value: timeLeft.days },
+    { label: t.countdown.hours, value: timeLeft.hours },
+    { label: t.countdown.minutes, value: timeLeft.minutes },
+    { label: t.countdown.seconds, value: timeLeft.seconds },
   ];
 
   return (

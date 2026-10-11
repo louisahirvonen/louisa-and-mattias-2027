@@ -1,29 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-// Placeholder photos - replace with real couple photos
+// Placeholder photos - replace with real couple photos.
+// "caption" is an index into t.photobook.captions.
 const pages = [
-  {
-    left: { type: "text" as const, content: "Our Memories", subtitle: "A collection of moments that led us here" },
-    right: { type: "photo" as const, caption: "Summer 2019 — The garden party where it all began" },
-  },
-  {
-    left: { type: "photo" as const, caption: "Autumn 2020 — A quiet afternoon in the park" },
-    right: { type: "photo" as const, caption: "Christmas 2020 — Our first holiday together" },
-  },
-  {
-    left: { type: "photo" as const, caption: "Spring 2022 — The promenade through Hyde Park" },
-    right: { type: "photo" as const, caption: "Summer 2022 — A weekend in the Cotswolds" },
-  },
-  {
-    left: { type: "photo" as const, caption: "Winter 2023 — Dancing at the New Year's ball" },
-    right: { type: "photo" as const, caption: "Spring 2024 — Tea at the manor" },
-  },
-  {
-    left: { type: "photo" as const, caption: "Autumn 2025 — The night he proposed" },
-    right: { type: "text" as const, content: "To Be Continued...", subtitle: "July 24th, 2027" },
-  },
+  { left: { type: "cover" as const }, right: { type: "photo" as const, caption: 0 } },
+  { left: { type: "photo" as const, caption: 1 }, right: { type: "photo" as const, caption: 2 } },
+  { left: { type: "photo" as const, caption: 3 }, right: { type: "photo" as const, caption: 4 } },
+  { left: { type: "photo" as const, caption: 5 }, right: { type: "photo" as const, caption: 6 } },
+  { left: { type: "photo" as const, caption: 7 }, right: { type: "end" as const } },
 ];
 
 const placeholderColors = [
@@ -38,6 +25,7 @@ const placeholderColors = [
 ];
 
 const Photobook = () => {
+  const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -73,13 +61,13 @@ const Photobook = () => {
   };
 
   const renderSide = (side: typeof page.left | typeof page.right, colorIndex: number) => {
-    if (side.type === "text") {
+    if (side.type !== "photo") {
+      const title = side.type === "cover" ? t.photobook.coverTitle : t.photobook.endTitle;
+      const subtitle = side.type === "cover" ? t.photobook.coverSubtitle : t.photobook.endSubtitle;
       return (
         <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-          <p className="font-names text-3xl sm:text-4xl text-foreground mb-3">{side.content}</p>
-          {"subtitle" in side && (
-            <p className="font-body text-sm text-muted-foreground">{side.subtitle}</p>
-          )}
+          <p className="font-names text-3xl sm:text-4xl text-foreground mb-3">{title}</p>
+          <p className="font-body text-sm text-muted-foreground">{subtitle}</p>
         </div>
       );
     }
@@ -90,11 +78,11 @@ const Photobook = () => {
           style={{ backgroundColor: placeholderColors[colorIndex % placeholderColors.length] }}
         >
           <p className="font-body text-xs text-muted-foreground/30 px-4 text-center tracking-wider uppercase">
-            Photo
+            {t.photobook.photo}
           </p>
         </div>
         <p className="font-body text-xs text-muted-foreground text-center px-4 pb-3 italic">
-          {side.caption}
+          {t.photobook.captions[side.caption]}
         </p>
       </div>
     );
@@ -111,10 +99,10 @@ const Photobook = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
-            Through the Years
+            {t.photobook.eyebrow}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
-            Our Photobook
+            {t.photobook.title}
           </h2>
           <div className="section-divider mt-2">
             <span className="text-taupe text-xs">—</span>
@@ -126,6 +114,7 @@ const Photobook = () => {
           <button
             onClick={goPrev}
             disabled={currentPage === 0}
+            aria-label={t.photobook.previous}
             className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
             <ChevronLeft size={28} />
@@ -162,6 +151,7 @@ const Photobook = () => {
           <button
             onClick={goNext}
             disabled={currentPage === pages.length - 1}
+            aria-label={t.photobook.next}
             className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
             <ChevronRight size={28} />

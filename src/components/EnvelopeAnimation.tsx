@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import waxSeal from "@/assets/wax-seal.png";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface EnvelopeAnimationProps {
   onComplete: () => void;
 }
 
 const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
+  const { t } = useLanguage();
   const [stage, setStage] = useState<"sealed" | "opening" | "sliding" | "zooming" | "done">("sealed");
 
   useEffect(() => {
@@ -172,7 +174,7 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                     <ellipse cx="30" cy="12" rx="3" ry="4.5" fill="hsl(var(--lavender))" opacity="0.3" />
                   </svg>
                   <p className="font-body text-muted-foreground text-xs sm:text-sm tracking-[0.2em] uppercase mb-2">
-                    You are invited
+                    {t.envelope.invited}
                   </p>
                   <p className="font-names text-foreground text-2xl sm:text-3xl tracking-[0.08em]">
                     Louisa & Mattias
@@ -183,7 +185,7 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                     <span className="h-px w-8 bg-rose-light" />
                   </div>
                   <p className="font-body text-muted-foreground text-xs mt-2">
-                    July 24th, 2027
+                    {t.envelope.date}
                   </p>
                 </div>
               </motion.div>
@@ -216,7 +218,7 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
               animate={{ opacity: [0.3, 0.7, 0.3] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Opening your invitation…
+              {t.envelope.opening}
             </motion.p>
           )}
         </motion.div>

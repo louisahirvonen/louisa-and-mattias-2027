@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import Countdown from "./Countdown";
 import FloralDecoration from "./FloralDecoration";
 import ringPhoto from "@/assets/ring-photo.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   return (
     <section
       id="home"
@@ -36,10 +38,10 @@ const HeroSection = () => {
 
         {/* Date & Location */}
         <p className="font-display text-lg sm:text-xl text-foreground font-medium mb-0.5">
-          Saturday, July 24th, 2027
+          {t.hero.date}
         </p>
         <p className="font-body text-sm text-muted-foreground mb-4">
-          Fiholm, Västerås, Sweden
+          {t.hero.location}
         </p>
 
         {/* Photo */}
@@ -47,7 +49,7 @@ const HeroSection = () => {
           <div className="aspect-[4/5] rounded-sm overflow-hidden border border-border/50 shadow-md">
             <img
               src={ringPhoto}
-              alt="Louisa's hand with engagement ring on Mattias' chest"
+              alt={t.hero.photoAlt}
               className="w-full h-full object-cover"
             />
           </div>

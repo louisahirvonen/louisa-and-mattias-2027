@@ -4,9 +4,11 @@ import { isGoogleFormConfigured, submitToGoogleForm } from "@/lib/googleForm";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, X } from "lucide-react";
 import FloralDecoration from "./FloralDecoration";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const RSVPForm = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [guestNames, setGuestNames] = useState([""]);
@@ -38,12 +40,12 @@ const RSVPForm = () => {
     e.preventDefault();
     const filledNames = guestNames.map((n) => n.trim()).filter(Boolean);
     if (filledNames.length === 0) {
-      toast({ title: "Please enter at least one guest name", variant: "destructive" });
+      toast({ title: t.rsvp.needName, variant: "destructive" });
       return;
     }
 
     if (!isGoogleFormConfigured()) {
-      toast({ title: "RSVP isn't set up yet", description: "Please check back soon.", variant: "destructive" });
+      toast({ title: t.rsvp.notOpen, description: t.rsvp.notOpenDescription, variant: "destructive" });
       return;
     }
 
@@ -59,7 +61,7 @@ const RSVPForm = () => {
         message: form.message,
       });
     } catch {
-      toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
+      toast({ title: t.rsvp.error, description: t.rsvp.errorDescription, variant: "destructive" });
       return;
     } finally {
       setLoading(false);
@@ -84,16 +86,16 @@ const RSVPForm = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">
-            We Hope You Can Join Us
+            {t.rsvp.eyebrow}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl text-foreground font-medium tracking-wide">
-            RSVP
+            {t.rsvp.title}
           </h2>
           <div className="section-divider mt-2">
             <FloralDecoration variant="divider" className="w-40" />
           </div>
           <p className="font-body text-base text-muted-foreground mt-4">
-            Kindly respond by June 1st, 2027
+            {t.rsvp.deadline}
           </p>
         </motion.div>
 
@@ -104,9 +106,9 @@ const RSVPForm = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-names text-4xl text-foreground mb-4">Thank You</p>
+            <p className="font-names text-4xl text-foreground mb-4">{t.rsvp.thankYou}</p>
             <p className="font-body text-base text-muted-foreground">
-              Your response has been recorded. We look forward to celebrating with you!
+              {t.rsvp.recorded}
             </p>
           </motion.div>
         ) : (
@@ -121,7 +123,7 @@ const RSVPForm = () => {
             {/* Guest names */}
             <div>
               <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                Guest Names *
+                {t.rsvp.guestNames}
               </label>
               <div className="space-y-3">
                 {guestNames.map((name, i) => (
@@ -133,12 +135,13 @@ const RSVPForm = () => {
                       className={inputClasses}
                       value={name}
                       onChange={(e) => updateGuestName(i, e.target.value)}
-                      placeholder={i === 0 ? "Your full name" : `Guest ${i + 1} full name`}
+                      placeholder={i === 0 ? t.rsvp.yourName : t.rsvp.guestName(i + 1)}
                     />
                     {guestNames.length > 1 && (
                       <button
                         type="button"
                         onClick={() => removeGuest(i)}
+                        aria-label={t.rsvp.removeGuest}
                         className="px-2 text-muted-foreground hover:text-foreground transition-colors"
                       >
                         <X size={18} />
@@ -153,14 +156,14 @@ const RSVPForm = () => {
                   onClick={addGuest}
                   className="mt-2 flex items-center gap-1.5 font-body text-sm text-primary hover:text-primary/80 transition-colors"
                 >
-                  <Plus size={15} /> Add another guest
+                  <Plus size={15} /> {t.rsvp.addGuest}
                 </button>
               )}
             </div>
 
             <div>
               <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                Email
+                {t.rsvp.email}
               </label>
               <input
                 type="email"
@@ -168,18 +171,18 @@ const RSVPForm = () => {
                 className={inputClasses}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="your@email.com"
+                placeholder={t.rsvp.emailPlaceholder}
               />
             </div>
 
             <div>
               <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                Will you be attending? *
+                {t.rsvp.attending}
               </label>
               <div className="flex gap-4">
                 {[
-                  { label: "Joyfully Accept", value: true },
-                  { label: "Regretfully Decline", value: false },
+                  { label: t.rsvp.accept, value: true },
+                  { label: t.rsvp.decline, value: false },
                 ].map((opt) => (
                   <button
                     key={String(opt.value)}
@@ -201,7 +204,7 @@ const RSVPForm = () => {
               <>
                 <div>
                   <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                    Dietary Restrictions
+                    {t.rsvp.dietary}
                   </label>
                   <input
                     type="text"
@@ -209,18 +212,18 @@ const RSVPForm = () => {
                     className={inputClasses}
                     value={form.dietary_restrictions}
                     onChange={(e) => setForm({ ...form, dietary_restrictions: e.target.value })}
-                    placeholder="Any allergies or dietary needs"
+                    placeholder={t.rsvp.dietaryPlaceholder}
                   />
                 </div>
 
                 <div>
                   <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                    Pickup from Västerås Centralstation? *
+                    {t.rsvp.pickup}
                   </label>
                   <div className="flex gap-4">
                     {[
-                      { label: "Yes, please", value: true },
-                      { label: "No, thank you", value: false },
+                      { label: t.rsvp.pickupYes, value: true },
+                      { label: t.rsvp.pickupNo, value: false },
                     ].map((opt) => (
                       <button
                         key={String(opt.value)}
@@ -242,14 +245,14 @@ const RSVPForm = () => {
 
             <div>
               <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                Message for the Couple
+                {t.rsvp.message}
               </label>
               <textarea
                 maxLength={1000}
                 className={`${inputClasses} min-h-[100px] resize-none`}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="Share your well wishes..."
+                placeholder={t.rsvp.messagePlaceholder}
               />
             </div>
 
@@ -258,7 +261,7 @@ const RSVPForm = () => {
               disabled={loading}
               className="w-full py-3.5 font-body text-xs tracking-[0.25em] uppercase bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              {loading ? "Sending..." : "Send RSVP"}
+              {loading ? t.rsvp.sending : t.rsvp.send}
             </button>
           </motion.form>
         )}
