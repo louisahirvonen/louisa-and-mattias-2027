@@ -106,6 +106,14 @@ const TravelAccommodations = () => {
                 <h4 className="font-display text-lg text-foreground font-medium">{acc.title}</h4>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed mb-1">{acc.description}</p>
                 <p className="font-body text-sm text-primary">{acc.detail}</p>
+                <a
+                  href={acc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 font-body text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                >
+                  {t.travel.bookLabel}
+                </a>
               </div>
             </motion.div>
           ))}

@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import OurStory from "@/components/OurStory";
 import Schedule from "@/components/Schedule";
 import TravelAccommodations from "@/components/TravelAccommodations";
+import InternationalGuests from "@/components/InternationalGuests";
 import FAQ from "@/components/FAQ";
 import Photobook from "@/components/Photobook";
 import GiftsSpeeches from "@/components/GiftsSpeeches";
@@ -34,6 +35,7 @@ const Index = () => {
           <OurStory />
           <Schedule />
           <TravelAccommodations />
+          <InternationalGuests />
           <FAQ />
           <Photobook />
           <GiftsSpeeches />
