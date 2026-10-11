@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 // Every photo in src/assets/photobook, oldest first. Files are named by the date
 // they were taken (YYYYMMDD-HHMMSS.jpg), so sorting by name sorts by date.
+// All photos are cropped to 4:5 (960×1200) so every page has the same shape.
 const photoModules = import.meta.glob<string>("@/assets/photobook/*.jpg", {
   eager: true,
   query: "?url",
@@ -106,12 +107,12 @@ const Photobook = () => {
                 <div className="grid grid-cols-2">
                   {[0, 1].map((side) => (
                     <div key={side} className={`p-2 sm:p-3 ${side === 0 ? "border-r border-border" : ""}`}>
-                      <div className="aspect-[3/4] flex items-center justify-center">
+                      <div className="aspect-[4/5]">
                         {spreads[currentPage][side] && (
                           <img
                             src={spreads[currentPage][side]}
                             alt=""
-                            className="max-w-full max-h-full object-contain shadow-sm"
+                            className="w-full h-full object-cover shadow-sm"
                           />
                         )}
                       </div>
