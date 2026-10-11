@@ -15,10 +15,10 @@ export const GOOGLE_FORM = {
     dietaryRestrictions: "entry.334613197",
     stationPickup: "entry.1563334781", // "Yes" / "No"
     message: "entry.653640917",
-    // Not questions in the form yet. Until an ID is filled in here, the answer is
-    // added to the end of the "Message" answer instead, so nothing is lost.
-    phone: "",
-    carpool: "",
+    phone: "entry.768553090",
+    carpool: "entry.744228536", // "Room in car"
+    // A field with an empty ID here (e.g. a question not yet added to the form)
+    // is added to the end of the "Message" answer instead, so nothing is lost.
   },
 };
 

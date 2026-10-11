@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Gift, Mic } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import FloralDecoration from "./FloralDecoration";
-import swishQr from "@/assets/swish-qr.png";
+import swishQr from "@/assets/swish-qr.svg";
 
 // Swish number that receives honeymoon contributions
 const SWISH_NUMBER = "0761396460";
@@ -56,12 +56,12 @@ const GiftsSpeeches = () => {
               {t.gifts.swishButton}
             </a>
             <p className="font-body text-sm text-foreground mt-3">Swish: {SWISH_DISPLAY}</p>
-            {/* Official Swish QR code (from Swish's QR generator) with the number and message filled in */}
+            {/* Swish QR code in the site's rose. Same content as Swish's own generator makes
+                ("C<number>;;<message>;6"), just drawn in our colours. */}
             <div className="hidden sm:flex flex-col items-center mt-4">
               <img src={swishQr} alt="Swish QR code" className="w-36 h-36" />
               <p className="font-body text-xs text-muted-foreground mt-1">{t.gifts.swishQr}</p>
             </div>
-            <p className="font-body text-xs text-muted-foreground leading-relaxed mt-2">{t.gifts.swishNote}</p>
           </motion.div>
 
           <motion.div
