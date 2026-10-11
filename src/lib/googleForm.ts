@@ -1,20 +1,20 @@
 // RSVP answers are sent to a Google Form, so no backend is needed.
 // Responses show up in the form's "Responses" tab (and can be linked to a Google Sheet).
 //
-// To fill this in: open the form in Google Forms → ⋮ menu → "Get pre-filled link",
-// type something in every field, click "Get link", and copy the "entry.123456789"
-// IDs from that link into the matching fields below.
+// If questions are added to or changed in the form, get the new IDs: open the form in
+// Google Forms → ⋮ menu → "Get pre-filled link", type something in every field,
+// click "Get link", and copy the "entry.123456789" IDs from that link below.
 export const GOOGLE_FORM = {
-  // https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
-  actionUrl: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse",
+  actionUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSdnq6oHJuwGeYZEKsvlSehp_1b9LgtC2Hw2q3SJZAyrt8bdSw/formResponse",
   fields: {
-    guestNames: "entry.REPLACE_ME",
-    guestCount: "entry.REPLACE_ME",
-    email: "entry.REPLACE_ME",
-    attending: "entry.REPLACE_ME",
-    dietaryRestrictions: "entry.REPLACE_ME",
-    stationPickup: "entry.REPLACE_ME",
-    message: "entry.REPLACE_ME",
+    guestNames: "entry.406417670",
+    guestCount: "entry.1071241389",
+    email: "entry.845701044",
+    attending: "entry.315159774", // "Yes" / "No" — must match the form's options exactly
+    dietaryRestrictions: "entry.334613197",
+    stationPickup: "entry.1563334781", // "Yes" / "No"
+    message: "entry.653640917",
   },
 };
 
