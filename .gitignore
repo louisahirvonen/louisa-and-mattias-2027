@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Full-size photobook originals (only the resized copies in src/assets/photobook are published)
+photobook-originals/

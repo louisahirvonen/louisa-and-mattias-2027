@@ -6,7 +6,6 @@ import swishQr from "@/assets/swish-qr.svg";
 
 // Swish number that receives honeymoon contributions
 const SWISH_NUMBER = "0761396460";
-const SWISH_DISPLAY = "076-139 64 60";
 // Opens the Swish app with the number and a message filled in
 const swishLink = `https://app.swish.nu/1/p/sw/?sw=${SWISH_NUMBER}&msg=${encodeURIComponent("Bröllopsresa")}&src=qr`;
 
@@ -55,12 +54,10 @@ const GiftsSpeeches = () => {
             >
               {t.gifts.swishButton}
             </a>
-            <p className="font-body text-sm text-foreground mt-3">Swish: {SWISH_DISPLAY}</p>
             {/* Swish QR code in the site's rose. Same content as Swish's own generator makes
                 ("C<number>;;<message>;6"), just drawn in our colours. */}
-            <div className="hidden sm:flex flex-col items-center mt-4">
+            <div className="hidden sm:flex flex-col items-center mt-5">
               <img src={swishQr} alt="Swish QR code" className="w-36 h-36" />
-              <p className="font-body text-xs text-muted-foreground mt-1">{t.gifts.swishQr}</p>
             </div>
           </motion.div>
 

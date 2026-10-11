@@ -1,92 +1,52 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-// Placeholder photos - replace with real couple photos.
-// "caption" is an index into t.photobook.captions.
-const pages = [
-  { left: { type: "cover" as const }, right: { type: "photo" as const, caption: 0 } },
-  { left: { type: "photo" as const, caption: 1 }, right: { type: "photo" as const, caption: 2 } },
-  { left: { type: "photo" as const, caption: 3 }, right: { type: "photo" as const, caption: 4 } },
-  { left: { type: "photo" as const, caption: 5 }, right: { type: "photo" as const, caption: 6 } },
-  { left: { type: "photo" as const, caption: 7 }, right: { type: "end" as const } },
-];
+// Every photo in src/assets/photobook, oldest first. Files are named by the date
+// they were taken (YYYYMMDD-HHMMSS.jpg), so sorting by name sorts by date.
+const photoModules = import.meta.glob<string>("@/assets/photobook/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const photos = Object.keys(photoModules)
+  .sort()
+  .map((key) => photoModules[key]);
 
-const placeholderColors = [
-  "hsl(35, 15%, 90%)",
-  "hsl(155, 12%, 88%)",
-  "hsl(260, 10%, 91%)",
-  "hsl(38, 18%, 89%)",
-  "hsl(350, 15%, 91%)",
-  "hsl(200, 10%, 90%)",
-  "hsl(30, 12%, 89%)",
-  "hsl(160, 10%, 88%)",
-];
+// Two photos per spread
+const spreads: string[][] = [];
+for (let i = 0; i < photos.length; i += 2) spreads.push(photos.slice(i, i + 2));
+
+const variants = {
+  enter: (dir: number) => ({ rotateY: dir > 0 ? -90 : 90, opacity: 0 }),
+  center: { rotateY: 0, opacity: 1 },
+  exit: (dir: number) => ({ rotateY: dir > 0 ? 90 : -90, opacity: 0 }),
+};
 
 const Photobook = () => {
   const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
-  const goNext = () => {
-    if (currentPage < pages.length - 1) {
-      setDirection(1);
-      setCurrentPage((p) => p + 1);
+  const goTo = (page: number) => {
+    if (page < 0 || page >= spreads.length || page === currentPage) return;
+    setDirection(page > currentPage ? 1 : -1);
+    setCurrentPage(page);
+  };
+
+  // Load the next and previous spreads in the background so page turns feel instant
+  useEffect(() => {
+    for (const page of [currentPage + 1, currentPage - 1]) {
+      spreads[page]?.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
     }
-  };
+  }, [currentPage]);
 
-  const goPrev = () => {
-    if (currentPage > 0) {
-      setDirection(-1);
-      setCurrentPage((p) => p - 1);
-    }
-  };
-
-  const page = pages[currentPage];
-
-  const variants = {
-    enter: (dir: number) => ({
-      rotateY: dir > 0 ? -90 : 90,
-      opacity: 0,
-    }),
-    center: {
-      rotateY: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      rotateY: dir > 0 ? 90 : -90,
-      opacity: 0,
-    }),
-  };
-
-  const renderSide = (side: typeof page.left | typeof page.right, colorIndex: number) => {
-    if (side.type !== "photo") {
-      const title = side.type === "cover" ? t.photobook.coverTitle : t.photobook.endTitle;
-      const subtitle = side.type === "cover" ? t.photobook.coverSubtitle : t.photobook.endSubtitle;
-      return (
-        <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-          <p className="font-names text-3xl sm:text-4xl text-foreground mb-3">{title}</p>
-          <p className="font-body text-sm text-muted-foreground">{subtitle}</p>
-        </div>
-      );
-    }
-    return (
-      <div className="h-full flex flex-col">
-        <div
-          className="flex-1 m-3 mb-2 flex items-center justify-center"
-          style={{ backgroundColor: placeholderColors[colorIndex % placeholderColors.length] }}
-        >
-          <p className="font-body text-xs text-muted-foreground/30 px-4 text-center tracking-wider uppercase">
-            {t.photobook.photo}
-          </p>
-        </div>
-        <p className="font-body text-xs text-muted-foreground text-center px-4 pb-3 italic">
-          {t.photobook.captions[side.caption]}
-        </p>
-      </div>
-    );
-  };
+  if (spreads.length === 0) return null;
 
   return (
     <section id="photobook" className="py-16 sm:py-20 px-4 bg-blush">
@@ -110,12 +70,12 @@ const Photobook = () => {
         </motion.div>
 
         {/* Book */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center sm:gap-4">
           <button
-            onClick={goPrev}
+            onClick={() => goTo(currentPage - 1)}
             disabled={currentPage === 0}
             aria-label={t.photobook.previous}
-            className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
+            className="hidden sm:block p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
             <ChevronLeft size={28} />
           </button>
@@ -123,6 +83,13 @@ const Photobook = () => {
           <div
             className="relative w-full max-w-2xl"
             style={{ perspective: "1200px" }}
+            onTouchStart={(e) => (touchStartX.current = e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              if (touchStartX.current === null) return;
+              const dx = e.changedTouches[0].clientX - touchStartX.current;
+              if (Math.abs(dx) > 40) goTo(currentPage + (dx < 0 ? 1 : -1));
+              touchStartX.current = null;
+            }}
           >
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -132,46 +99,60 @@ const Photobook = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="bg-card border border-border shadow-sm overflow-hidden"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 min-h-[320px] sm:min-h-[400px]">
-                  {/* Left page */}
-                  <div className="border-b sm:border-b-0 sm:border-r border-border">
-                    {renderSide(page.left, currentPage * 2)}
-                  </div>
-                  {/* Right page */}
-                  <div>{renderSide(page.right, currentPage * 2 + 1)}</div>
+                <div className="grid grid-cols-2">
+                  {[0, 1].map((side) => (
+                    <div key={side} className={`p-2 sm:p-3 ${side === 0 ? "border-r border-border" : ""}`}>
+                      <div className="aspect-[3/4] flex items-center justify-center">
+                        {spreads[currentPage][side] && (
+                          <img
+                            src={spreads[currentPage][side]}
+                            alt=""
+                            className="max-w-full max-h-full object-contain shadow-sm"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
           <button
-            onClick={goNext}
-            disabled={currentPage === pages.length - 1}
+            onClick={() => goTo(currentPage + 1)}
+            disabled={currentPage === spreads.length - 1}
             aria-label={t.photobook.next}
-            className="p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
+            className="hidden sm:block p-2 text-muted-foreground disabled:text-muted-foreground/20 transition-colors"
           >
             <ChevronRight size={28} />
           </button>
         </div>
 
-        {/* Page indicator */}
-        <div className="flex justify-center gap-2 mt-6">
-          {pages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setDirection(i > currentPage ? 1 : -1);
-                setCurrentPage(i);
-              }}
-              className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                i === currentPage ? "bg-foreground/50" : "bg-foreground/10"
-              }`}
-            />
-          ))}
+        {/* Page counter (too many spreads for dots); on phones the arrows sit here so the photos get the full width */}
+        <div className="flex items-center justify-center gap-6 mt-5">
+          <button
+            onClick={() => goTo(currentPage - 1)}
+            disabled={currentPage === 0}
+            aria-label={t.photobook.previous}
+            className="sm:hidden p-1 text-muted-foreground disabled:text-muted-foreground/20"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <p className="font-body text-sm text-muted-foreground tracking-wider tabular-nums">
+            {currentPage + 1} / {spreads.length}
+          </p>
+          <button
+            onClick={() => goTo(currentPage + 1)}
+            disabled={currentPage === spreads.length - 1}
+            aria-label={t.photobook.next}
+            className="sm:hidden p-1 text-muted-foreground disabled:text-muted-foreground/20"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
       </div>
     </section>
