@@ -1,0 +1,1 @@
+COMMENT ON TABLE public.rsvp_responses IS 'DEPRECATED: retired RSVP table, no longer in use. Kept for reference only.';
