@@ -16,6 +16,19 @@ const Footer = () => {
           <span className="text-taupe text-xs">—</span>
           <span className="h-px w-12 bg-border" />
         </div>
+        <div className="mt-6 font-body text-sm text-muted-foreground space-y-1">
+          <p className="text-xs tracking-[0.2em] uppercase">{t.footer.contact}</p>
+          <p>
+            <a href="mailto:louisa.hirvonen@gmail.com" className="hover:text-foreground underline underline-offset-4">
+              louisa.hirvonen@gmail.com
+            </a>
+          </p>
+          <p>
+            <a href="tel:+46761396460" className="hover:text-foreground underline underline-offset-4">
+              076-139 64 60
+            </a>
+          </p>
+        </div>
         <p className="font-body text-xs text-muted-foreground/50 mt-6">
           {t.footer.madeWith}
         </p>

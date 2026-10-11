@@ -7,6 +7,7 @@ import Schedule from "@/components/Schedule";
 import TravelAccommodations from "@/components/TravelAccommodations";
 import FAQ from "@/components/FAQ";
 import Photobook from "@/components/Photobook";
+import GiftsSpeeches from "@/components/GiftsSpeeches";
 import RSVPForm from "@/components/RSVPForm";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -35,6 +36,7 @@ const Index = () => {
           <TravelAccommodations />
           <FAQ />
           <Photobook />
+          <GiftsSpeeches />
           <RSVPForm />
           <Footer />
         </motion.div>

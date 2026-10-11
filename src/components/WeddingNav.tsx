@@ -11,6 +11,7 @@ const navItems = [
   { key: "travel", href: "#travel" },
   { key: "faq", href: "#faq" },
   { key: "photobook", href: "#photobook" },
+  { key: "gifts", href: "#gifts" },
   { key: "rsvp", href: "#rsvp" },
 ] as const;
 
@@ -32,7 +33,7 @@ const WeddingNav = () => {
         </button>
 
         {/* Wide screens */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navItems.map((item) => (
             <button
               key={item.href}

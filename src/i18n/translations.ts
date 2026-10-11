@@ -15,6 +15,7 @@ const en = {
     travel: "Travel",
     faq: "FAQ",
     photobook: "Photobook",
+    gifts: "Gifts",
     rsvp: "RSVP",
     menu: "Menu",
   },
@@ -149,7 +150,7 @@ const en = {
       },
       {
         question: "Will there be transport to the venue?",
-        answer: "We would be delighted to collect you from Västerås Central Station. Just tick the pickup box when you RSVP and we will be in touch with times closer to the day. Fiholm lies in quiet countryside with very little public transport, so if you are making your own way, please book a taxi in advance.",
+        answer: "We would be delighted to collect you from Västerås Central Station. Just tick the pickup box when you RSVP and we will be in touch with times closer to the day. Fiholm lies in quiet countryside with very little public transport, so if you are making your own way, please book a taxi in advance. The celebration goes on late into the night. At the end of the evening there will be rides back to Västerås Central Station, or you can book an Uber or a taxi.",
       },
       {
         question: "What about dietary requirements?",
@@ -166,8 +167,12 @@ const en = {
         answer: "We will share parking details for the church ruin and Fiholm closer to the day. As the ceremony and the celebration are only five minutes apart, we warmly encourage car-sharing. Sweden's drink-driving limit is very strict (0.2‰), so please plan for a sober driver, a taxi or our pickup.",
       },
       {
-        question: "I'm travelling from abroad. Anything I should know?",
-        answer: "Fly into Stockholm Arlanda (ARN) and take the train to Västerås via Stockholm Central (about 1½–2 hours). In July, Sweden is 7 hours ahead of Peru. Cards are accepted almost everywhere, and many places don't take cash at all. Citizens of many countries, including Peru, the UK and the US, don't need a visa for short stays, but please check before you travel whether the EU's new ETIAS travel authorisation has started: travel-europe.europa.eu/etias.",
+        question: "What if it rains?",
+        answer: "If it rains, the ceremony will be moved inside Fiholm, so it will be lovely whatever the weather.",
+      },
+      {
+        question: "How can we reach you?",
+        answer: "Email us at louisa.hirvonen@gmail.com or call or text 076-139 64 60 (+46 76 139 64 60 from abroad).",
       },
     ],
   },
@@ -191,6 +196,17 @@ const en = {
     endSubtitle: "July 24th, 2027",
     previous: "Previous page",
     next: "Next page",
+  },
+  gifts: {
+    eyebrow: "With Gratitude",
+    title: "Gifts & Speeches",
+    giftTitle: "Our Honeymoon",
+    giftText: "Having you with us on our day is the greatest gift of all. If you would like to give us something, we would be so grateful for a contribution towards our honeymoon.",
+    swishButton: "Contribute with Swish",
+    swishNote: "The button opens the Swish app on your phone. Swish needs a Swedish bank account, so if you can't use it, just get in touch and we'll share other ways.",
+    speechTitle: "Speeches & Toasts",
+    speechText: "Would you like to give a speech, sing a song or surprise us with something during dinner? Our toastmasters will be putting together the evening's programme.",
+    speechSoon: "We'll share our toastmasters' names and contact details here soon.",
   },
   rsvp: {
     eyebrow: "We Hope You Can Join Us",
@@ -228,6 +244,7 @@ const en = {
   footer: {
     date: "July 24th, 2027 · Fiholm, Västerås",
     madeWith: "Made with love for the most anticipated day",
+    contact: "Questions? Get in touch",
   },
   notFound: {
     message: "Oops! Page not found",
@@ -251,6 +268,7 @@ const sv: Translations = {
     travel: "Resa",
     faq: "Frågor",
     photobook: "Fotobok",
+    gifts: "Gåvor",
     rsvp: "OSA",
     menu: "Meny",
   },
@@ -383,7 +401,7 @@ const sv: Translations = {
       },
       {
         question: "Ordnas det transport till festen?",
-        answer: "Vi hämtar dig gärna vid Västerås centralstation – kryssa i rutan för upphämtning när du OSA:r, så hör vi av oss med tider närmare dagen. Fiholm ligger lugnt på landet med väldigt lite kollektivtrafik, så tar du dig dit själv rekommenderar vi att du förbokar taxi.",
+        answer: "Vi hämtar dig gärna vid Västerås centralstation – kryssa i rutan för upphämtning när du OSA:r, så hör vi av oss med tider närmare dagen. Fiholm ligger lugnt på landet med väldigt lite kollektivtrafik, så tar du dig dit själv rekommenderar vi att du förbokar taxi. Festen håller på till sent. När kvällen är slut finns skjuts till Västerås centralstation, eller så kan du ta en Uber eller taxi.",
       },
       {
         question: "Hur gör jag med specialkost?",
@@ -399,8 +417,12 @@ const sv: Translations = {
         answer: "Vi skickar information om parkering vid kyrkoruinen och på Fiholm närmare dagen. Eftersom vigseln och festen bara ligger fem minuter från varandra uppmuntrar vi samåkning. Kom ihåg att gränsen för rattfylleri är 0,2 promille – planera för en nykter chaufför, taxi eller vår upphämtning.",
       },
       {
-        question: "Jag reser från utlandet – vad behöver jag veta?",
-        answer: "Flyg till Stockholm Arlanda (ARN) och ta tåget till Västerås via Stockholm C (cirka 1,5–2 timmar). I juli ligger Sverige 7 timmar före Peru. Kort fungerar nästan överallt och många ställen tar inte kontanter alls. Medborgare i bland annat Peru, Storbritannien och USA behöver inget visum för kortare besök, men kolla före resan om EU:s nya inresetillstånd ETIAS har börjat gälla: travel-europe.europa.eu/etias.",
+        question: "Vad händer om det regnar?",
+        answer: "Då flyttas vigseln in på Fiholm, så det blir fint oavsett väder.",
+      },
+      {
+        question: "Hur når vi er?",
+        answer: "Mejla oss på louisa.hirvonen@gmail.com eller ring eller sms:a 076-139 64 60.",
       },
     ],
   },
@@ -424,6 +446,17 @@ const sv: Translations = {
     endSubtitle: "24 juli 2027",
     previous: "Föregående sida",
     next: "Nästa sida",
+  },
+  gifts: {
+    eyebrow: "Med tacksamhet",
+    title: "Gåvor & tal",
+    giftTitle: "Vår bröllopsresa",
+    giftText: "Att du firar med oss är den finaste gåvan. Vill du ändå ge oss något blir vi jätteglada för ett bidrag till vår bröllopsresa.",
+    swishButton: "Swisha ett bidrag",
+    swishNote: "Knappen öppnar Swish-appen i mobilen. Kan du inte swisha? Hör av dig så berättar vi om andra sätt.",
+    speechTitle: "Tal & skålar",
+    speechText: "Vill du hålla tal, sjunga en sång eller överraska oss med något under middagen? Våra toastmasters sätter ihop kvällens program.",
+    speechSoon: "Vi lägger upp toastmasternas namn och kontaktuppgifter här snart.",
   },
   rsvp: {
     eyebrow: "Vi hoppas att du kan komma",
@@ -461,6 +494,7 @@ const sv: Translations = {
   footer: {
     date: "24 juli 2027 · Fiholm, Västerås",
     madeWith: "Gjord med kärlek inför den mest efterlängtade dagen",
+    contact: "Frågor? Hör av dig",
   },
   notFound: {
     message: "Hoppsan! Sidan hittades inte",
@@ -482,6 +516,7 @@ const es: Translations = {
     travel: "Viaje",
     faq: "Preguntas",
     photobook: "Álbum",
+    gifts: "Regalos",
     rsvp: "Confirmar",
     menu: "Menú",
   },
@@ -614,7 +649,7 @@ const es: Translations = {
       },
       {
         question: "¿Habrá transporte hasta el local?",
-        answer: "Con gusto te recogemos en la estación central de Västerås: marca la opción de recojo al confirmar tu asistencia y te escribiremos con los horarios cuando se acerque la fecha. Fiholm está en pleno campo y casi no hay transporte público, así que si llegas por tu cuenta te recomendamos reservar un taxi con anticipación.",
+        answer: "Con gusto te recogemos en la estación central de Västerås: marca la opción de recojo al confirmar tu asistencia y te escribiremos con los horarios cuando se acerque la fecha. Fiholm está en pleno campo y casi no hay transporte público, así que si llegas por tu cuenta te recomendamos reservar un taxi con anticipación. La fiesta terminará tarde. Al final de la noche habrá movilidad hacia la estación central de Västerås, o puedes pedir un Uber o un taxi.",
       },
       {
         question: "¿Y si tengo alguna restricción alimentaria?",
@@ -631,8 +666,12 @@ const es: Translations = {
         answer: "Te enviaremos los detalles del estacionamiento en las ruinas y en Fiholm cuando se acerque la fecha. Como la ceremonia y la celebración están a solo cinco minutos, te animamos a compartir el auto. En Suecia el límite de alcohol para manejar es muy estricto (0,2 g/l), así que planifica un conductor designado, un taxi o nuestro recojo.",
       },
       {
-        question: "Viajo desde el extranjero, ¿qué debo saber?",
-        answer: "Vuela al aeropuerto de Estocolmo-Arlanda (ARN) y toma el tren a Västerås vía la estación central de Estocolmo (entre 1 h 30 min y 2 horas). En julio, Suecia está 7 horas adelante de Perú. Se paga con tarjeta casi en todas partes y muchos lugares ya no aceptan efectivo. Los peruanos no necesitan visa para estadías cortas (hasta 90 días), pero antes de viajar revisa si ya está vigente el nuevo permiso de viaje ETIAS de la Unión Europea: travel-europe.europa.eu/etias. Tu pasaporte debe tener al menos 3 meses de vigencia después de la fecha de tu regreso.",
+        question: "¿Y si llueve?",
+        answer: "Si llueve, la ceremonia se trasladará al interior de Fiholm, así que será linda llueva o no.",
+      },
+      {
+        question: "¿Cómo podemos contactarlos?",
+        answer: "Escríbenos a louisa.hirvonen@gmail.com o llámanos al +46 76 139 64 60.",
       },
     ],
   },
@@ -656,6 +695,17 @@ const es: Translations = {
     endSubtitle: "24 de julio de 2027",
     previous: "Página anterior",
     next: "Página siguiente",
+  },
+  gifts: {
+    eyebrow: "Con gratitud",
+    title: "Regalos y brindis",
+    giftTitle: "Nuestra luna de miel",
+    giftText: "Tu presencia en nuestra boda es el mejor regalo. Si deseas obsequiarnos algo, te agradeceríamos mucho un aporte para nuestra luna de miel.",
+    swishButton: "Aportar con Swish",
+    swishNote: "El botón abre la app Swish en tu celular. Swish solo funciona con una cuenta bancaria sueca; si no puedes usarlo, escríbenos y te contamos otras formas de aportar.",
+    speechTitle: "Discursos y brindis",
+    speechText: "¿Te gustaría dar un discurso, cantar una canción o sorprendernos con algo durante la cena? Nuestros maestros de ceremonia van a armar el programa de la noche.",
+    speechSoon: "Muy pronto publicaremos aquí sus nombres y datos de contacto.",
   },
   rsvp: {
     eyebrow: "Esperamos que puedas acompañarnos",
@@ -693,6 +743,7 @@ const es: Translations = {
   footer: {
     date: "24 de julio de 2027 · Fiholm, Västerås",
     madeWith: "Hecho con amor para el día más esperado",
+    contact: "¿Preguntas? Escríbenos",
   },
   notFound: {
     message: "¡Ups! No encontramos esta página",
