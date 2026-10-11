@@ -190,26 +190,27 @@ const EnvelopeAnimation = ({ onComplete }: EnvelopeAnimationProps) => {
                 </div>
               </motion.div>
             </motion.div>
-
-            {/* Zooming card overlay */}
-            <AnimatePresence>
-              {stage === "zooming" && (
-                <motion.div
-                  className="fixed inset-0 z-10 flex items-center justify-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  <motion.div
-                    className="bg-background rounded-sm"
-                    initial={{ width: "300px", height: "200px", opacity: 0 }}
-                    animate={{ width: "100vw", height: "100vh", opacity: 1 }}
-                    transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
+
+          {/* Zooming card overlay: grows to fill the screen, then the page fades in behind it.
+              Kept outside the envelope wrapper, whose `perspective` would trap a fixed element. */}
+          <AnimatePresence>
+            {stage === "zooming" && (
+              <motion.div
+                className="fixed inset-0 z-10 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <motion.div
+                  className="bg-background rounded-sm flex-none"
+                  initial={{ width: "300px", height: "200px", opacity: 0 }}
+                  animate={{ width: "100vw", height: "100vh", opacity: 1 }}
+                  transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Loading text */}
           {stage === "sealed" && (

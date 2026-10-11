@@ -15,7 +15,17 @@ export const GOOGLE_FORM = {
     dietaryRestrictions: "entry.334613197",
     stationPickup: "entry.1563334781", // "Yes" / "No"
     message: "entry.653640917",
+    // Not questions in the form yet. Until an ID is filled in here, the answer is
+    // added to the end of the "Message" answer instead, so nothing is lost.
+    phone: "",
+    carpool: "",
   },
+};
+
+// Labels used when an answer has to go into the message instead of its own column
+const MESSAGE_LABELS: Partial<Record<keyof typeof GOOGLE_FORM.fields, string>> = {
+  phone: "Phone",
+  carpool: "Room in car",
 };
 
 export type RsvpAnswers = Record<keyof typeof GOOGLE_FORM.fields, string>;
@@ -25,8 +35,14 @@ export const isGoogleFormConfigured = () =>
 
 export async function submitToGoogleForm(answers: RsvpAnswers) {
   const body = new URLSearchParams();
+  const extraLines: string[] = [];
   for (const [key, entryId] of Object.entries(GOOGLE_FORM.fields)) {
-    body.append(entryId, answers[key as keyof RsvpAnswers]);
+    const value = answers[key as keyof RsvpAnswers];
+    if (entryId) body.append(entryId, value);
+    else if (value) extraLines.push(`${MESSAGE_LABELS[key as keyof RsvpAnswers] ?? key}: ${value}`);
+  }
+  if (extraLines.length) {
+    body.set(GOOGLE_FORM.fields.message, [answers.message, extraLines.join("\n")].filter(Boolean).join("\n\n"));
   }
   // Google Forms doesn't send CORS headers, so the response can't be read.
   // A network failure still throws, which is the error we can detect.

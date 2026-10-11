@@ -8,11 +8,10 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Guest {
   name: string;
-  phone: string;
   dietary: string;
 }
 
-const emptyGuest = (): Guest => ({ name: "", phone: "", dietary: "" });
+const emptyGuest = (): Guest => ({ name: "", dietary: "" });
 
 const RSVPForm = () => {
   const { toast } = useToast();
@@ -22,12 +21,16 @@ const RSVPForm = () => {
   const [guests, setGuests] = useState<Guest[]>([emptyGuest()]);
   const [form, setForm] = useState({
     email: "",
+    phone: "",
     attending: null as boolean | null, // nothing selected until the guest chooses
+    carpool: null as boolean | null, // room in their car for other guests
+    carpoolSeats: "",
+    carpoolFrom: "",
     message: "",
     station_pickup: false,
   });
 
-  // Phone, dietary needs and pickup only matter for guests who are coming
+  // Phone, dietary needs, pickup and carpooling only matter for guests who are coming
   // (they also show before an answer is picked, so nobody misses them)
   const declining = form.attending === false;
 
@@ -52,7 +55,7 @@ const RSVPForm = () => {
     }
 
     const filled = guests
-      .map((g) => ({ name: g.name.trim(), phone: g.phone.trim(), dietary: g.dietary.trim() }))
+      .map((g) => ({ name: g.name.trim(), dietary: g.dietary.trim() }))
       .filter((g) => g.name);
     if (filled.length === 0) {
       toast({ title: t.rsvp.needName, variant: "destructive" });
@@ -64,13 +67,28 @@ const RSVPForm = () => {
       return;
     }
 
+    const carpool =
+      declining || form.carpool === null
+        ? ""
+        : form.carpool
+          ? [
+              "Yes",
+              form.carpoolSeats && `${form.carpoolSeats} seats`,
+              form.carpoolFrom.trim() && `from ${form.carpoolFrom.trim()}`,
+            ]
+              .filter(Boolean)
+              .join(", ")
+          : "No";
+
     setLoading(true);
     try {
       // One line per guest, so the Google Form keeps one column per question
       await submitToGoogleForm({
-        guestNames: filled.map((g) => (g.phone && !declining ? `${g.name} · ${g.phone}` : g.name)).join("\n"),
+        guestNames: filled.map((g) => g.name).join("\n"),
         guestCount: String(filled.length),
         email: form.email,
+        phone: declining ? "" : form.phone.trim(),
+        carpool,
         attending: form.attending ? "Yes" : "No",
         dietaryRestrictions: declining
           ? ""
@@ -90,7 +108,7 @@ const RSVPForm = () => {
   const labelClasses = "font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5";
   const smallLabelClasses = "font-body text-xs text-muted-foreground block mb-1";
   const inputClasses =
-    "w-full px-4 py-3 font-body text-base bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/40";
+    "w-full px-4 py-3 font-body text-base bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/60";
 
   const choiceButton = (selected: boolean) =>
     `flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
@@ -204,38 +222,19 @@ const RSVPForm = () => {
                       />
                     </div>
                     {!declining && (
-                      <div className="grid sm:grid-cols-2 gap-3">
-                        <div>
-                          <label htmlFor={`guest-${i}-phone`} className={smallLabelClasses}>
-                            {t.rsvp.phone}
-                            {i === 0 && " *"}
-                          </label>
-                          <input
-                            id={`guest-${i}-phone`}
-                            type="tel"
-                            required={i === 0}
-                            maxLength={30}
-                            autoComplete={i === 0 ? "tel" : "off"}
-                            className={inputClasses}
-                            value={guest.phone}
-                            onChange={(e) => updateGuest(i, "phone", e.target.value)}
-                            placeholder={t.rsvp.phonePlaceholder}
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor={`guest-${i}-dietary`} className={smallLabelClasses}>
-                            {t.rsvp.dietary}
-                          </label>
-                          <input
-                            id={`guest-${i}-dietary`}
-                            type="text"
-                            maxLength={300}
-                            className={inputClasses}
-                            value={guest.dietary}
-                            onChange={(e) => updateGuest(i, "dietary", e.target.value)}
-                            placeholder={t.rsvp.dietaryPlaceholder}
-                          />
-                        </div>
+                      <div>
+                        <label htmlFor={`guest-${i}-dietary`} className={smallLabelClasses}>
+                          {t.rsvp.dietary}
+                        </label>
+                        <input
+                          id={`guest-${i}-dietary`}
+                          type="text"
+                          maxLength={300}
+                          className={inputClasses}
+                          value={guest.dietary}
+                          onChange={(e) => updateGuest(i, "dietary", e.target.value)}
+                          placeholder={t.rsvp.dietaryPlaceholder}
+                        />
                       </div>
                     )}
                   </div>
@@ -252,20 +251,40 @@ const RSVPForm = () => {
               )}
             </div>
 
-            <div>
-              <label htmlFor="rsvp-email" className={labelClasses}>
-                {t.rsvp.email}
-              </label>
-              <input
-                id="rsvp-email"
-                type="email"
-                maxLength={255}
-                autoComplete="email"
-                className={inputClasses}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder={t.rsvp.emailPlaceholder}
-              />
+            {/* Contact details for the whole party */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="rsvp-email" className={labelClasses}>
+                  {t.rsvp.email}
+                </label>
+                <input
+                  id="rsvp-email"
+                  type="email"
+                  maxLength={255}
+                  autoComplete="email"
+                  className={inputClasses}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder={t.rsvp.emailPlaceholder}
+                />
+              </div>
+              {!declining && (
+                <div>
+                  <label htmlFor="rsvp-phone" className={labelClasses}>
+                    {t.rsvp.phone} *
+                  </label>
+                  <input
+                    id="rsvp-phone"
+                    type="tel"
+                    required
+                    maxLength={30}
+                    autoComplete="tel"
+                    className={inputClasses}
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  />
+                </div>
+              )}
             </div>
 
             {!declining && (
@@ -287,6 +306,61 @@ const RSVPForm = () => {
                     </button>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {!declining && (
+              <div>
+                <span className={labelClasses}>{t.rsvp.carpool}</span>
+                <div className="flex gap-4">
+                  {[
+                    { label: t.rsvp.carpoolYes, value: true },
+                    { label: t.rsvp.carpoolNo, value: false },
+                  ].map((opt) => (
+                    <button
+                      key={String(opt.value)}
+                      type="button"
+                      aria-pressed={form.carpool === opt.value}
+                      onClick={() => setForm({ ...form, carpool: opt.value })}
+                      className={choiceButton(form.carpool === opt.value)}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+                {form.carpool && (
+                  <div className="grid grid-cols-[6rem_1fr] gap-3 mt-3">
+                    <div>
+                      <label htmlFor="rsvp-seats" className={smallLabelClasses}>
+                        {t.rsvp.carpoolSeats}
+                      </label>
+                      <input
+                        id="rsvp-seats"
+                        type="number"
+                        min={1}
+                        max={8}
+                        inputMode="numeric"
+                        className={inputClasses}
+                        value={form.carpoolSeats}
+                        onChange={(e) => setForm({ ...form, carpoolSeats: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="rsvp-from" className={smallLabelClasses}>
+                        {t.rsvp.carpoolFrom}
+                      </label>
+                      <input
+                        id="rsvp-from"
+                        type="text"
+                        maxLength={100}
+                        className={inputClasses}
+                        value={form.carpoolFrom}
+                        onChange={(e) => setForm({ ...form, carpoolFrom: e.target.value })}
+                        placeholder={t.rsvp.carpoolFromPlaceholder}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

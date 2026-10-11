@@ -29,7 +29,7 @@ const Footer = () => {
             </a>
           </p>
         </div>
-        <p className="font-body text-xs text-muted-foreground/50 mt-6">
+        <p className="font-body text-xs text-muted-foreground mt-6">
           {t.footer.madeWith}
         </p>
       </div>

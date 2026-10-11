@@ -92,7 +92,7 @@ const PasswordGate = ({ onUnlock }: PasswordGateProps) => {
             setWrong(false);
           }}
           placeholder={t.gate.placeholder}
-          className="w-full px-4 py-3 font-body text-base text-center bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/40"
+          className="w-full px-4 py-3 font-body text-base text-center bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/60"
         />
         {wrong && (
           <p role="alert" className="font-body text-sm text-destructive mt-2">

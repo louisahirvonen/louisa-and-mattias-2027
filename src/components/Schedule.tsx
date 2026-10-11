@@ -49,7 +49,7 @@ const Schedule = () => {
                     <span className="font-body text-base text-muted-foreground tracking-wider w-24 flex-shrink-0 tabular-nums">
                       {event.time}
                     </span>
-                    <span className="font-display text-lg text-foreground font-medium">{event.title}</span>
+                    <span className="font-body text-xl text-foreground">{event.title}</span>
                   </li>
                 ))}
               </ul>

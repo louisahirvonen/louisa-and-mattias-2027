@@ -144,12 +144,6 @@ const en = {
         detail: "30 minutes from Fiholm · from 900 SEK/night",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
-      {
-        title: "Comfort Hotel Västerås",
-        description: "Simple and good value, right next to Västerås Central Station.",
-        detail: "30 minutes from Fiholm",
-        url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
     ],
   },
   international: {
@@ -210,18 +204,15 @@ const en = {
     items: [
       {
         question: "What is the dress code?",
-        answer:
-          "Regency-era formal attire is encouraged! Think elegant gowns, tailcoats, cravats, and empire-waist dresses. Soft pastels and florals are especially welcome. If you prefer modern formal wear, that is perfectly acceptable as well.",
+        answer: "Formal, as for a typical Swedish wedding: a suit, a jumpsuit, a dress, or whatever you feel wonderful in. Summery colours are very welcome!",
       },
       {
         question: "Can I bring a plus one?",
-        answer:
-          "Your invitation will specify if you have been allocated a plus one. If you have any questions, please do not hesitate to reach out to us directly.",
+        answer: "We're not able to include plus-ones. Everyone who is invited is named in the message we sent you with the link to this page.",
       },
       {
         question: "Are children welcome?",
-        answer:
-          "While we adore your little ones, we have chosen to make our wedding an adults-only celebration. We hope you understand and enjoy the evening!",
+        answer: "Children who are named in your invitation are very welcome. Beyond that, we've chosen to make our wedding an adults-only celebration, and we hope you understand.",
       },
       {
         question: "Will there be transport to the venue?",
@@ -239,7 +230,7 @@ const en = {
       },
       {
         question: "Is there parking?",
-        answer: "We will share parking details for the church ruin and Fiholm closer to the day. As the ceremony and the celebration are only five minutes apart, we warmly encourage car-sharing. Sweden's drink-driving limit is very strict (0.2‰), so please plan for a sober driver, a taxi or our pickup.",
+        answer: "Yes, there is parking at both the church ruin and Fiholm. As the two are only five minutes apart, we warmly encourage car-sharing.",
       },
       {
         question: "What if it rains?",
@@ -279,6 +270,7 @@ const en = {
     giftText: "Having you with us on our day is the greatest gift of all. If you would like to give us something, we would be so grateful for a contribution towards our honeymoon.",
     swishButton: "Contribute with Swish",
     swishNote: "The button opens the Swish app on your phone. Swish needs a Swedish bank account, so if you can't use it, just get in touch and we'll share other ways.",
+    swishQr: "Or scan the code in the Swish app",
     speechTitle: "Speeches & Toasts",
     speechText: "Would you like to give a speech, sing a song or surprise us with something during dinner? Our toastmasters will be putting together the evening's programme.",
     speechSoon: "We'll share our toastmasters' names and contact details here soon.",
@@ -293,7 +285,6 @@ const en = {
     guestHeading: (n: number) => `Guest ${n}`,
     fullName: "Full name",
     phone: "Phone",
-    phonePlaceholder: "Incl. country code, e.g. +46",
     addGuest: "Add another guest",
     removeGuest: "Remove guest",
     email: "Email",
@@ -307,6 +298,12 @@ const en = {
     pickup: "Pickup from Västerås Centralstation? *",
     pickupYes: "Yes, please",
     pickupNo: "No, thank you",
+    carpool: "Do you have room in your car for other guests?",
+    carpoolYes: "Yes",
+    carpoolNo: "No / not driving",
+    carpoolSeats: "Free seats",
+    carpoolFrom: "Driving from",
+    carpoolFromPlaceholder: "e.g. Stockholm",
     message: "Message for the Couple",
     messagePlaceholder: "Share your well wishes...",
     send: "Send RSVP",
@@ -475,12 +472,6 @@ const sv: Translations = {
         detail: "30 minuter från Fiholm · från 900 kr/natt",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
-      {
-        title: "Comfort Hotel Västerås",
-        description: "Enkelt och prisvärt, precis vid Västerås centralstation.",
-        detail: "30 minuter från Fiholm",
-        url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
     ],
   },
   international: {
@@ -541,18 +532,15 @@ const sv: Translations = {
     items: [
       {
         question: "Vilken är klädkoden?",
-        answer:
-          "Vi uppmuntrar högtidsklädsel i regencystil! Tänk eleganta klänningar, frack, kravatter och klänningar med empirelinje. Mjuka pasteller och blommönster är extra välkomna. Föredrar du modern högtidsklädsel går det precis lika bra.",
+        answer: "Kavaj, som på ett vanligt svenskt bröllop: kostym, jumpsuit, klänning eller det du känner dig fin i. Somriga färger uppmuntras!",
       },
       {
         question: "Får jag ta med mig någon?",
-        answer:
-          "Det framgår av din inbjudan om du får ta med dig någon. Har du frågor är du varmt välkommen att höra av dig direkt till oss.",
+        answer: "Vi har tyvärr inte möjlighet att bjuda in fler än de inbjudna. Alla som är bjudna står med namn i meddelandet där du fick länken till den här sidan.",
       },
       {
         question: "Är barn välkomna?",
-        answer:
-          "Hur mycket vi än älskar era små har vi valt att ha ett bröllop för enbart vuxna. Vi hoppas att ni förstår och får en härlig kväll!",
+        answer: "Barn som står med namn i inbjudan är varmt välkomna. Utöver dem har vi valt att ha ett bröllop för vuxna – vi hoppas att ni förstår.",
       },
       {
         question: "Ordnas det transport till festen?",
@@ -569,7 +557,7 @@ const sv: Translations = {
       },
       {
         question: "Finns det parkering?",
-        answer: "Vi skickar information om parkering vid kyrkoruinen och på Fiholm närmare dagen. Eftersom vigseln och festen bara ligger fem minuter från varandra uppmuntrar vi samåkning. Kom ihåg att gränsen för rattfylleri är 0,2 promille – planera för en nykter chaufför, taxi eller vår upphämtning.",
+        answer: "Ja, det finns parkering både vid kyrkoruinen och på Fiholm. Eftersom de bara ligger fem minuter från varandra uppmuntrar vi samåkning.",
       },
       {
         question: "Vad händer om det regnar?",
@@ -609,6 +597,7 @@ const sv: Translations = {
     giftText: "Att du firar med oss är den finaste gåvan. Vill du ändå ge oss något blir vi jätteglada för ett bidrag till vår bröllopsresa.",
     swishButton: "Swisha ett bidrag",
     swishNote: "Knappen öppnar Swish-appen i mobilen. Kan du inte swisha? Hör av dig så berättar vi om andra sätt.",
+    swishQr: "Eller skanna koden i Swish-appen",
     speechTitle: "Tal & skålar",
     speechText: "Vill du hålla tal, sjunga en sång eller överraska oss med något under middagen? Våra toastmasters sätter ihop kvällens program.",
     speechSoon: "Vi lägger upp toastmasternas namn och kontaktuppgifter här snart.",
@@ -623,7 +612,6 @@ const sv: Translations = {
     guestHeading: (n: number) => `Gäst ${n}`,
     fullName: "För- och efternamn",
     phone: "Telefon",
-    phonePlaceholder: "Ange landsnummer för utländska nummer",
     addGuest: "Lägg till en gäst till",
     removeGuest: "Ta bort gäst",
     email: "E-post",
@@ -637,6 +625,12 @@ const sv: Translations = {
     pickup: "Upphämtning vid Västerås centralstation? *",
     pickupYes: "Ja tack",
     pickupNo: "Nej tack",
+    carpool: "Har du plats i bilen för andra gäster?",
+    carpoolYes: "Ja",
+    carpoolNo: "Nej / kör inte",
+    carpoolSeats: "Lediga platser",
+    carpoolFrom: "Kör från",
+    carpoolFromPlaceholder: "t.ex. Stockholm",
     message: "Hälsning till brudparet",
     messagePlaceholder: "Skriv en hälsning…",
     send: "Skicka svar",
@@ -803,12 +797,6 @@ const es: Translations = {
         detail: "A 30 minutos de Fiholm · desde 900 coronas por noche",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
-      {
-        title: "Comfort Hotel Västerås",
-        description: "Sencillo y económico, junto a la estación central de Västerås.",
-        detail: "A 30 minutos de Fiholm",
-        url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
     ],
   },
   international: {
@@ -869,18 +857,15 @@ const es: Translations = {
     items: [
       {
         question: "¿Cuál es el código de vestimenta?",
-        answer:
-          "¡Te animamos a venir de gala al estilo de la época de la Regencia! Imagina vestidos largos elegantes, fracs, pañuelos de cuello y vestidos de corte imperio. Los tonos pastel y los estampados florales son especialmente bienvenidos. Si prefieres un atuendo formal moderno, también es totalmente válido.",
+        answer: "Formal, como en una boda típica en Suecia: terno, enterizo, vestido o lo que te haga sentir bien. ¡Los colores veraniegos son muy bienvenidos!",
       },
       {
         question: "¿Puedo ir con acompañante?",
-        answer:
-          "En tu invitación se indicará si puedes ir con acompañante. Si tienes alguna pregunta, no dudes en escribirnos directamente.",
+        answer: "Lamentablemente no podemos recibir acompañantes adicionales. Todas las personas invitadas aparecen con su nombre en el mensaje en el que te enviamos el enlace a esta página.",
       },
       {
         question: "¿Los niños están invitados?",
-        answer:
-          "Aunque adoramos a tus pequeños, hemos decidido que nuestra boda sea una celebración solo para adultos. ¡Esperamos que lo entiendas y disfrutes de la noche!",
+        answer: "Los niños que aparecen con su nombre en la invitación son muy bienvenidos. Fuera de ellos, hemos decidido que la boda sea solo para adultos; esperamos que lo entiendas.",
       },
       {
         question: "¿Habrá transporte hasta el local?",
@@ -898,7 +883,7 @@ const es: Translations = {
       },
       {
         question: "¿Hay estacionamiento?",
-        answer: "Te enviaremos los detalles del estacionamiento en las ruinas y en Fiholm cuando se acerque la fecha. Como la ceremonia y la celebración están a solo cinco minutos, te animamos a compartir el auto. En Suecia el límite de alcohol para manejar es muy estricto (0,2 g/l), así que planifica un conductor designado, un taxi o nuestro recojo.",
+        answer: "Sí, hay estacionamiento tanto en las ruinas de la iglesia como en Fiholm. Como están a solo cinco minutos, te animamos a compartir el auto.",
       },
       {
         question: "¿Y si llueve?",
@@ -938,6 +923,7 @@ const es: Translations = {
     giftText: "Tu presencia en nuestra boda es el mejor regalo. Si deseas obsequiarnos algo, te agradeceríamos mucho un aporte para nuestra luna de miel.",
     swishButton: "Aportar con Swish",
     swishNote: "El botón abre la app Swish en tu celular. Swish solo funciona con una cuenta bancaria sueca; si no puedes usarlo, escríbenos y te contamos otras formas de aportar.",
+    swishQr: "O escanea el código en la app Swish",
     speechTitle: "Discursos y brindis",
     speechText: "¿Te gustaría dar un discurso, cantar una canción o sorprendernos con algo durante la cena? Nuestros maestros de ceremonia van a armar el programa de la noche.",
     speechSoon: "Muy pronto publicaremos aquí sus nombres y datos de contacto.",
@@ -952,7 +938,6 @@ const es: Translations = {
     guestHeading: (n: number) => `Invitado ${n}`,
     fullName: "Nombre completo",
     phone: "Celular",
-    phonePlaceholder: "Con código de país, p. ej. +46",
     addGuest: "Agregar otro invitado",
     removeGuest: "Quitar invitado",
     email: "Correo electrónico",
@@ -966,6 +951,12 @@ const es: Translations = {
     pickup: "¿Quieres que te recojamos en la estación central de Västerås? *",
     pickupYes: "Sí, por favor",
     pickupNo: "No, gracias",
+    carpool: "¿Tienes espacio en tu auto para llevar a otros invitados?",
+    carpoolYes: "Sí",
+    carpoolNo: "No / no voy en auto",
+    carpoolSeats: "Asientos libres",
+    carpoolFrom: "Sales desde",
+    carpoolFromPlaceholder: "p. ej. Estocolmo",
     message: "Un mensaje para los novios",
     messagePlaceholder: "Escribe tus buenos deseos…",
     send: "Enviar respuesta",
