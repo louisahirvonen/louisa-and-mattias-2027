@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
+import { isGoogleFormConfigured, submitToGoogleForm } from "@/lib/googleForm";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, X } from "lucide-react";
 import FloralDecoration from "./FloralDecoration";
@@ -42,22 +42,27 @@ const RSVPForm = () => {
       return;
     }
 
-    setLoading(true);
-    const { error } = await supabase.from("rsvp_responses").insert({
-      full_name: filledNames[0],
-      email: form.email || null,
-      attending: form.attending,
-      guest_count: filledNames.length,
-      guest_names: filledNames,
-      dietary_restrictions: form.dietary_restrictions || null,
-      message: form.message || null,
-      station_pickup: form.station_pickup,
-    });
+    if (!isGoogleFormConfigured()) {
+      toast({ title: "RSVP isn't set up yet", description: "Please check back soon.", variant: "destructive" });
+      return;
+    }
 
-    setLoading(false);
-    if (error) {
+    setLoading(true);
+    try {
+      await submitToGoogleForm({
+        guestNames: filledNames.join("\n"),
+        guestCount: String(filledNames.length),
+        email: form.email,
+        attending: form.attending ? "Yes" : "No",
+        dietaryRestrictions: form.attending ? form.dietary_restrictions : "",
+        stationPickup: form.attending ? (form.station_pickup ? "Yes" : "No") : "",
+        message: form.message,
+      });
+    } catch {
       toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
       return;
+    } finally {
+      setLoading(false);
     }
     setSubmitted(true);
   };
