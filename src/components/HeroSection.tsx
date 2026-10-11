@@ -57,6 +57,17 @@ const HeroSection = () => {
 
         {/* Countdown */}
         <Countdown />
+
+        <a
+          href="#rsvp"
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector("#rsvp")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="mt-6 inline-block px-8 py-3 font-body text-xs tracking-[0.25em] uppercase bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+        >
+          {t.hero.rsvpCta}
+        </a>
       </motion.div>
     </section>
   );

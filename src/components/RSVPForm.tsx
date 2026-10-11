@@ -6,46 +6,56 @@ import { Plus, X } from "lucide-react";
 import FloralDecoration from "./FloralDecoration";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+interface Guest {
+  name: string;
+  phone: string;
+  dietary: string;
+}
+
+const emptyGuest = (): Guest => ({ name: "", phone: "", dietary: "" });
+
 const RSVPForm = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState<"accepted" | "declined" | null>(null);
   const [loading, setLoading] = useState(false);
-  const [guestNames, setGuestNames] = useState([""]);
+  const [guests, setGuests] = useState<Guest[]>([emptyGuest()]);
   const [form, setForm] = useState({
     email: "",
     attending: null as boolean | null, // nothing selected until the guest chooses
-    dietary_restrictions: "",
     message: "",
     station_pickup: false,
   });
 
+  // Phone, dietary needs and pickup only matter for guests who are coming
+  // (they also show before an answer is picked, so nobody misses them)
+  const declining = form.attending === false;
+
   const addGuest = () => {
-    if (guestNames.length < 10) setGuestNames([...guestNames, ""]);
+    if (guests.length < 10) setGuests([...guests, emptyGuest()]);
   };
 
   const removeGuest = (index: number) => {
-    if (guestNames.length > 1) {
-      setGuestNames(guestNames.filter((_, i) => i !== index));
-    }
+    if (guests.length > 1) setGuests(guests.filter((_, i) => i !== index));
   };
 
-  const updateGuestName = (index: number, value: string) => {
-    const updated = [...guestNames];
-    updated[index] = value;
-    setGuestNames(updated);
+  const updateGuest = (index: number, field: keyof Guest, value: string) => {
+    setGuests(guests.map((g, i) => (i === index ? { ...g, [field]: value } : g)));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const filledNames = guestNames.map((n) => n.trim()).filter(Boolean);
-    if (filledNames.length === 0) {
-      toast({ title: t.rsvp.needName, variant: "destructive" });
-      return;
-    }
 
     if (form.attending === null) {
       toast({ title: t.rsvp.chooseAttending, variant: "destructive" });
+      return;
+    }
+
+    const filled = guests
+      .map((g) => ({ name: g.name.trim(), phone: g.phone.trim(), dietary: g.dietary.trim() }))
+      .filter((g) => g.name);
+    if (filled.length === 0) {
+      toast({ title: t.rsvp.needName, variant: "destructive" });
       return;
     }
 
@@ -56,13 +66,16 @@ const RSVPForm = () => {
 
     setLoading(true);
     try {
+      // One line per guest, so the Google Form keeps one column per question
       await submitToGoogleForm({
-        guestNames: filledNames.join("\n"),
-        guestCount: String(filledNames.length),
+        guestNames: filled.map((g) => (g.phone && !declining ? `${g.name} · ${g.phone}` : g.name)).join("\n"),
+        guestCount: String(filled.length),
         email: form.email,
         attending: form.attending ? "Yes" : "No",
-        dietaryRestrictions: form.attending ? form.dietary_restrictions : "",
-        stationPickup: form.attending ? (form.station_pickup ? "Yes" : "No") : "",
+        dietaryRestrictions: declining
+          ? ""
+          : filled.filter((g) => g.dietary).map((g) => `${g.name}: ${g.dietary}`).join("\n"),
+        stationPickup: declining ? "" : form.station_pickup ? "Yes" : "No",
         message: form.message,
       });
     } catch {
@@ -74,17 +87,26 @@ const RSVPForm = () => {
     setSubmitted(form.attending ? "accepted" : "declined");
   };
 
+  const labelClasses = "font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5";
+  const smallLabelClasses = "font-body text-xs text-muted-foreground block mb-1";
   const inputClasses =
     "w-full px-4 py-3 font-body text-base bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/40";
 
+  const choiceButton = (selected: boolean) =>
+    `flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
+      selected
+        ? "bg-primary text-primary-foreground border-primary"
+        : "bg-background text-muted-foreground border-border hover:border-primary/30"
+    }`;
+
   return (
-    <section id="rsvp" className="relative py-24 px-4 bg-sage-light overflow-hidden">
+    <section id="rsvp" className="relative py-16 sm:py-20 px-4 bg-sage-light overflow-hidden">
       <FloralDecoration variant="corner-top-right" className="absolute top-0 right-0 w-32 sm:w-44 opacity-40 pointer-events-none" />
       <FloralDecoration variant="corner-bottom-left" className="absolute bottom-0 left-0 w-28 sm:w-40 opacity-30 pointer-events-none" />
 
       <div className="max-w-xl mx-auto relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -125,37 +147,101 @@ const RSVPForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Guest names */}
+            {/* Coming or not — asked first, since it decides which questions follow */}
             <div>
-              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                {t.rsvp.guestNames}
-              </label>
+              <span className={labelClasses}>{t.rsvp.attending}</span>
+              <div className="flex gap-4">
+                {[
+                  { label: t.rsvp.accept, value: true },
+                  { label: t.rsvp.decline, value: false },
+                ].map((opt) => (
+                  <button
+                    key={String(opt.value)}
+                    type="button"
+                    aria-pressed={form.attending === opt.value}
+                    onClick={() => setForm({ ...form, attending: opt.value })}
+                    className={choiceButton(form.attending === opt.value)}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* One card per guest */}
+            <div>
+              <span className={labelClasses}>{t.rsvp.guestNames}</span>
               <div className="space-y-3">
-                {guestNames.map((name, i) => (
-                  <div key={i} className="flex gap-2">
-                    <input
-                      type="text"
-                      required
-                      maxLength={100}
-                      className={inputClasses}
-                      value={name}
-                      onChange={(e) => updateGuestName(i, e.target.value)}
-                      placeholder={i === 0 ? t.rsvp.yourName : t.rsvp.guestName(i + 1)}
-                    />
-                    {guestNames.length > 1 && (
-                      <button
-                        type="button"
-                        onClick={() => removeGuest(i)}
-                        aria-label={t.rsvp.removeGuest}
-                        className="px-2 text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <X size={18} />
-                      </button>
+                {guests.map((guest, i) => (
+                  <div key={i} className="p-4 border border-border bg-background/60 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-base text-foreground">{t.rsvp.guestHeading(i + 1)}</span>
+                      {guests.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => removeGuest(i)}
+                          aria-label={t.rsvp.removeGuest}
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <X size={18} />
+                        </button>
+                      )}
+                    </div>
+                    <div>
+                      <label htmlFor={`guest-${i}-name`} className={smallLabelClasses}>
+                        {t.rsvp.fullName} *
+                      </label>
+                      <input
+                        id={`guest-${i}-name`}
+                        type="text"
+                        required
+                        maxLength={100}
+                        autoComplete={i === 0 ? "name" : "off"}
+                        className={inputClasses}
+                        value={guest.name}
+                        onChange={(e) => updateGuest(i, "name", e.target.value)}
+                        placeholder={i === 0 ? t.rsvp.yourName : t.rsvp.guestName(i + 1)}
+                      />
+                    </div>
+                    {!declining && (
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        <div>
+                          <label htmlFor={`guest-${i}-phone`} className={smallLabelClasses}>
+                            {t.rsvp.phone}
+                            {i === 0 && " *"}
+                          </label>
+                          <input
+                            id={`guest-${i}-phone`}
+                            type="tel"
+                            required={i === 0}
+                            maxLength={30}
+                            autoComplete={i === 0 ? "tel" : "off"}
+                            className={inputClasses}
+                            value={guest.phone}
+                            onChange={(e) => updateGuest(i, "phone", e.target.value)}
+                            placeholder={t.rsvp.phonePlaceholder}
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor={`guest-${i}-dietary`} className={smallLabelClasses}>
+                            {t.rsvp.dietary}
+                          </label>
+                          <input
+                            id={`guest-${i}-dietary`}
+                            type="text"
+                            maxLength={300}
+                            className={inputClasses}
+                            value={guest.dietary}
+                            onChange={(e) => updateGuest(i, "dietary", e.target.value)}
+                            placeholder={t.rsvp.dietaryPlaceholder}
+                          />
+                        </div>
+                      </div>
                     )}
                   </div>
                 ))}
               </div>
-              {guestNames.length < 10 && (
+              {guests.length < 10 && (
                 <button
                   type="button"
                   onClick={addGuest}
@@ -167,12 +253,14 @@ const RSVPForm = () => {
             </div>
 
             <div>
-              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
+              <label htmlFor="rsvp-email" className={labelClasses}>
                 {t.rsvp.email}
               </label>
               <input
+                id="rsvp-email"
                 type="email"
                 maxLength={255}
+                autoComplete="email"
                 className={inputClasses}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -180,79 +268,34 @@ const RSVPForm = () => {
               />
             </div>
 
-            <div>
-              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                {t.rsvp.attending}
-              </label>
-              <div className="flex gap-4">
-                {[
-                  { label: t.rsvp.accept, value: true },
-                  { label: t.rsvp.decline, value: false },
-                ].map((opt) => (
-                  <button
-                    key={String(opt.value)}
-                    type="button"
-                    onClick={() => setForm({ ...form, attending: opt.value })}
-                    className={`flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
-                      form.attending === opt.value
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-background text-muted-foreground border-border hover:border-primary/30"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
+            {!declining && (
+              <div>
+                <span className={labelClasses}>{t.rsvp.pickup}</span>
+                <div className="flex gap-4">
+                  {[
+                    { label: t.rsvp.pickupYes, value: true },
+                    { label: t.rsvp.pickupNo, value: false },
+                  ].map((opt) => (
+                    <button
+                      key={String(opt.value)}
+                      type="button"
+                      aria-pressed={form.station_pickup === opt.value}
+                      onClick={() => setForm({ ...form, station_pickup: opt.value })}
+                      className={choiceButton(form.station_pickup === opt.value)}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {form.attending && (
-              <>
-                <div>
-                  <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                    {t.rsvp.dietary}
-                  </label>
-                  <input
-                    type="text"
-                    maxLength={500}
-                    className={inputClasses}
-                    value={form.dietary_restrictions}
-                    onChange={(e) => setForm({ ...form, dietary_restrictions: e.target.value })}
-                    placeholder={t.rsvp.dietaryPlaceholder}
-                  />
-                </div>
-
-                <div>
-                  <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
-                    {t.rsvp.pickup}
-                  </label>
-                  <div className="flex gap-4">
-                    {[
-                      { label: t.rsvp.pickupYes, value: true },
-                      { label: t.rsvp.pickupNo, value: false },
-                    ].map((opt) => (
-                      <button
-                        key={String(opt.value)}
-                        type="button"
-                        onClick={() => setForm({ ...form, station_pickup: opt.value })}
-                        className={`flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
-                          form.station_pickup === opt.value
-                            ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-background text-muted-foreground border-border hover:border-primary/30"
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </>
             )}
 
             <div>
-              <label className="font-body text-xs tracking-[0.15em] uppercase text-foreground block mb-1.5">
+              <label htmlFor="rsvp-message" className={labelClasses}>
                 {t.rsvp.message}
               </label>
               <textarea
+                id="rsvp-message"
                 maxLength={1000}
                 className={`${inputClasses} min-h-[100px] resize-none`}
                 value={form.message}

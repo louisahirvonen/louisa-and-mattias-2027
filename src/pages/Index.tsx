@@ -1,5 +1,7 @@
 import { useState, useCallback } from "react";
 import EnvelopeAnimation from "@/components/EnvelopeAnimation";
+import PasswordGate from "@/components/PasswordGate";
+import { isUnlocked } from "@/lib/sitePassword";
 import WeddingNav from "@/components/WeddingNav";
 import HeroSection from "@/components/HeroSection";
 import OurStory from "@/components/OurStory";
@@ -14,11 +16,14 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
 const Index = () => {
+  const [unlocked, setUnlocked] = useState(isUnlocked);
   const [animationDone, setAnimationDone] = useState(false);
 
   const handleAnimationComplete = useCallback(() => {
     setAnimationDone(true);
   }, []);
+
+  if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
 
   return (
     <>
@@ -32,14 +37,14 @@ const Index = () => {
         >
           <WeddingNav />
           <HeroSection />
-          <OurStory />
           <Schedule />
+          <RSVPForm />
           <TravelAccommodations />
           <InternationalGuests />
           <FAQ />
-          <Photobook />
           <GiftsSpeeches />
-          <RSVPForm />
+          <OurStory />
+          <Photobook />
           <Footer />
         </motion.div>
       )}

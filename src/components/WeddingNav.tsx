@@ -5,14 +5,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const navItems = [
-  { key: "home", href: "#home" },
-  { key: "story", href: "#story" },
   { key: "schedule", href: "#schedule" },
+  { key: "rsvp", href: "#rsvp" },
   { key: "travel", href: "#travel" },
   { key: "faq", href: "#faq" },
-  { key: "photobook", href: "#photobook" },
   { key: "gifts", href: "#gifts" },
-  { key: "rsvp", href: "#rsvp" },
+  { key: "story", href: "#story" },
+  { key: "photobook", href: "#photobook" },
 ] as const;
 
 const WeddingNav = () => {

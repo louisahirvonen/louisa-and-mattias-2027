@@ -3,13 +3,18 @@
 
 const en = {
   pageTitle: "Louisa & Mattias — July 24, 2027",
+  gate: {
+    prompt: "Please enter the password we sent you",
+    placeholder: "Password",
+    open: "Open invitation",
+    wrong: "That's not quite right. Please try again.",
+  },
   envelope: {
     invited: "You are invited",
     date: "July 24th, 2027",
     opening: "Opening your invitation…",
   },
   nav: {
-    home: "Home",
     story: "Our Story",
     schedule: "Schedule",
     travel: "Travel",
@@ -23,6 +28,7 @@ const en = {
     date: "Saturday, July 24th, 2027",
     location: "Fiholm, Västerås, Sweden",
     photoAlt: "Louisa's hand with engagement ring on Mattias' chest",
+    rsvpCta: "RSVP by June 1st",
   },
   countdown: { days: "Days", hours: "Hours", minutes: "Min", seconds: "Sec" },
   story: {
@@ -51,32 +57,33 @@ const en = {
   },
   schedule: {
     eyebrow: "The Celebration",
-    title: "Schedule of Events",
-    events: [
+    title: "Schedule",
+    groups: [
       {
-        time: "3:00 PM",
-        title: "Ceremony",
         location: "Stora Rytterne church ruin",
-        description: "Join us as we exchange our vows below the arch of Rytterne church ruin.",
+        events: [
+          {
+            time: "3:00 PM",
+            title: "Ceremony",
+          },
+        ],
       },
       {
-        time: "4:30 PM",
-        title: "Cocktail Hour",
         location: "The Orangery at Fiholm",
-        description: "Enjoy champagne, hors d'oeuvres, and mingling.",
-      },
-      {
-        time: "6:00 PM",
-        title: "Dinner Reception",
-        location: "The Orangery at Fiholm",
-        description: "A candlelit evening of fine dining, heartfelt toasts, and the company of loved ones.",
-      },
-      {
-        time: "8:30 PM",
-        title: "Dancing Begins",
-        location: "The Orangery at Fiholm",
-        description:
-          "The orchestra strikes up for our first dance — and then the floor is yours for an evening of joy and celebration.",
+        events: [
+          {
+            time: "4:30 PM",
+            title: "Cocktail hour",
+          },
+          {
+            time: "6:00 PM",
+            title: "Dinner",
+          },
+          {
+            time: "8:30 PM",
+            title: "Dancing",
+          },
+        ],
       },
     ],
   },
@@ -89,7 +96,7 @@ const en = {
     info: [
       {
         title: "By Train",
-        description: "Trains run regularly from Stockholm Central to Västerås Central (about 55 minutes). From Stockholm Arlanda Airport, change trains at Stockholm Central and allow 1½–2 hours in total. There are hardly any buses out to Rytterne, so we will happily collect you from Västerås Central: just tick the box when you RSVP.",
+        description: "Trains run from Stockholm Central to Västerås Central in about an hour. There are hardly any buses out to Rytterne, so we'll pick you up at Västerås Central: just tick the box when you RSVP.",
       },
       {
         title: "By Car",
@@ -114,83 +121,86 @@ const en = {
     bookLabel: "Book or read more",
     accommodations: [
       {
+        title: "Rytterne Kyrkskola",
+        description: "A cosy B&B in the old church school, the closest place to stay.",
+        detail: "5 minutes from Fiholm · from 600 SEK/night",
+        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+      },
+      {
         title: "Thottska Villan, Strömsholm",
-        description: "A lovingly restored 18th-century villa by Strömsholm Palace, with breakfast included and a peaceful countryside setting.",
-        detail: "About 15 minutes from Fiholm · from approx. 1,500 SEK/night",
+        description: "A restored 18th-century villa by Strömsholm Palace, breakfast included.",
+        detail: "15 minutes from Fiholm · from 1,500 SEK/night",
         url: "https://www.booking.com/hotel/se/thottska-villan.html",
       },
       {
+        title: "Strömsholms Vandrarhem",
+        description: "A friendly hostel near Strömsholm Palace, with rooms for one to four.",
+        detail: "15 minutes from Fiholm · from 500 SEK/night",
+        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
+      },
+      {
         title: "Elite Stadshotellet Västerås",
-        description: "A grand Art Nouveau hotel from 1907 on the main square in Västerås, a short walk from the station where our guest pickup leaves from.",
-        detail: "Central Västerås · about 30 minutes from Fiholm · approx. 900–1,600 SEK/night",
+        description: "A grand 1907 hotel on the main square, a short walk from the station.",
+        detail: "30 minutes from Fiholm · from 900 SEK/night",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
       {
         title: "Comfort Hotel Västerås",
-        description: "A simple, good-value hotel right next to Västerås Central Station, handy if you are arriving by train.",
-        detail: "By the station · about 30 minutes from Fiholm",
+        description: "Simple and good value, right next to Västerås Central Station.",
+        detail: "30 minutes from Fiholm",
         url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
-      {
-        title: "Rytterne Kyrkskola",
-        description: "A cosy bed & breakfast in Rytterne's old church school and the closest place to stay: just minutes from both the ceremony and the celebration, with a garden and a shared kitchen.",
-        detail: "Budget-friendly · about 5 minutes from Fiholm · from approx. 600 SEK/night",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
-      },
-      {
-        title: "Strömsholms Vandrarhem",
-        description: "A friendly, family-run hostel in pretty Strömsholm, near the palace and the canal. Rooms sleep one to four, many with their own shower and WC, and there's a large shared kitchen.",
-        detail: "Budget-friendly · about 15 minutes from Fiholm · from approx. 500 SEK/room/night",
-        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
       },
     ],
   },
   international: {
     eyebrow: "Coming From Abroad",
     title: "International Guests",
-    intro: "We're so grateful you're making the journey! Here's a simple guide to getting from the airport to Stockholm and on to us, with a few ideas for making a holiday of it.",
-    cards: [
+    intro: "We're so grateful you're making the journey! Here's a simple guide from the airport, via Stockholm, all the way to us.",
+    beforeTitle: "Before You Go",
+    before: [
+      "Many nationalities can visit Sweden for short stays without a visa. Check the EU's entry requirements (EES and ETIAS) at travel-europe.europa.eu.",
+      "Sweden is almost cashless: cards and phone payments work nearly everywhere.",
+      "Sockets are the European two-pin type (230 V), and tap water is excellent to drink.",
+      "In late July the sun sets around 21:40, so evenings stay light for a long time.",
+    ],
+    steps: [
       {
-        title: "Flying In",
-        text: "Fly into Stockholm Arlanda (ARN), Sweden's main international airport, about 40 km north of Stockholm. Late July is a lovely time to visit, so why not spend a few days in Stockholm before the wedding?",
+        title: "Arrive at Arlanda",
+        text: "Fly into Stockholm Arlanda (ARN), Sweden's main international airport, about 40 km north of the city. The Arlanda Express train takes 18 minutes to Stockholm Central Station (about 340 SEK; extra adults travelling with you pay about 120 SEK each, and under-18s ride free). The SL commuter train (about 200 SEK, 40 min) and the Flygbussarna coach (from about 129 SEK, 45 min) are cheaper.",
       },
       {
-        title: "Into Stockholm",
-        text: "The Arlanda Express train takes 18 minutes to Stockholm Central Station and costs about 340 SEK one way (extra adults travelling with you pay about 120 SEK each, and under-18s ride free). The SL commuter train is cheaper, about 200 SEK, and takes around 40 minutes. The Flygbussarna airport coach takes about 45 minutes and costs from about 129 SEK.",
-      },
-      {
-        title: "Where to Stay in Stockholm",
-        items: [
-          "Norrmalm, around Central Station: the most practical base, as trains to the airport and to Västerås leave from here.",
-          "Gamla Stan: the charming medieval old town, a short walk from Central Station.",
-          "Södermalm: relaxed and creative, with cafés, vintage shops and great views.",
-          "Östermalm: elegant, with waterfront promenades and the Östermalm food hall.",
+        title: "Explore Stockholm",
+        text: "Late July is a lovely time to visit, so why not spend a few days in Stockholm before the wedding?",
+        columns: [
+          {
+            title: "Where to stay",
+            items: [
+              "Norrmalm, around Central Station: the most practical base, as trains to the airport and to Västerås leave from here.",
+              "Gamla Stan: the charming medieval old town, a short walk from Central Station.",
+              "Södermalm: relaxed and creative, with cafés, vintage shops and great views.",
+              "Östermalm: elegant, with waterfront promenades and the Östermalm food hall.",
+            ],
+          },
+          {
+            title: "What to do",
+            items: [
+              "Wander the cobbled lanes of Gamla Stan and see the Royal Palace.",
+              "Visit the Vasa Museum and its almost intact 17th-century warship.",
+              "Spend a day on leafy Djurgården: Skansen open-air museum, ABBA The Museum and Gröna Lund.",
+              "Take a boat out into the archipelago. Vaxholm is an easy day trip.",
+              "Catch the summer evening view from Monteliusvägen on Södermalm.",
+              "See photography with a view at Fotografiska, or modern art at Moderna Museet.",
+            ],
+          },
         ],
       },
       {
-        title: "Things to Do in Stockholm",
-        items: [
-          "Wander the cobbled lanes of Gamla Stan and see the Royal Palace.",
-          "Visit the Vasa Museum and its almost intact 17th-century warship.",
-          "Spend a day on leafy Djurgården: Skansen open-air museum, ABBA The Museum and Gröna Lund.",
-          "Take a boat out into the archipelago. Vaxholm is an easy day trip.",
-          "Catch the summer evening view from Monteliusvägen on Södermalm.",
-          "See photography with a view at Fotografiska, or modern art at Moderna Museet.",
-        ],
+        title: "Train to Västerås",
+        text: "Trains from Stockholm Central to Västerås Central run about twice an hour and take around an hour (roughly 100–250 SEK). Book in the SJ app or at sj.se before you board, as tickets can't be bought on the train. Or travel together with other guests by car.",
       },
       {
-        title: "On to Västerås",
-        text: "Trains from Stockholm Central to Västerås Central run about twice an hour and take around an hour (roughly 100–250 SEK). Book in the SJ app or at sj.se before you board, as tickets can't be bought on the train. There's no direct train from Arlanda, so change at Stockholm Central. You're also very welcome to travel together with other guests, and we offer rides from Västerås Central Station to the wedding.",
-      },
-      {
-        title: "Good to Know",
-        items: [
-          "Sweden is almost cashless: cards and phone payments work nearly everywhere.",
-          "Sockets are the European two-pin type (230 V), and tap water is excellent to drink.",
-          "In late July the sun sets around 21:40, so evenings stay light for a long time.",
-          "Uber and Bolt run in Västerås, but cars can be scarce in the countryside late at night. To be safe, pre-book a taxi home, for example Sverigetaxi (+46 21 170 000) or Taxi Västerås (+46 21 18 50 00).",
-          "Many nationalities can visit Sweden for short stays without a visa. Before you travel, check the EU's entry requirements (EES and ETIAS) at travel-europe.europa.eu.",
-        ],
+        title: "On to the Wedding",
+        text: "We'll pick you up at Västerås Central Station; just tick the box when you RSVP. At the end of the evening there are rides back to the station. If you'd rather head home on your own, pre-book a taxi, as Uber and Bolt cars can be scarce in the countryside late at night: Sverigetaxi (+46 21 170 000) or Taxi Västerås (+46 21 18 50 00).",
       },
     ],
   },
@@ -277,9 +287,13 @@ const en = {
     eyebrow: "We Hope You Can Join Us",
     title: "RSVP",
     deadline: "Kindly respond by June 1st, 2027",
-    guestNames: "Guest Names *",
+    guestNames: "Guests *",
     yourName: "Your full name",
     guestName: (n: number) => `Guest ${n} full name`,
+    guestHeading: (n: number) => `Guest ${n}`,
+    fullName: "Full name",
+    phone: "Phone",
+    phonePlaceholder: "Incl. country code, e.g. +46",
     addGuest: "Add another guest",
     removeGuest: "Remove guest",
     email: "Email",
@@ -321,13 +335,18 @@ export type Translations = typeof en;
 
 const sv: Translations = {
   pageTitle: "Louisa & Mattias — 24 juli 2027",
+  gate: {
+    prompt: "Skriv lösenordet vi skickade till dig",
+    placeholder: "Lösenord",
+    open: "Öppna inbjudan",
+    wrong: "Det stämmer inte riktigt – försök igen.",
+  },
   envelope: {
     invited: "Du är inbjuden",
     date: "24 juli 2027",
     opening: "Öppnar din inbjudan…",
   },
   nav: {
-    home: "Hem",
     story: "Vår historia",
     schedule: "Program",
     travel: "Resa",
@@ -341,6 +360,7 @@ const sv: Translations = {
     date: "Lördag 24 juli 2027",
     location: "Fiholm, Västerås",
     photoAlt: "Louisas hand med förlovningsringen mot Mattias bröst",
+    rsvpCta: "OSA senast 1 juni",
   },
   countdown: { days: "Dagar", hours: "Timmar", minutes: "Min", seconds: "Sek" },
   story: {
@@ -370,30 +390,32 @@ const sv: Translations = {
   schedule: {
     eyebrow: "Firandet",
     title: "Program",
-    events: [
+    groups: [
       {
-        time: "15.00",
-        title: "Vigsel",
         location: "Stora Rytterne kyrkoruin",
-        description: "Var med när vi säger ja till varandra under valvet i Rytterne kyrkoruin.",
+        events: [
+          {
+            time: "15.00",
+            title: "Vigsel",
+          },
+        ],
       },
       {
-        time: "16.30",
-        title: "Mingel",
-        location: "Fiholms orangeri",
-        description: "Njut av champagne, tilltugg och mingel.",
-      },
-      {
-        time: "18.00",
-        title: "Middag",
-        location: "Fiholms orangeri",
-        description: "En kväll i levande ljus med god mat, varma tal och nära och kära.",
-      },
-      {
-        time: "20.30",
-        title: "Dansen börjar",
-        location: "Fiholms orangeri",
-        description: "Orkestern spelar upp till vår första dans – sedan är dansgolvet ert för en kväll full av glädje och fest.",
+        location: "Orangeriet på Fiholm",
+        events: [
+          {
+            time: "16.30",
+            title: "Mingel",
+          },
+          {
+            time: "18.00",
+            title: "Middag",
+          },
+          {
+            time: "20.30",
+            title: "Dans",
+          },
+        ],
       },
     ],
   },
@@ -405,7 +427,7 @@ const sv: Translations = {
     info: [
       {
         title: "Med tåg",
-        description: "Tåg går regelbundet från Stockholm C till Västerås C (cirka 55 minuter). Från Arlanda byter du tåg i Stockholm C – räkna med 1,5–2 timmar totalt. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig gärna vid Västerås C – kryssa bara i rutan när du OSA:r.",
+        description: "Tåget från Stockholm C till Västerås C tar ungefär en timme. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig vid Västerås C – kryssa bara i rutan när du OSA:r.",
       },
       {
         title: "Med bil",
@@ -430,83 +452,86 @@ const sv: Translations = {
     bookLabel: "Boka eller läs mer",
     accommodations: [
       {
+        title: "Rytterne Kyrkskola",
+        description: "Mysigt B&B i den gamla kyrkskolan – närmast av alla.",
+        detail: "5 minuter från Fiholm · från 600 kr/natt",
+        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+      },
+      {
         title: "Thottska Villan, Strömsholm",
-        description: "En varsamt renoverad 1700-talsvilla vid Strömsholms slott, med frukost och lugn landsbygdsmiljö.",
-        detail: "Cirka 15 minuter från Fiholm · från ca 1 500 kr/natt",
+        description: "Renoverad 1700-talsvilla vid Strömsholms slott, frukost ingår.",
+        detail: "15 minuter från Fiholm · från 1 500 kr/natt",
         url: "https://www.booking.com/hotel/se/thottska-villan.html",
       },
       {
+        title: "Strömsholms Vandrarhem",
+        description: "Trevligt vandrarhem nära Strömsholms slott, rum för en till fyra.",
+        detail: "15 minuter från Fiholm · från 500 kr/natt",
+        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
+      },
+      {
         title: "Elite Stadshotellet Västerås",
-        description: "Anrikt jugendhotell från 1907 vid Stora torget, en kort promenad från stationen där vår upphämtning utgår.",
-        detail: "Centrala Västerås · cirka 30 minuter från Fiholm · ca 900–1 600 kr/natt",
+        description: "Anrikt hotell från 1907 vid Stora torget, nära stationen.",
+        detail: "30 minuter från Fiholm · från 900 kr/natt",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
       {
         title: "Comfort Hotel Västerås",
-        description: "Enkelt och prisvärt hotell precis vid Västerås centralstation – smidigt om du kommer med tåg.",
-        detail: "Vid stationen · cirka 30 minuter från Fiholm",
+        description: "Enkelt och prisvärt, precis vid Västerås centralstation.",
+        detail: "30 minuter från Fiholm",
         url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
-      {
-        title: "Rytterne Kyrkskola",
-        description: "Mysigt bed & breakfast i Rytternes gamla kyrkskola – närmast av alla, bara några minuter från både vigseln och festen, med trädgård och gemensamt kök.",
-        detail: "Budgetvänligt · cirka 5 minuter från Fiholm · från ca 600 kr/natt",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
-      },
-      {
-        title: "Strömsholms Vandrarhem",
-        description: "Trevligt familjedrivet vandrarhem i vackra Strömsholm, nära slottet och kanalen. Rum för en till fyra personer, många med egen dusch och wc, och ett stort gemensamt kök.",
-        detail: "Budgetvänligt · cirka 15 minuter från Fiholm · från ca 500 kr/rum och natt",
-        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
       },
     ],
   },
   international: {
     eyebrow: "Från utlandet",
     title: "Internationella gäster",
-    intro: "Vad roligt att du gör den långa resan! Här är en enkel guide från flygplatsen till Stockholm och vidare till oss, med några tips om du vill göra en semester av det.",
-    cards: [
+    intro: "Vad roligt att du gör den långa resan! Här är en enkel guide från flygplatsen, via Stockholm, hela vägen till oss.",
+    beforeTitle: "Före resan",
+    before: [
+      "Många nationaliteter kan besöka Sverige en kortare tid utan visum. Kolla EU:s inresekrav (EES och ETIAS) på travel-europe.europa.eu.",
+      "Sverige är nästan kontantfritt – kort och mobilbetalning fungerar nästan överallt.",
+      "Eluttagen är av europeisk typ (230 V), och kranvattnet är utmärkt att dricka.",
+      "I slutet av juli går solen ner runt 21.40, så kvällarna är ljusa länge.",
+    ],
+    steps: [
       {
-        title: "Flyg",
-        text: "Flyg till Stockholm Arlanda (ARN), Sveriges största internationella flygplats, cirka 4 mil norr om Stockholm. Slutet av juli är en härlig tid att besöka Sverige – passa gärna på att stanna några dagar i Stockholm före bröllopet.",
+        title: "Landa på Arlanda",
+        text: "Flyg till Stockholm Arlanda (ARN), Sveriges största internationella flygplats, cirka 4 mil norr om Stockholm. Arlanda Express tar 18 minuter till Stockholm C (cirka 340 kr; fler vuxna som reser tillsammans betalar cirka 120 kr var, och under 18 år åker gratis). SL:s pendeltåg (cirka 200 kr, 40 min) och Flygbussarna (från cirka 129 kr, 45 min) är billigare.",
       },
       {
-        title: "Till Stockholm",
-        text: "Arlanda Express tar 18 minuter till Stockholm C och kostar cirka 340 kr enkel resa (fler vuxna som reser tillsammans betalar cirka 120 kr var, och under 18 år åker gratis). SL:s pendeltåg är billigare, cirka 200 kr, och tar runt 40 minuter. Flygbussarna tar cirka 45 minuter och kostar från cirka 129 kr.",
-      },
-      {
-        title: "Bo i Stockholm",
-        items: [
-          "Norrmalm, runt Centralstationen: smidigast, eftersom tågen till Arlanda och Västerås går härifrån.",
-          "Gamla stan: den charmiga medeltida stadskärnan, en kort promenad från Centralen.",
-          "Södermalm: avslappnat och kreativt, med kaféer, vintagebutiker och fina utsikter.",
-          "Östermalm: elegant, med strandpromenader och Östermalms saluhall.",
+        title: "Upptäck Stockholm",
+        text: "Slutet av juli är en härlig tid att besöka Sverige – passa gärna på att stanna några dagar i Stockholm före bröllopet.",
+        columns: [
+          {
+            title: "Var du kan bo",
+            items: [
+              "Norrmalm, runt Centralstationen: smidigast, eftersom tågen till Arlanda och Västerås går härifrån.",
+              "Gamla stan: den charmiga medeltida stadskärnan, en kort promenad från Centralen.",
+              "Södermalm: avslappnat och kreativt, med kaféer, vintagebutiker och fina utsikter.",
+              "Östermalm: elegant, med strandpromenader och Östermalms saluhall.",
+            ],
+          },
+          {
+            title: "Vad du kan göra",
+            items: [
+              "Strosa längs kullerstensgränderna i Gamla stan och se Kungliga slottet.",
+              "Besök Vasamuseet och det nästan helt bevarade 1600-talsskeppet.",
+              "Ägna en dag åt gröna Djurgården: Skansen, ABBA The Museum och Gröna Lund.",
+              "Ta båten ut i skärgården – Vaxholm är en enkel dagsutflykt.",
+              "Njut av sommarkvällens utsikt från Monteliusvägen på Södermalm.",
+              "Se fotografi med utsikt på Fotografiska, eller modern konst på Moderna Museet.",
+            ],
+          },
         ],
       },
       {
-        title: "Upplev Stockholm",
-        items: [
-          "Strosa längs kullerstensgränderna i Gamla stan och se Kungliga slottet.",
-          "Besök Vasamuseet och det nästan helt bevarade 1600-talsskeppet.",
-          "Ägna en dag åt gröna Djurgården: Skansen, ABBA The Museum och Gröna Lund.",
-          "Ta båten ut i skärgården – Vaxholm är en enkel dagsutflykt.",
-          "Njut av sommarkvällens utsikt från Monteliusvägen på Södermalm.",
-          "Se fotografi med utsikt på Fotografiska, eller modern konst på Moderna Museet.",
-        ],
+        title: "Tåg till Västerås",
+        text: "Tåg från Stockholm C till Västerås C går ungefär två gånger i timmen och tar cirka en timme (ungefär 100–250 kr). Köp biljett i SJ-appen eller på sj.se innan du kliver på – det går inte att köpa biljett ombord. Eller samåk med andra gäster.",
       },
       {
-        title: "Vidare till Västerås",
-        text: "Tåg från Stockholm C till Västerås C går ungefär två gånger i timmen och tar cirka en timme (ungefär 100–250 kr). Köp biljett i SJ-appen eller på sj.se innan du kliver på – det går inte att köpa biljett ombord. Det finns inget direkttåg från Arlanda, så byt i Stockholm C. Samåk gärna med andra gäster – och vi erbjuder skjuts från Västerås centralstation till bröllopet.",
-      },
-      {
-        title: "Bra att veta",
-        items: [
-          "Sverige är nästan kontantfritt – kort och mobilbetalning fungerar nästan överallt.",
-          "Eluttagen är av europeisk typ (230 V), och kranvattnet är utmärkt att dricka.",
-          "I slutet av juli går solen ner runt 21.40, så kvällarna är ljusa länge.",
-          "Uber och Bolt finns i Västerås, men det kan vara ont om bilar på landet sent på natten. Förboka gärna taxi hem, till exempel Sverigetaxi (021-170 000) eller Taxi Västerås (021-18 50 00).",
-          "Många nationaliteter kan besöka Sverige en kortare tid utan visum. Kolla EU:s inresekrav (EES och ETIAS) på travel-europe.europa.eu före resan.",
-        ],
+        title: "Vidare till bröllopet",
+        text: "Vi hämtar dig vid Västerås centralstation – kryssa bara i rutan när du OSA:r. När kvällen är slut finns skjuts tillbaka till stationen. Vill du åka hem på egen hand, förboka taxi – det kan vara ont om Uber- och Bolt-bilar på landet sent på natten: Sverigetaxi (021-170 000) eller Taxi Västerås (021-18 50 00).",
       },
     ],
   },
@@ -592,9 +617,13 @@ const sv: Translations = {
     eyebrow: "Vi hoppas att du kan komma",
     title: "OSA",
     deadline: "Vänligen svara senast den 1 juni 2027",
-    guestNames: "Gästernas namn *",
+    guestNames: "Gäster *",
     yourName: "Ditt för- och efternamn",
     guestName: (n: number) => `Gäst ${n}, för- och efternamn`,
+    guestHeading: (n: number) => `Gäst ${n}`,
+    fullName: "För- och efternamn",
+    phone: "Telefon",
+    phonePlaceholder: "Ange landsnummer för utländska nummer",
     addGuest: "Lägg till en gäst till",
     removeGuest: "Ta bort gäst",
     email: "E-post",
@@ -634,13 +663,18 @@ const sv: Translations = {
 
 const es: Translations = {
   pageTitle: "Louisa & Mattias — 24 de julio de 2027",
+  gate: {
+    prompt: "Ingresa la contraseña que te enviamos",
+    placeholder: "Contraseña",
+    open: "Abrir invitación",
+    wrong: "La contraseña no es correcta. Inténtalo de nuevo.",
+  },
   envelope: {
     invited: "Te invitamos",
     date: "24 de julio de 2027",
     opening: "Abriendo tu invitación…",
   },
   nav: {
-    home: "Inicio",
     story: "Nuestra historia",
     schedule: "Itinerario",
     travel: "Viaje",
@@ -654,6 +688,7 @@ const es: Translations = {
     date: "Sábado 24 de julio de 2027",
     location: "Fiholm, Västerås, Suecia",
     photoAlt: "La mano de Louisa con el anillo de compromiso sobre el pecho de Mattias",
+    rsvpCta: "Confirma hasta el 1 de junio",
   },
   countdown: { days: "Días", hours: "Horas", minutes: "Min", seconds: "Seg" },
   story: {
@@ -682,31 +717,33 @@ const es: Translations = {
   },
   schedule: {
     eyebrow: "La celebración",
-    title: "Itinerario del día",
-    events: [
+    title: "Itinerario",
+    groups: [
       {
-        time: "3:00 p. m.",
-        title: "Ceremonia",
         location: "Ruinas de la iglesia de Stora Rytterne",
-        description: "Acompáñanos a darnos el “sí, acepto” bajo el arco de las ruinas de la iglesia de Rytterne.",
+        events: [
+          {
+            time: "3:00 p. m.",
+            title: "Ceremonia",
+          },
+        ],
       },
       {
-        time: "4:30 p. m.",
-        title: "Cóctel",
         location: "Orangería de Fiholm",
-        description: "Disfruta de champaña, bocaditos y buena compañía.",
-      },
-      {
-        time: "6:00 p. m.",
-        title: "Cena",
-        location: "Orangería de Fiholm",
-        description: "Una velada a la luz de las velas con una cena especial, brindis emotivos y la compañía de nuestros seres queridos.",
-      },
-      {
-        time: "8:30 p. m.",
-        title: "Comienza el baile",
-        location: "Orangería de Fiholm",
-        description: "La orquesta tocará nuestro primer baile y, después, la pista será de todos para una noche de alegría y celebración.",
+        events: [
+          {
+            time: "4:30 p. m.",
+            title: "Cóctel",
+          },
+          {
+            time: "6:00 p. m.",
+            title: "Cena",
+          },
+          {
+            time: "8:30 p. m.",
+            title: "Baile",
+          },
+        ],
       },
     ],
   },
@@ -718,7 +755,7 @@ const es: Translations = {
     info: [
       {
         title: "En tren",
-        description: "Hay trenes frecuentes desde la estación central de Estocolmo hasta la estación central de Västerås (unos 55 minutos). Desde el aeropuerto de Arlanda, cambia de tren en la estación central de Estocolmo; calcula entre 1 h 30 min y 2 horas en total. Casi no hay buses hacia Rytterne, así que con gusto te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
+        description: "El tren de la estación central de Estocolmo a la de Västerås demora alrededor de una hora. Casi no hay buses hacia Rytterne, así que te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
       },
       {
         title: "En auto",
@@ -743,83 +780,86 @@ const es: Translations = {
     bookLabel: "Reservar o ver más",
     accommodations: [
       {
+        title: "Rytterne Kyrkskola",
+        description: "Un acogedor B&B en la antigua escuela parroquial, el hospedaje más cercano.",
+        detail: "A 5 minutos de Fiholm · desde 600 coronas por noche",
+        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+      },
+      {
         title: "Thottska Villan, Strömsholm",
-        description: "Una villa del siglo XVIII restaurada con mucho cariño junto al palacio de Strömsholm, con desayuno incluido y un entorno campestre muy tranquilo.",
-        detail: "A unos 15 minutos de Fiholm · desde aprox. 1500 coronas suecas por noche",
+        description: "Una villa del siglo XVIII restaurada junto al palacio de Strömsholm, con desayuno incluido.",
+        detail: "A 15 minutos de Fiholm · desde 1500 coronas por noche",
         url: "https://www.booking.com/hotel/se/thottska-villan.html",
       },
       {
+        title: "Strömsholms Vandrarhem",
+        description: "Un albergue acogedor cerca del palacio de Strömsholm, con habitaciones para una a cuatro personas.",
+        detail: "A 15 minutos de Fiholm · desde 500 coronas por noche",
+        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
+      },
+      {
         title: "Elite Stadshotellet Västerås",
-        description: "Un elegante hotel art nouveau de 1907 en la plaza principal de Västerås, a pocos minutos a pie de la estación desde donde sale nuestro recojo.",
-        detail: "Centro de Västerås · a unos 30 minutos de Fiholm · aprox. 900–1600 coronas suecas por noche",
+        description: "Un elegante hotel de 1907 en la plaza principal, cerca de la estación.",
+        detail: "A 30 minutos de Fiholm · desde 900 coronas por noche",
         url: "https://www.elite.se/en/hotels/vasteras/elite-stadshotellet-vasteras/",
       },
       {
         title: "Comfort Hotel Västerås",
-        description: "Un hotel sencillo y económico justo al lado de la estación central de Västerås, ideal si llegas en tren.",
-        detail: "Junto a la estación · a unos 30 minutos de Fiholm",
+        description: "Sencillo y económico, junto a la estación central de Västerås.",
+        detail: "A 30 minutos de Fiholm",
         url: "https://www.strawberry.se/hotell/sverige/vasteras/comfort-hotel-vasteras/",
-      },
-      {
-        title: "Rytterne Kyrkskola",
-        description: "Un acogedor bed & breakfast en la antigua escuela parroquial de Rytterne, el hospedaje más cercano: a pocos minutos de la ceremonia y de la celebración, con jardín y cocina compartida.",
-        detail: "Económico · a unos 5 minutos de Fiholm · desde aprox. 600 coronas suecas por noche",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
-      },
-      {
-        title: "Strömsholms Vandrarhem",
-        description: "Un albergue familiar y acogedor en el lindo pueblo de Strömsholm, cerca del palacio y del canal. Hay habitaciones para una a cuatro personas, muchas con ducha y baño propios, y una cocina compartida grande.",
-        detail: "Económico · a unos 15 minutos de Fiholm · desde aprox. 500 coronas suecas por habitación y noche",
-        url: "http://www.stromsholmsvandrarhem.com/kontakt-bokning",
       },
     ],
   },
   international: {
     eyebrow: "Desde el extranjero",
     title: "Invitados internacionales",
-    intro: "¡Gracias por hacer este viaje tan largo para acompañarnos! Aquí tienes una guía sencilla para llegar del aeropuerto a Estocolmo y de ahí hasta nosotros, con algunas ideas por si quieres aprovechar y hacer turismo.",
-    cards: [
+    intro: "¡Gracias por hacer este viaje tan largo para acompañarnos! Aquí tienes una guía sencilla desde el aeropuerto, pasando por Estocolmo, hasta nosotros.",
+    beforeTitle: "Antes de viajar",
+    before: [
+      "Muchas nacionalidades pueden visitar Suecia por estadías cortas sin visa. Revisa los requisitos de ingreso de la UE (EES y ETIAS) en travel-europe.europa.eu.",
+      "En Suecia casi no se usa efectivo: se paga con tarjeta o con el celular casi en todas partes.",
+      "Los enchufes son de tipo europeo de dos clavijas (230 V), y el agua del caño es excelente para tomar.",
+      "A fines de julio el sol se pone alrededor de las 9:40 p. m., así que las noches son claras hasta tarde.",
+    ],
+    steps: [
       {
-        title: "Tu vuelo",
-        text: "Vuela al aeropuerto de Estocolmo-Arlanda (ARN), el principal aeropuerto internacional de Suecia, a unos 40 km al norte de Estocolmo. Fines de julio es una época linda para visitar, así que vale la pena quedarse unos días en Estocolmo antes de la boda.",
+        title: "Llegada a Arlanda",
+        text: "Vuela al aeropuerto de Estocolmo-Arlanda (ARN), el principal aeropuerto internacional de Suecia, a unos 40 km al norte de la ciudad. El tren Arlanda Express llega en 18 minutos a la estación central de Estocolmo (unas 340 coronas; cada adulto adicional que viaje contigo paga unas 120 coronas y los menores de 18 años viajan gratis). El tren de cercanías SL (unas 200 coronas, 40 min) y el bus Flygbussarna (desde unas 129 coronas, 45 min) son más baratos.",
       },
       {
-        title: "Del aeropuerto a Estocolmo",
-        text: "El tren Arlanda Express llega en 18 minutos a la estación central de Estocolmo y cuesta unas 340 coronas solo ida (cada adulto adicional que viaje contigo paga unas 120 coronas y los menores de 18 años viajan gratis). El tren de cercanías SL es más barato, unas 200 coronas, y demora unos 40 minutos. El bus Flygbussarna demora unos 45 minutos y cuesta desde unas 129 coronas.",
-      },
-      {
-        title: "Dónde hospedarse en Estocolmo",
-        items: [
-          "Norrmalm, alrededor de la estación central: lo más práctico, porque de ahí salen los trenes al aeropuerto y a Västerås.",
-          "Gamla Stan: el encantador casco antiguo medieval, a pocos minutos a pie de la estación central.",
-          "Södermalm: relajado y creativo, con cafés, tiendas vintage y lindas vistas.",
-          "Östermalm: elegante, con paseos junto al agua y el mercado gastronómico Östermalms Saluhall.",
+        title: "Conoce Estocolmo",
+        text: "Fines de julio es una época linda para visitar, así que vale la pena quedarse unos días en Estocolmo antes de la boda.",
+        columns: [
+          {
+            title: "Dónde hospedarte",
+            items: [
+              "Norrmalm, alrededor de la estación central: lo más práctico, porque de ahí salen los trenes al aeropuerto y a Västerås.",
+              "Gamla Stan: el encantador casco antiguo medieval, a pocos minutos a pie de la estación central.",
+              "Södermalm: relajado y creativo, con cafés, tiendas vintage y lindas vistas.",
+              "Östermalm: elegante, con paseos junto al agua y el mercado gastronómico Östermalms Saluhall.",
+            ],
+          },
+          {
+            title: "Qué hacer",
+            items: [
+              "Recorre las calles empedradas de Gamla Stan y visita el Palacio Real.",
+              "Visita el Museo Vasa y su barco de guerra del siglo XVII casi intacto.",
+              "Pasa un día en la verde isla de Djurgården: el museo al aire libre Skansen, ABBA The Museum y el parque de diversiones Gröna Lund.",
+              "Toma un barco hacia el archipiélago; Vaxholm es un paseo fácil de un día.",
+              "Disfruta la vista de las noches de verano desde el mirador Monteliusvägen, en Södermalm.",
+              "Mira fotografía con vista al mar en Fotografiska, o arte moderno en el Moderna Museet.",
+            ],
+          },
         ],
       },
       {
-        title: "Qué hacer en Estocolmo",
-        items: [
-          "Recorre las calles empedradas de Gamla Stan y visita el Palacio Real.",
-          "Visita el Museo Vasa y su barco de guerra del siglo XVII casi intacto.",
-          "Pasa un día en la verde isla de Djurgården: el museo al aire libre Skansen, ABBA The Museum y el parque de diversiones Gröna Lund.",
-          "Toma un barco hacia el archipiélago; Vaxholm es un paseo fácil de un día.",
-          "Disfruta la vista de las noches de verano desde el mirador Monteliusvägen, en Södermalm.",
-          "Mira fotografía con vista al mar en Fotografiska, o arte moderno en el Moderna Museet.",
-        ],
+        title: "En tren a Västerås",
+        text: "Hay trenes desde la estación central de Estocolmo hasta la de Västerås unas dos veces por hora, y el viaje dura alrededor de una hora (aprox. 100–250 coronas). Compra tu pasaje en la app de SJ o en sj.se antes de subir, porque no se venden pasajes a bordo. También puedes viajar en auto con otros invitados.",
       },
       {
-        title: "Cómo llegar a Västerås",
-        text: "Hay trenes desde la estación central de Estocolmo hasta la de Västerås unas dos veces por hora, y el viaje dura alrededor de una hora (aprox. 100–250 coronas). Compra tu pasaje en la app de SJ o en sj.se antes de subir, porque no se venden pasajes a bordo. No hay tren directo desde Arlanda, así que debes cambiar de tren en la estación central de Estocolmo. También puedes viajar con otros invitados, y ofrecemos recojo desde la estación central de Västerås hasta la boda.",
-      },
-      {
-        title: "Datos útiles",
-        items: [
-          "En Suecia casi no se usa efectivo: se paga con tarjeta o con el celular casi en todas partes.",
-          "Los enchufes son de tipo europeo de dos clavijas (230 V), y el agua del caño es excelente para tomar.",
-          "A fines de julio el sol se pone alrededor de las 9:40 p. m., así que las noches son claras hasta tarde.",
-          "Uber y Bolt funcionan en Västerås, pero de madrugada puede haber pocos autos en el campo. Para ir a la segura, reserva un taxi de regreso con anticipación, por ejemplo Sverigetaxi (+46 21 170 000) o Taxi Västerås (+46 21 18 50 00).",
-          "Muchas nacionalidades pueden visitar Suecia por estadías cortas sin visa. Antes de viajar, revisa los requisitos de ingreso de la UE (EES y ETIAS) en travel-europe.europa.eu.",
-        ],
+        title: "Hasta la boda",
+        text: "Te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia. Al final de la noche habrá movilidad de regreso a la estación. Si prefieres volver por tu cuenta, reserva un taxi con anticipación, porque de madrugada puede haber pocos autos de Uber y Bolt en el campo: Sverigetaxi (+46 21 170 000) o Taxi Västerås (+46 21 18 50 00).",
       },
     ],
   },
@@ -906,9 +946,13 @@ const es: Translations = {
     eyebrow: "Esperamos que puedas acompañarnos",
     title: "Confirma tu asistencia",
     deadline: "Por favor, confirma hasta el 1 de junio de 2027",
-    guestNames: "Nombres de los invitados *",
+    guestNames: "Invitados *",
     yourName: "Tu nombre completo",
     guestName: (n: number) => `Nombre completo del invitado ${n}`,
+    guestHeading: (n: number) => `Invitado ${n}`,
+    fullName: "Nombre completo",
+    phone: "Celular",
+    phonePlaceholder: "Con código de país, p. ej. +46",
     addGuest: "Agregar otro invitado",
     removeGuest: "Quitar invitado",
     email: "Correo electrónico",

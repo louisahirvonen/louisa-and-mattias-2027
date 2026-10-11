@@ -15,12 +15,12 @@ const GiftsSpeeches = () => {
   const cardClasses = "flex flex-col items-center text-center p-8 border border-border bg-card";
 
   return (
-    <section id="gifts" className="relative py-24 px-4 overflow-hidden">
+    <section id="gifts" className="relative py-16 sm:py-20 px-4 overflow-hidden">
       <FloralDecoration variant="corner-top-left" className="absolute top-0 left-0 w-28 sm:w-40 opacity-30 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -5,13 +5,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const OurStory = () => {
   const { t } = useLanguage();
   return (
-    <section id="story" className="relative py-24 px-4 bg-warm-white overflow-hidden">
+    <section id="story" className="relative py-16 sm:py-20 px-4 bg-warm-white overflow-hidden">
       <FloralDecoration variant="corner-top-left" className="absolute top-0 left-0 w-32 sm:w-44 opacity-40 pointer-events-none" />
       <FloralDecoration variant="corner-bottom-right" className="absolute bottom-0 right-0 w-28 sm:w-40 opacity-30 pointer-events-none" />
 
       <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

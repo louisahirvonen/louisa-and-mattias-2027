@@ -9,10 +9,10 @@ const travelIcons = [Train, Car, MapPin];
 const TravelAccommodations = () => {
   const { t } = useLanguage();
   return (
-    <section id="travel" className="py-24 px-4">
+    <section id="travel" className="py-16 sm:py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -52,7 +52,7 @@ const TravelAccommodations = () => {
         </motion.div>
 
         {/* Travel */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-3 gap-6 mb-12">
           {t.travel.info.map((info, i) => {
             const Icon = travelIcons[i];
             return (
@@ -88,20 +88,20 @@ const TravelAccommodations = () => {
         </div>
 
         {/* Accommodations */}
-        <h3 className="font-display text-2xl text-foreground font-medium text-center mb-8">
+        <h3 className="font-display text-2xl text-foreground font-medium text-center mb-6">
           {t.travel.whereToStay}
         </h3>
-        <div className="space-y-4">
+        <div className="grid sm:grid-cols-2 gap-4">
           {t.travel.accommodations.map((acc, i) => (
             <motion.div
               key={i}
-              className="flex gap-4 p-6 border border-border bg-card"
+              className="flex gap-3 p-5 border border-border bg-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
             >
-              <Hotel className="text-taupe flex-shrink-0 mt-1" size={22} />
+              <Hotel className="text-taupe flex-shrink-0 mt-1" size={18} />
               <div>
                 <h4 className="font-display text-lg text-foreground font-medium">{acc.title}</h4>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed mb-1">{acc.description}</p>
