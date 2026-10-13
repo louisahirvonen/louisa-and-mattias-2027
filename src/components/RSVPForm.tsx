@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { isGoogleFormConfigured, submitToGoogleForm } from "@/lib/googleForm";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, X } from "lucide-react";
 import FloralDecoration from "./FloralDecoration";
+import Reveal from "./Reveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Guest {
@@ -12,26 +13,6 @@ interface Guest {
 }
 
 const emptyGuest = (): Guest => ({ name: "", dietary: "" });
-
-const easing = [0.25, 0.46, 0.45, 0.94] as const;
-
-// Folds content open and closed instead of popping it in and out,
-// so the rest of the form glides rather than jumps
-const Reveal = ({ show, children }: { show: boolean; children: React.ReactNode }) => (
-  <AnimatePresence initial={false}>
-    {show && (
-      <motion.div
-        initial={{ height: 0, opacity: 0, overflow: "hidden" }}
-        // Overflow back to visible once open, so input focus rings aren't clipped
-        animate={{ height: "auto", opacity: 1, transitionEnd: { overflow: "visible" } }}
-        exit={{ height: 0, opacity: 0, overflow: "hidden" }}
-        transition={{ duration: 0.35, ease: easing }}
-      >
-        {children}
-      </motion.div>
-    )}
-  </AnimatePresence>
-);
 
 const RSVPForm = () => {
   const { toast } = useToast();

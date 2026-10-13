@@ -93,11 +93,11 @@ const en = {
     title: "Travel & Accommodations",
     venueAlt: "Fiholm Manor near Västerås, where we celebrate",
     venueCaption: "Fiholm Manor · Rytterne, Västerås, Sweden",
-    // Same order as the icons in TravelAccommodations: train, car, address
+    // Same order as the icons in TravelAccommodations: train, car
     info: [
       {
         title: "By Train",
-        description: "Trains run from Stockholm Central to Västerås Central in about an hour. There are hardly any buses out to Rytterne, so we'll pick you up at Västerås Central: just tick the box when you RSVP.",
+        description: "Trains run from Stockholm Central to Västerås Central in about an hour. Buy tickets in the SJ app or at sj.se before boarding, as they can't be bought on the train. There are hardly any buses out to Rytterne, so we'll pick you up at Västerås Central: just tick the box when you RSVP.",
       },
       {
         title: "By Car",
@@ -134,8 +134,7 @@ const en = {
     ],
   },
   international: {
-    eyebrow: "Coming From Abroad",
-    title: "International Guests",
+    toggle: "Travelling from abroad?",
     intro: "We're so grateful you're making the journey! Here's a simple guide from the airport, via Stockholm, all the way to us.",
     beforeTitle: "Before You Go",
     before: [
@@ -176,12 +175,8 @@ const en = {
         ],
       },
       {
-        title: "Train to Västerås",
-        text: "Trains from Stockholm Central to Västerås Central run about twice an hour and take around an hour (roughly 100–250 SEK). Book in the SJ app or at sj.se before you board, as tickets can't be bought on the train. Or travel together with other guests by car.",
-      },
-      {
-        title: "On to the Wedding",
-        text: "We'll pick you up at Västerås Central Station; just tick the box when you RSVP. At the end of the evening there are rides back to the station. If you'd rather head home on your own, pre-book a taxi, as Uber and Bolt cars can be scarce in the countryside late at night: Sverigetaxi (+46 21 170 000) or Taxi Västerås (+46 21 18 50 00).",
+        title: "From Stockholm to Us",
+        text: "From Stockholm Central, you're on the same journey as everyone else: take the train to Västerås or travel together with other guests by car. Everything about getting here and where to stay is above.",
       },
     ],
   },
@@ -386,7 +381,7 @@ const sv: Translations = {
     info: [
       {
         title: "Med tåg",
-        description: "Tåget från Stockholm C till Västerås C tar ungefär en timme. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig vid Västerås C – kryssa bara i rutan när du OSA:r.",
+        description: "Tåget från Stockholm C till Västerås C tar ungefär en timme. Köp biljett i SJ-appen eller på sj.se innan du kliver på – det går inte att köpa ombord. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig vid Västerås C – kryssa bara i rutan när du OSA:r.",
       },
       {
         title: "Med bil",
@@ -423,8 +418,7 @@ const sv: Translations = {
     ],
   },
   international: {
-    eyebrow: "Från utlandet",
-    title: "Internationella gäster",
+    toggle: "Reser du från utlandet?",
     intro: "Vad roligt att du gör den långa resan! Här är en enkel guide från flygplatsen, via Stockholm, hela vägen till oss.",
     beforeTitle: "Före resan",
     before: [
@@ -465,12 +459,8 @@ const sv: Translations = {
         ],
       },
       {
-        title: "Tåg till Västerås",
-        text: "Tåg från Stockholm C till Västerås C går ungefär två gånger i timmen och tar cirka en timme (ungefär 100–250 kr). Köp biljett i SJ-appen eller på sj.se innan du kliver på – det går inte att köpa biljett ombord. Eller samåk med andra gäster.",
-      },
-      {
-        title: "Vidare till bröllopet",
-        text: "Vi hämtar dig vid Västerås centralstation – kryssa bara i rutan när du OSA:r. När kvällen är slut finns skjuts tillbaka till stationen. Vill du åka hem på egen hand, förboka taxi – det kan vara ont om Uber- och Bolt-bilar på landet sent på natten: Sverigetaxi (021-170 000) eller Taxi Västerås (021-18 50 00).",
+        title: "Från Stockholm till oss",
+        text: "Från Stockholm C reser du precis som alla andra gäster: ta tåget till Västerås eller samåk med andra gäster. Allt om hur du tar dig hit och var du kan bo hittar du ovan.",
       },
     ],
   },
@@ -672,7 +662,7 @@ const es: Translations = {
     info: [
       {
         title: "En tren",
-        description: "El tren de la estación central de Estocolmo a la de Västerås demora alrededor de una hora. Casi no hay buses hacia Rytterne, así que te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
+        description: "El tren de la estación central de Estocolmo a la de Västerås demora alrededor de una hora. Compra tu pasaje en la app de SJ o en sj.se antes de subir, porque no se venden a bordo. Casi no hay buses hacia Rytterne, así que te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
       },
       {
         title: "En auto",
@@ -709,8 +699,7 @@ const es: Translations = {
     ],
   },
   international: {
-    eyebrow: "Desde el extranjero",
-    title: "Invitados internacionales",
+    toggle: "¿Viajas desde el extranjero?",
     intro: "¡Gracias por hacer este viaje tan largo para acompañarnos! Aquí tienes una guía sencilla desde el aeropuerto, pasando por Estocolmo, hasta nosotros.",
     beforeTitle: "Antes de viajar",
     before: [
@@ -751,12 +740,8 @@ const es: Translations = {
         ],
       },
       {
-        title: "En tren a Västerås",
-        text: "Hay trenes desde la estación central de Estocolmo hasta la de Västerås unas dos veces por hora, y el viaje dura alrededor de una hora (aprox. 100–250 coronas). Compra tu pasaje en la app de SJ o en sj.se antes de subir, porque no se venden pasajes a bordo. También puedes viajar en auto con otros invitados.",
-      },
-      {
-        title: "Hasta la boda",
-        text: "Te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia. Al final de la noche habrá movilidad de regreso a la estación. Si prefieres volver por tu cuenta, reserva un taxi con anticipación, porque de madrugada puede haber pocos autos de Uber y Bolt en el campo: Sverigetaxi (+46 21 170 000) o Taxi Västerås (+46 21 18 50 00).",
+        title: "De Estocolmo hasta nosotros",
+        text: "Desde la estación central de Estocolmo, el camino es el mismo que para todos los invitados: toma el tren a Västerås o viaja en auto con otros invitados. Más arriba encontrarás todo sobre cómo llegar y dónde hospedarte.",
       },
     ],
   },

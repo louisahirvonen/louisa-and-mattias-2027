@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Train, Car, Hotel } from "lucide-react";
 import venuePhoto from "@/assets/venue-photo.jpeg";
+import InternationalGuests from "./InternationalGuests";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 // Icons for the entries in t.travel.info, in the same order
@@ -103,6 +104,8 @@ const TravelAccommodations = () => {
             </motion.div>
           ))}
         </div>
+
+        <InternationalGuests />
       </div>
     </section>
   );
