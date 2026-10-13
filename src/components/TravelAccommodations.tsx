@@ -52,6 +52,9 @@ const TravelAccommodations = () => {
           </div>
         </motion.div>
 
+        {/* Guide for guests flying in, folded away; it leads into the train/car cards below */}
+        <InternationalGuests />
+
         {/* Travel */}
         <div className="grid sm:grid-cols-2 gap-6 mb-12">
           {t.travel.info.map((info, i) => {
@@ -105,7 +108,6 @@ const TravelAccommodations = () => {
           ))}
         </div>
 
-        <InternationalGuests />
       </div>
     </section>
   );

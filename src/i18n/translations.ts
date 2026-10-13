@@ -174,10 +174,6 @@ const en = {
           },
         ],
       },
-      {
-        title: "From Stockholm to Us",
-        text: "From Stockholm Central, you're on the same journey as everyone else: take the train to Västerås or travel together with other guests by car. Everything about getting here and where to stay is above.",
-      },
     ],
   },
   faq: {
@@ -458,10 +454,6 @@ const sv: Translations = {
           },
         ],
       },
-      {
-        title: "Från Stockholm till oss",
-        text: "Från Stockholm C reser du precis som alla andra gäster: ta tåget till Västerås eller samåk med andra gäster. Allt om hur du tar dig hit och var du kan bo hittar du ovan.",
-      },
     ],
   },
   faq: {
@@ -738,10 +730,6 @@ const es: Translations = {
             ],
           },
         ],
-      },
-      {
-        title: "De Estocolmo hasta nosotros",
-        text: "Desde la estación central de Estocolmo, el camino es el mismo que para todos los invitados: toma el tren a Västerås o viaja en auto con otros invitados. Más arriba encontrarás todo sobre cómo llegar y dónde hospedarte.",
       },
     ],
   },

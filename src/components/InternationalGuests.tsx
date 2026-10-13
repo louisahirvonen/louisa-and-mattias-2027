@@ -4,14 +4,15 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import Reveal from "./Reveal";
 
 // Extra guide for guests coming from abroad. Only a few guests need it, so it sits
-// folded away at the end of "Travel & Accommodations" behind a button.
+// folded away behind a button in "Travel & Accommodations", just above the train and
+// car cards, which pick up the journey from Stockholm.
 const InternationalGuests = () => {
   const { t } = useLanguage();
   const intl = t.international;
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mt-12">
+    <div className="mb-6">
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -30,7 +31,7 @@ const InternationalGuests = () => {
       </button>
 
       <Reveal show={open} id="international-guide" duration={0.45}>
-        <div className="pt-8">
+        <div className="pt-8 pb-6">
           <p className="font-body text-base text-muted-foreground leading-relaxed text-center max-w-xl mx-auto mb-8">
             {intl.intro}
           </p>
@@ -51,7 +52,7 @@ const InternationalGuests = () => {
             </ul>
           </div>
 
-          {/* The journey: airport → Stockholm → on to us (the travel info above takes over from there) */}
+          {/* The journey: airport → Stockholm (the train/car cards below take over from there) */}
           <ol className="relative">
             <div
               className="absolute left-4 top-2 bottom-2 w-px"
