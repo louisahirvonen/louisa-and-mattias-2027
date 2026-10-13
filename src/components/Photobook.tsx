@@ -19,10 +19,12 @@ const photos = Object.keys(photoModules)
 const spreads: string[][] = [];
 for (let i = 0; i < photos.length; i += 2) spreads.push(photos.slice(i, i + 2));
 
+// Page turn: going forward, the old spread swings away to the left and the new one
+// comes in from the right, like turning a page in a real book (and the reverse going back)
 const variants = {
-  enter: (dir: number) => ({ rotateY: dir > 0 ? -90 : 90, opacity: 0 }),
+  enter: (dir: number) => ({ rotateY: dir > 0 ? 90 : -90, opacity: 0 }),
   center: { rotateY: 0, opacity: 1 },
-  exit: (dir: number) => ({ rotateY: dir > 0 ? 90 : -90, opacity: 0 }),
+  exit: (dir: number) => ({ rotateY: dir > 0 ? -90 : 90, opacity: 0 }),
 };
 
 const Photobook = () => {

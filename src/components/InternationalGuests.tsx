@@ -52,7 +52,7 @@ const InternationalGuests = () => {
             </ul>
           </div>
 
-          {/* The journey: airport → Stockholm (the train/car cards below take over from there) */}
+          {/* The journey: airport → Stockholm → the big day, which leads into the train/car cards below */}
           <ol className="relative">
             <div
               className="absolute left-4 top-2 bottom-2 w-px"

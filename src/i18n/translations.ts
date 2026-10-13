@@ -174,6 +174,10 @@ const en = {
           },
         ],
       },
+      {
+        title: "On the Big Day",
+        text: "When the big day comes, here's how to get from Stockholm to us:",
+      },
     ],
   },
   faq: {
@@ -454,6 +458,10 @@ const sv: Translations = {
           },
         ],
       },
+      {
+        title: "På den stora dagen",
+        text: "När den stora dagen kommer tar du dig från Stockholm till oss så här:",
+      },
     ],
   },
   faq: {
@@ -730,6 +738,10 @@ const es: Translations = {
             ],
           },
         ],
+      },
+      {
+        title: "El gran día",
+        text: "Cuando llegue el gran día, así puedes llegar desde Estocolmo hasta nosotros:",
       },
     ],
   },
