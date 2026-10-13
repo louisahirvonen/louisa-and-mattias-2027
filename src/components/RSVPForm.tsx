@@ -211,7 +211,7 @@ const RSVPForm = () => {
               <span className={labelClasses}>{t.rsvp.guestNames}</span>
               <div className="space-y-3">
                 {guests.map((guest, i) => (
-                  <div key={i} className="p-4 border border-border bg-background/60 space-y-3">
+                  <div key={i} className="p-4 border border-border bg-background/60">
                     <div className="flex items-center justify-between">
                       <span className="font-display text-base text-foreground">{t.rsvp.guestHeading(i + 1)}</span>
                       {guests.length > 1 && (
@@ -225,7 +225,7 @@ const RSVPForm = () => {
                         </button>
                       )}
                     </div>
-                    <div>
+                    <div className="mt-3">
                       <label htmlFor={`guest-${i}-name`} className={smallLabelClasses}>
                         {t.rsvp.fullName} *
                       </label>
@@ -241,8 +241,8 @@ const RSVPForm = () => {
                         placeholder={i === 0 ? t.rsvp.yourName : t.rsvp.guestName(i + 1)}
                       />
                     </div>
-                    {!declining && (
-                      <div>
+                    <Reveal show={!declining}>
+                      <div className="pt-3">
                         <label htmlFor={`guest-${i}-dietary`} className={smallLabelClasses}>
                           {t.rsvp.dietary}
                         </label>
@@ -256,7 +256,7 @@ const RSVPForm = () => {
                           placeholder={t.rsvp.dietaryPlaceholder}
                         />
                       </div>
-                    )}
+                    </Reveal>
                   </div>
                 ))}
               </div>
@@ -271,118 +271,119 @@ const RSVPForm = () => {
               )}
             </div>
 
-            {/* Contact details for the whole party */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="rsvp-email" className={labelClasses}>
-                  {t.rsvp.email}
-                </label>
-                <input
-                  id="rsvp-email"
-                  type="email"
-                  maxLength={255}
-                  autoComplete="email"
-                  className={inputClasses}
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder={t.rsvp.emailPlaceholder}
-                />
-              </div>
-              {!declining && (
+            {/* Contact details for the whole party, then the questions only for guests who are coming.
+                Spacing sits inside the folding parts so nothing snaps when they close. */}
+            <div>
+              <div className="grid sm:grid-cols-2 gap-x-4">
                 <div>
-                  <label htmlFor="rsvp-phone" className={labelClasses}>
-                    {t.rsvp.phone} *
+                  <label htmlFor="rsvp-email" className={labelClasses}>
+                    {t.rsvp.email}
                   </label>
                   <input
-                    id="rsvp-phone"
-                    type="tel"
-                    required
-                    maxLength={30}
-                    autoComplete="tel"
+                    id="rsvp-email"
+                    type="email"
+                    maxLength={255}
+                    autoComplete="email"
                     className={inputClasses}
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    placeholder={t.rsvp.emailPlaceholder}
                   />
                 </div>
-              )}
-            </div>
-
-            {!declining && (
-              <div>
-                <span className={labelClasses}>{t.rsvp.pickup}</span>
-                <div className="flex gap-4">
-                  {[
-                    { label: t.rsvp.pickupYes, value: true },
-                    { label: t.rsvp.pickupNo, value: false },
-                  ].map((opt) => (
-                    <button
-                      key={String(opt.value)}
-                      type="button"
-                      aria-pressed={form.station_pickup === opt.value}
-                      onClick={() => setForm({ ...form, station_pickup: opt.value })}
-                      className={choiceButton(form.station_pickup === opt.value)}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {!declining && (
-              <div>
-                <span className={labelClasses}>{t.rsvp.carpool}</span>
-                <div className="flex gap-4">
-                  {[
-                    { label: t.rsvp.carpoolYes, value: true },
-                    { label: t.rsvp.carpoolNo, value: false },
-                  ].map((opt) => (
-                    <button
-                      key={String(opt.value)}
-                      type="button"
-                      aria-pressed={form.carpool === opt.value}
-                      onClick={() => setForm({ ...form, carpool: opt.value })}
-                      className={choiceButton(form.carpool === opt.value)}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-                <Reveal show={form.carpool === true}>
-                  <div className="grid grid-cols-[6rem_1fr] gap-3 pt-3">
-                    <div>
-                      <label htmlFor="rsvp-seats" className={smallLabelClasses}>
-                        {t.rsvp.carpoolSeats}
-                      </label>
-                      <input
-                        id="rsvp-seats"
-                        type="number"
-                        min={1}
-                        max={8}
-                        inputMode="numeric"
-                        className={inputClasses}
-                        value={form.carpoolSeats}
-                        onChange={(e) => setForm({ ...form, carpoolSeats: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="rsvp-from" className={smallLabelClasses}>
-                        {t.rsvp.carpoolFrom}
-                      </label>
-                      <input
-                        id="rsvp-from"
-                        type="text"
-                        maxLength={100}
-                        className={inputClasses}
-                        value={form.carpoolFrom}
-                        onChange={(e) => setForm({ ...form, carpoolFrom: e.target.value })}
-                        placeholder={t.rsvp.carpoolFromPlaceholder}
-                      />
-                    </div>
+                <Reveal show={!declining}>
+                  <div className="pt-6 sm:pt-0">
+                    <label htmlFor="rsvp-phone" className={labelClasses}>
+                      {t.rsvp.phone} *
+                    </label>
+                    <input
+                      id="rsvp-phone"
+                      type="tel"
+                      required
+                      maxLength={30}
+                      autoComplete="tel"
+                      className={inputClasses}
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    />
                   </div>
                 </Reveal>
               </div>
-            )}
+              <Reveal show={!declining}>
+                <div className="pt-6 space-y-6">
+                  <div>
+                    <span className={labelClasses}>{t.rsvp.pickup}</span>
+                    <div className="flex gap-4">
+                      {[
+                        { label: t.rsvp.pickupYes, value: true },
+                        { label: t.rsvp.pickupNo, value: false },
+                      ].map((opt) => (
+                        <button
+                          key={String(opt.value)}
+                          type="button"
+                          aria-pressed={form.station_pickup === opt.value}
+                          onClick={() => setForm({ ...form, station_pickup: opt.value })}
+                          className={choiceButton(form.station_pickup === opt.value)}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className={labelClasses}>{t.rsvp.carpool}</span>
+                    <div className="flex gap-4">
+                      {[
+                        { label: t.rsvp.carpoolYes, value: true },
+                        { label: t.rsvp.carpoolNo, value: false },
+                      ].map((opt) => (
+                        <button
+                          key={String(opt.value)}
+                          type="button"
+                          aria-pressed={form.carpool === opt.value}
+                          onClick={() => setForm({ ...form, carpool: opt.value })}
+                          className={choiceButton(form.carpool === opt.value)}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                    <Reveal show={form.carpool === true}>
+                      <div className="grid grid-cols-[6rem_1fr] gap-3 pt-3">
+                        <div>
+                          <label htmlFor="rsvp-seats" className={smallLabelClasses}>
+                            {t.rsvp.carpoolSeats}
+                          </label>
+                          <input
+                            id="rsvp-seats"
+                            type="number"
+                            min={1}
+                            max={8}
+                            inputMode="numeric"
+                            className={inputClasses}
+                            value={form.carpoolSeats}
+                            onChange={(e) => setForm({ ...form, carpoolSeats: e.target.value })}
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="rsvp-from" className={smallLabelClasses}>
+                            {t.rsvp.carpoolFrom}
+                          </label>
+                          <input
+                            id="rsvp-from"
+                            type="text"
+                            maxLength={100}
+                            className={inputClasses}
+                            value={form.carpoolFrom}
+                            onChange={(e) => setForm({ ...form, carpoolFrom: e.target.value })}
+                            placeholder={t.rsvp.carpoolFromPlaceholder}
+                          />
+                        </div>
+                      </div>
+                    </Reveal>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
 
             <div>
               <label htmlFor="rsvp-message" className={labelClasses}>

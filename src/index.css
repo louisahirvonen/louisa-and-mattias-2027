@@ -94,6 +94,12 @@
     @apply bg-background text-foreground font-body font-medium;
   }
 
+  /* Keep the page still while RSVP questions fold open and closed. Otherwise the
+     browser's scroll anchoring scrolls the page and the tapped button jumps. */
+  html {
+    overflow-anchor: none;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
