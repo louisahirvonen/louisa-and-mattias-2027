@@ -1,0 +1,32 @@
+{
+  "siteUrl": "https://louisahirvonen.github.io/louisa-and-mattias-2027/",
+  "wedding": {
+    "start": "20270724T130000Z",
+    "end": "20270724T230000Z",
+    "location": "Stora Rytterne kyrkoruin, Rytterne, 725 92 Västerås"
+  },
+  "rsvpDeadline": {
+    "date": "20270601",
+    "dayAfter": "20270602"
+  },
+  "text": {
+    "sv": {
+      "weddingTitle": "Louisa och Mattias bröllop",
+      "weddingDetails": "15.00 Vigsel i Stora Rytterne kyrkoruin\n16.30 Fest i Orangeriet på Fiholm\n\nAll information: {url}",
+      "rsvpTitle": "Sista dagen att OSA – Louisa och Mattias bröllop",
+      "rsvpDetails": "OSA på hemsidan: {url}"
+    },
+    "en": {
+      "weddingTitle": "Louisa & Mattias's wedding",
+      "weddingDetails": "3:00 PM Ceremony at Stora Rytterne church ruin\n4:30 PM Celebration at the Orangery at Fiholm\n\nAll the details: {url}",
+      "rsvpTitle": "Last day to RSVP – Louisa & Mattias's wedding",
+      "rsvpDetails": "RSVP on the website: {url}"
+    },
+    "es": {
+      "weddingTitle": "Boda de Louisa y Mattias",
+      "weddingDetails": "3:00 p. m. Ceremonia en las ruinas de la iglesia de Stora Rytterne\n4:30 p. m. Celebración en la Orangería de Fiholm\n\nToda la información: {url}",
+      "rsvpTitle": "Último día para confirmar asistencia – boda de Louisa y Mattias",
+      "rsvpDetails": "Confirma tu asistencia en la web: {url}"
+    }
+  }
+}

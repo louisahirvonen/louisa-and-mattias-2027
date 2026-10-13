@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Louisa & Mattias//Wedding//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270724@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART:20270724T130000Z
+DTEND:20270724T230000Z
+SUMMARY:Louisa och Mattias bröllop
+LOCATION:Stora Rytterne kyrkoruin\, Rytterne\, 725 92 Västerås
+DESCRIPTION:15.00 Vigsel i Stora Rytterne kyrkoruin\n16.30 Fest i Orangerie
+ t på Fiholm\n\nAll information: https://louisahirvonen.github.io/louisa-a
+ nd-mattias-2027/?lang=sv
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=sv
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Louisa och Mattias bröllop
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsvp-deadline-20270601@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:Sista dagen att OSA – Louisa och Mattias bröllop
+DESCRIPTION:OSA på hemsidan: https://louisahirvonen.github.io/louisa-and-m
+ attias-2027/?lang=sv
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=sv
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sista dagen att OSA – Louisa och Mattias bröllop
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

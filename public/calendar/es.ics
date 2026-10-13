@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Louisa & Mattias//Wedding//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270724@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART:20270724T130000Z
+DTEND:20270724T230000Z
+SUMMARY:Boda de Louisa y Mattias
+LOCATION:Stora Rytterne kyrkoruin\, Rytterne\, 725 92 Västerås
+DESCRIPTION:3:00 p. m. Ceremonia en las ruinas de la iglesia de Stora Rytte
+ rne\n4:30 p. m. Celebración en la Orangería de Fiholm\n\nToda la informa
+ ción: https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=es
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=es
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Boda de Louisa y Mattias
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsvp-deadline-20270601@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:Último día para confirmar asistencia – boda de Louisa y Mattias
+DESCRIPTION:Confirma tu asistencia en la web: https://louisahirvonen.github
+ .io/louisa-and-mattias-2027/?lang=es
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=es
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Último día para confirmar asistencia – boda de Louisa y Mat
+ tias
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Louisa & Mattias//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270724@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART:20270724T130000Z
+DTEND:20270724T230000Z
+SUMMARY:Louisa & Mattias's wedding
+LOCATION:Stora Rytterne kyrkoruin\, Rytterne\, 725 92 Västerås
+DESCRIPTION:3:00 PM Ceremony at Stora Rytterne church ruin\n4:30 PM Celebra
+ tion at the Orangery at Fiholm\n\nAll the details: https://louisahirvonen.
+ github.io/louisa-and-mattias-2027/?lang=en
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=en
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Louisa & Mattias's wedding
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rsvp-deadline-20270601@louisa-and-mattias-2027
+DTSTAMP:20261013T000000Z
+DTSTART;VALUE=DATE:20270601
+DTEND;VALUE=DATE:20270602
+SUMMARY:Last day to RSVP – Louisa & Mattias's wedding
+DESCRIPTION:RSVP on the website: https://louisahirvonen.github.io/louisa-an
+ d-mattias-2027/?lang=en
+URL:https://louisahirvonen.github.io/louisa-and-mattias-2027/?lang=en
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Last day to RSVP – Louisa & Mattias's wedding
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

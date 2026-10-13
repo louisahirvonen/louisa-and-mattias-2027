@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
+import { AddToCalendarButton, AddToCalendarPanel } from "./AddToCalendar";
 import FloralDecoration from "./FloralDecoration";
 import ringPhoto from "@/assets/ring-photo.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const [calendarOpen, setCalendarOpen] = useState(false);
   return (
     <section
       id="home"
@@ -44,6 +47,25 @@ const HeroSection = () => {
           {t.hero.location}
         </p>
 
+        {/* RSVP and add-to-calendar: big, clear buttons right under the date, so they're visible
+            on the first screen of any phone (side by side on wider screens) */}
+        <div className="w-full max-w-md sm:max-w-xl mb-6">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="#rsvp"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#rsvp")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="flex-1 flex items-center justify-center px-4 py-3.5 font-body text-sm tracking-[0.15em] uppercase whitespace-nowrap bg-primary text-primary-foreground border border-primary hover:opacity-90 transition-opacity"
+            >
+              {t.hero.rsvpCta}
+            </a>
+            <AddToCalendarButton open={calendarOpen} onToggle={() => setCalendarOpen(!calendarOpen)} className="flex-1" />
+          </div>
+          <AddToCalendarPanel open={calendarOpen} />
+        </div>
+
         {/* Photo */}
         <div className="w-full max-w-xs sm:max-w-sm mx-auto mb-5">
           <div className="aspect-[4/5] rounded-sm overflow-hidden border border-border/50 shadow-md">
@@ -58,16 +80,6 @@ const HeroSection = () => {
         {/* Countdown */}
         <Countdown />
 
-        <a
-          href="#rsvp"
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector("#rsvp")?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="mt-6 inline-block px-8 py-3 font-body text-xs tracking-[0.25em] uppercase bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
-        >
-          {t.hero.rsvpCta}
-        </a>
       </motion.div>
     </section>
   );
