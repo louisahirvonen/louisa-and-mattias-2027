@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Train, Car, MapPin, Hotel } from "lucide-react";
+import { Train, Car, Hotel } from "lucide-react";
 import venuePhoto from "@/assets/venue-photo.jpeg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 // Icons for the entries in t.travel.info, in the same order
-const travelIcons = [Train, Car, MapPin];
+const travelIcons = [Train, Car];
 
 const TravelAccommodations = () => {
   const { t } = useLanguage();
@@ -52,7 +52,7 @@ const TravelAccommodations = () => {
         </motion.div>
 
         {/* Travel */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 gap-6 mb-12">
           {t.travel.info.map((info, i) => {
             const Icon = travelIcons[i];
             return (
@@ -67,21 +67,6 @@ const TravelAccommodations = () => {
               <Icon className="mx-auto text-taupe mb-3" size={24} />
               <h3 className="font-display text-lg text-foreground font-medium mb-2">{info.title}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{info.description}</p>
-              {info.links && (
-                <div className="mt-3 flex flex-col gap-1">
-                  {info.links.map((link) => (
-                    <a
-                      key={link.url}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-body text-sm text-primary underline underline-offset-4 hover:opacity-80"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
             </motion.div>
             );
           })}

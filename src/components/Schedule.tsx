@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import FloralDecoration from "./FloralDecoration";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ChurchRuin, FiholmManor } from "./ScheduleIllustrations";
+
+// Same order as t.schedule.groups: the church ruin, then the orangery at Fiholm
+const places = [
+  { Illustration: ChurchRuin, mapUrl: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428" },
+  { Illustration: FiholmManor, mapUrl: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656" },
+];
 
 const Schedule = () => {
   const { t } = useLanguage();
@@ -37,24 +44,38 @@ const Schedule = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {t.schedule.groups.map((group) => (
-            <div key={group.location} className="px-6 py-5 sm:px-8">
-              <div className="flex items-center gap-1.5 text-muted-foreground mb-3">
-                <MapPin size={13} className="text-taupe" />
-                <span className="font-body text-xs tracking-[0.2em] uppercase">{group.location}</span>
+          {t.schedule.groups.map((group, i) => {
+            const { Illustration, mapUrl } = places[i];
+            return (
+              <div key={group.location} className="flex items-center gap-4 sm:gap-6 px-5 py-5 sm:px-8">
+                <Illustration className="w-16 sm:w-24 flex-shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-muted-foreground mb-3">
+                    <MapPin size={13} className="text-taupe" />
+                    <span className="font-body text-xs tracking-[0.2em] uppercase">{group.location}</span>
+                    <a
+                      href={mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                    >
+                      {t.schedule.mapLabel}
+                    </a>
+                  </div>
+                  <ul className="space-y-2">
+                    {group.events.map((event) => (
+                      <li key={event.time} className="flex items-baseline gap-6">
+                        <span className="font-body text-base text-muted-foreground tracking-wider w-24 flex-shrink-0 tabular-nums">
+                          {event.time}
+                        </span>
+                        <span className="font-body text-xl text-foreground">{event.title}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <ul className="space-y-2">
-                {group.events.map((event) => (
-                  <li key={event.time} className="flex items-baseline gap-6">
-                    <span className="font-body text-base text-muted-foreground tracking-wider w-24 flex-shrink-0 tabular-nums">
-                      {event.time}
-                    </span>
-                    <span className="font-body text-xl text-foreground">{event.title}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

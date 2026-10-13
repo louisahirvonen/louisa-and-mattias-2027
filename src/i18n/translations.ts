@@ -58,6 +58,7 @@ const en = {
   schedule: {
     eyebrow: "The Celebration",
     title: "Schedule",
+    mapLabel: "Map",
     groups: [
       {
         location: "Stora Rytterne church ruin",
@@ -101,20 +102,6 @@ const en = {
       {
         title: "By Car",
         description: "Fiholm lies about 25 km southwest of Västerås, around 30 minutes by car, and about 1 hour 45 minutes from Stockholm. Take the E18, then road 56 towards Kvicksund. Set your navigation to “Fiholm, 725 92 Västerås”, not Fiholms slott near Eskilstuna, which is a different place.",
-      },
-      {
-        title: "Addresses",
-        description: "Ceremony: Stora Rytterne church ruin, Rytterne, Västerås. Celebration: The Orangery, Fiholm, 725 92 Västerås. The two are only 3 km apart, about five minutes by car.",
-        links: [
-          {
-            label: "Church ruin on the map",
-            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
-          },
-          {
-            label: "Fiholm on the map",
-            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
-          },
-        ],
       },
     ],
     whereToStay: "Where to Stay",
@@ -224,21 +211,12 @@ const en = {
           "Please let us know of any dietary requirements or allergies when you RSVP, and our chef will be delighted to accommodate you.",
       },
       {
-        question: "Can I take photos during the ceremony?",
-        answer:
-          "We kindly ask that our ceremony be an unplugged event. Our photographer will capture every moment. You are welcome to take photos during the reception!",
-      },
-      {
         question: "Is there parking?",
         answer: "Yes, there is parking at both the church ruin and Fiholm. As the two are only five minutes apart, we warmly encourage car-sharing.",
       },
       {
         question: "What if it rains?",
         answer: "If it rains, the ceremony will be moved inside Fiholm, so it will be lovely whatever the weather.",
-      },
-      {
-        question: "How can we reach you?",
-        answer: "Email us at louisa.hirvonen@gmail.com or call or text 076-139 64 60 (+46 76 139 64 60 from abroad).",
       },
     ],
   },
@@ -370,6 +348,7 @@ const sv: Translations = {
   schedule: {
     eyebrow: "Firandet",
     title: "Program",
+    mapLabel: "Karta",
     groups: [
       {
         location: "Stora Rytterne kyrkoruin",
@@ -412,20 +391,6 @@ const sv: Translations = {
       {
         title: "Med bil",
         description: "Fiholm ligger cirka 2,5 mil sydväst om Västerås, ungefär 30 minuter med bil och 1 timme 45 minuter från Stockholm. Ta E18 och sedan väg 56 mot Kvicksund. Ställ in navigationen på ”Fiholm, 725 92 Västerås” – inte Fiholms slott vid Eskilstuna, som är en helt annan plats.",
-      },
-      {
-        title: "Adresser",
-        description: "Vigsel: Stora Rytterne kyrkoruin, Rytterne, Västerås. Fest: Orangeriet, Fiholm, 725 92 Västerås. Det är bara 3 km mellan dem – ungefär fem minuter med bil.",
-        links: [
-          {
-            label: "Kyrkoruinen på kartan",
-            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
-          },
-          {
-            label: "Fiholm på kartan",
-            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
-          },
-        ],
       },
     ],
     whereToStay: "Boende",
@@ -518,7 +483,7 @@ const sv: Translations = {
         answer: "Kavaj, som på ett vanligt svenskt bröllop: kostym, jumpsuit, klänning eller det du känner dig fin i. Somriga färger uppmuntras!",
       },
       {
-        question: "Får jag ta med mig någon?",
+        question: "Får jag ta med en +1?",
         answer: "Vi har tyvärr inte möjlighet att bjuda in fler än de inbjudna. Alla som är bjudna står med namn i meddelandet där du fick länken till den här sidan.",
       },
       {
@@ -534,21 +499,12 @@ const sv: Translations = {
         answer: "Berätta om specialkost eller allergier när du OSA:r, så ordnar vår kock gärna något som passar dig.",
       },
       {
-        question: "Får jag fotografera under vigseln?",
-        answer:
-          "Vi ber vänligen om en mobilfri vigsel. Vår fotograf fångar varje ögonblick. Under festen får du gärna ta så många bilder du vill!",
-      },
-      {
         question: "Finns det parkering?",
         answer: "Ja, det finns parkering både vid kyrkoruinen och på Fiholm. Eftersom de bara ligger fem minuter från varandra uppmuntrar vi samåkning.",
       },
       {
         question: "Vad händer om det regnar?",
         answer: "Då flyttas vigseln in på Fiholm, så det blir fint oavsett väder.",
-      },
-      {
-        question: "Hur når vi er?",
-        answer: "Mejla oss på louisa.hirvonen@gmail.com eller ring eller sms:a 076-139 64 60.",
       },
     ],
   },
@@ -678,6 +634,7 @@ const es: Translations = {
   schedule: {
     eyebrow: "La celebración",
     title: "Itinerario",
+    mapLabel: "Mapa",
     groups: [
       {
         location: "Ruinas de la iglesia de Stora Rytterne",
@@ -720,20 +677,6 @@ const es: Translations = {
       {
         title: "En auto",
         description: "Fiholm está a unos 25 km al suroeste de Västerås, a unos 30 minutos en auto, y a 1 hora 45 minutos de Estocolmo. Toma la E18 y luego la carretera 56 hacia Kvicksund. Ingresa “Fiholm, 725 92 Västerås” en tu GPS, no “Fiholms slott” cerca de Eskilstuna, que es otro lugar.",
-      },
-      {
-        title: "Direcciones",
-        description: "Ceremonia: ruinas de la iglesia de Stora Rytterne, Rytterne, Västerås. Celebración: la Orangería, Fiholm, 725 92 Västerås. Están a solo 3 km de distancia, unos cinco minutos en auto.",
-        links: [
-          {
-            label: "Ver las ruinas en el mapa",
-            url: "https://www.google.com/maps/search/?api=1&query=59.5128,16.3428",
-          },
-          {
-            label: "Ver Fiholm en el mapa",
-            url: "https://www.google.com/maps/search/?api=1&query=59.4892,16.3656",
-          },
-        ],
       },
     ],
     whereToStay: "Dónde hospedarse",
@@ -843,21 +786,12 @@ const es: Translations = {
           "Indícanos cualquier dieta especial o alergia al confirmar tu asistencia, y nuestro chef con gusto se encargará de atenderte.",
       },
       {
-        question: "¿Puedo tomar fotos durante la ceremonia?",
-        answer:
-          "Te pedimos amablemente que la ceremonia sea sin celulares. Nuestro fotógrafo capturará cada momento. ¡Durante la recepción puedes tomar todas las fotos que quieras!",
-      },
-      {
         question: "¿Hay estacionamiento?",
         answer: "Sí, hay estacionamiento tanto en las ruinas de la iglesia como en Fiholm. Como están a solo cinco minutos, te animamos a compartir el auto.",
       },
       {
         question: "¿Y si llueve?",
         answer: "Si llueve, la ceremonia se trasladará al interior de Fiholm, así que será linda llueva o no.",
-      },
-      {
-        question: "¿Cómo podemos contactarlos?",
-        answer: "Escríbenos a louisa.hirvonen@gmail.com o llámanos al +46 76 139 64 60.",
       },
     ],
   },
