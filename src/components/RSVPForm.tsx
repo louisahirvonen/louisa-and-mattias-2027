@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { isGoogleFormConfigured, submitToGoogleForm } from "@/lib/googleForm";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, X } from "lucide-react";
@@ -12,6 +12,26 @@ interface Guest {
 }
 
 const emptyGuest = (): Guest => ({ name: "", dietary: "" });
+
+const easing = [0.25, 0.46, 0.45, 0.94] as const;
+
+// Folds content open and closed instead of popping it in and out,
+// so the rest of the form glides rather than jumps
+const Reveal = ({ show, children }: { show: boolean; children: React.ReactNode }) => (
+  <AnimatePresence initial={false}>
+    {show && (
+      <motion.div
+        initial={{ height: 0, opacity: 0, overflow: "hidden" }}
+        // Overflow back to visible once open, so input focus rings aren't clipped
+        animate={{ height: "auto", opacity: 1, transitionEnd: { overflow: "visible" } }}
+        exit={{ height: 0, opacity: 0, overflow: "hidden" }}
+        transition={{ duration: 0.35, ease: easing }}
+      >
+        {children}
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
 
 const RSVPForm = () => {
   const { toast } = useToast();
@@ -111,7 +131,7 @@ const RSVPForm = () => {
     "w-full px-4 py-3 font-body text-base bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary/40 text-foreground placeholder:text-muted-foreground/60";
 
   const choiceButton = (selected: boolean) =>
-    `flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors ${
+    `flex-1 py-3 px-4 font-body text-sm tracking-wider border transition-colors duration-300 ease-out ${
       selected
         ? "bg-primary text-primary-foreground border-primary"
         : "bg-background text-muted-foreground border-border hover:border-primary/30"
@@ -328,8 +348,8 @@ const RSVPForm = () => {
                     </button>
                   ))}
                 </div>
-                {form.carpool && (
-                  <div className="grid grid-cols-[6rem_1fr] gap-3 mt-3">
+                <Reveal show={form.carpool === true}>
+                  <div className="grid grid-cols-[6rem_1fr] gap-3 pt-3">
                     <div>
                       <label htmlFor="rsvp-seats" className={smallLabelClasses}>
                         {t.rsvp.carpoolSeats}
@@ -360,7 +380,7 @@ const RSVPForm = () => {
                       />
                     </div>
                   </div>
-                )}
+                </Reveal>
               </div>
             )}
 
