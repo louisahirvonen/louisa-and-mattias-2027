@@ -44,7 +44,7 @@ const FAQ = () => {
             >
               <AccordionItem
                 value={`item-${i}`}
-                className="bg-background/70 backdrop-blur-sm border border-border px-6"
+                className="bg-background/80 border border-border px-6"
               >
                 <AccordionTrigger className="font-display text-base text-foreground font-medium hover:no-underline">
                   {faq.question}
