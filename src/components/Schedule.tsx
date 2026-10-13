@@ -50,22 +50,23 @@ const Schedule = () => {
               <div key={group.location} className="flex items-center gap-4 sm:gap-6 px-5 py-5 sm:px-8">
                 <Illustration className="w-16 sm:w-24 flex-shrink-0" />
                 <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-muted-foreground mb-3">
-                    <MapPin size={13} className="text-taupe" />
-                    <span className="font-body text-xs tracking-[0.2em] uppercase">{group.location}</span>
+                  {/* Pin, place and map link flow as one line of text, so they wrap together on phones */}
+                  <p className="text-muted-foreground mb-3 leading-relaxed">
+                    <MapPin size={13} className="inline -mt-0.5 mr-1.5 text-taupe" />
+                    <span className="font-body text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase">{group.location}</span>
                     <a
                       href={mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                      className="ml-2 font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground whitespace-nowrap"
                     >
                       {t.schedule.mapLabel}
                     </a>
-                  </div>
+                  </p>
                   <ul className="space-y-2">
                     {group.events.map((event) => (
-                      <li key={event.time} className="flex items-baseline gap-6">
-                        <span className="font-body text-base text-muted-foreground tracking-wider w-24 flex-shrink-0 tabular-nums">
+                      <li key={event.time} className="flex items-baseline gap-4 sm:gap-6">
+                        <span className="font-body text-base text-muted-foreground tracking-wide sm:tracking-wider w-[5.5rem] sm:w-24 flex-shrink-0 tabular-nums">
                           {event.time}
                         </span>
                         <span className="font-body text-xl text-foreground">{event.title}</span>
