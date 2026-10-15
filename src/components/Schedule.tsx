@@ -51,7 +51,7 @@ const Schedule = () => {
                 {/* Place and map link run across the full width, above the drawing and the times */}
                 <p className="text-muted-foreground mb-3 leading-relaxed">
                   <MapPin size={13} className="inline -mt-0.5 mr-1.5 text-taupe" />
-                  <span className="font-body text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase">{group.location}</span>
+                  <span className="font-body text-xs tracking-[0.08em] min-[380px]:tracking-[0.12em] sm:tracking-[0.2em] uppercase">{group.location}</span>
                   <a
                     href={mapUrl}
                     target="_blank"
@@ -66,7 +66,9 @@ const Schedule = () => {
                   <ul className="min-w-0 flex-1 space-y-2">
                     {group.events.map((event) => (
                       <li key={event.time} className="flex items-baseline gap-4 sm:gap-6">
-                        <span className="font-body text-base text-muted-foreground tracking-wide sm:tracking-wider w-[5.5rem] sm:w-24 flex-shrink-0 tabular-nums">
+                        {/* Times are all the same length within a language, so a natural-width column still
+                            lines the names up, and short English/Swedish times leave the names more room */}
+                        <span className="font-body text-base text-muted-foreground tracking-wide sm:tracking-wider sm:w-24 flex-shrink-0 tabular-nums whitespace-nowrap">
                           {event.time}
                         </span>
                         <span className="font-body text-xl text-foreground">{event.title}</span>

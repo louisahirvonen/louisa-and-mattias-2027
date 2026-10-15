@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-14 sm:pt-[6.25rem] pb-6 overflow-hidden bg-background"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-[5.5rem] sm:pt-[6.25rem] pb-6 overflow-hidden bg-background"
     >
       {/* Corner florals */}
       <FloralDecoration variant="corner-top-right" className="absolute top-0 right-0 w-36 sm:w-52 opacity-70 pointer-events-none" />
