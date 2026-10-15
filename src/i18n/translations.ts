@@ -654,7 +654,7 @@ const es: Translations = {
     mapLabel: "Mapa",
     groups: [
       {
-        location: "Ruinas de la iglesia de Stora Rytterne",
+        location: "Ruinas de Stora Rytterne",
         events: [
           {
             time: "3:00 p. m.",

@@ -24,7 +24,7 @@ const RSVPForm = () => {
     email: "",
     phone: "",
     attending: null as boolean | null, // nothing selected until the guest chooses
-    carpool: null as boolean | null, // room in their car for other guests
+    carpool: false as boolean | null, // room in their car for other guests; starts on "No / not driving"
     carpoolSeats: "",
     carpoolFrom: "",
     message: "",

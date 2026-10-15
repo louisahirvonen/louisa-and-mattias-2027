@@ -47,23 +47,23 @@ const Schedule = () => {
           {t.schedule.groups.map((group, i) => {
             const { Illustration, mapUrl } = places[i];
             return (
-              <div key={group.location} className="flex items-center gap-4 sm:gap-6 px-5 py-5 sm:px-8">
-                <Illustration className="w-16 sm:w-24 flex-shrink-0" />
-                <div className="min-w-0 flex-1">
-                  {/* Pin, place and map link flow as one line of text, so they wrap together on phones */}
-                  <p className="text-muted-foreground mb-3 leading-relaxed">
-                    <MapPin size={13} className="inline -mt-0.5 mr-1.5 text-taupe" />
-                    <span className="font-body text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase">{group.location}</span>
-                    <a
-                      href={mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-2 font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground whitespace-nowrap"
-                    >
-                      {t.schedule.mapLabel}
-                    </a>
-                  </p>
-                  <ul className="space-y-2">
+              <div key={group.location} className="px-5 py-5 sm:px-8">
+                {/* Place and map link run across the full width, above the drawing and the times */}
+                <p className="text-muted-foreground mb-3 leading-relaxed">
+                  <MapPin size={13} className="inline -mt-0.5 mr-1.5 text-taupe" />
+                  <span className="font-body text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase">{group.location}</span>
+                  <a
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 font-body text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground whitespace-nowrap"
+                  >
+                    {t.schedule.mapLabel}
+                  </a>
+                </p>
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <Illustration className="w-16 sm:w-24 flex-shrink-0" />
+                  <ul className="min-w-0 flex-1 space-y-2">
                     {group.events.map((event) => (
                       <li key={event.time} className="flex items-baseline gap-4 sm:gap-6">
                         <span className="font-body text-base text-muted-foreground tracking-wide sm:tracking-wider w-[5.5rem] sm:w-24 flex-shrink-0 tabular-nums">
