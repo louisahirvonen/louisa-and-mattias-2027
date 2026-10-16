@@ -62,6 +62,25 @@ const en = {
         description:
           "When Louisa moved to Linköping for her university studies, their relationship became long distance. What was scary and painful ended up leading to new friendships and a stronger relationship.",
       },
+      // Placeholders for 2023, 2024 and 2027 below: edit freely
+      {
+        year: "2023",
+        title: "The Proposal",
+        description:
+          "On 14 October 2023, in Kyoto, Japan, Mattias asked Louisa to marry him. She said yes.",
+      },
+      {
+        year: "2024",
+        title: "Home Together",
+        description:
+          "In 2024 they moved in together and made their first home.",
+      },
+      {
+        year: "2027",
+        title: "The Wedding",
+        description:
+          "On 24 July 2027 they'll say yes once again, surrounded by family and friends, at Stora Rytterne church ruin and Fiholm.",
+      },
     ],
   },
   schedule: {
@@ -388,21 +407,40 @@ const sv: Translations = {
     milestones: [
       {
         year: "2019",
-        title: "Första mötet",
+        title: "Där allt började",
         description:
-          "Louisa och Mattias träffades på ett sommarläger i Ardingly i England. De började prata när de satt inlåsta i ett escape room tillsammans. Mattias trodde större delen av lägret att Louisa hette ”Elenor” och bet henne till och med under en match mopphockey – men tog igen det genom att offra en stranddag för att hjälpa henne med disken och vinna en käpphästtävling i lånade skor. Deras band beseglades en natt då de tittade på stjärnfall och bytte handmålade stenar med varandra.",
+          "Louisa och Mattias träffades på ett sommarläger i Ardingly i England – första gången de pratade satt de inlåsta i ett escape room. Resten av lägret trodde Mattias att hon hette Elenor, och under en match mopphockey lyckades han till och med bita henne. Men han tog igen det: han hoppade över en stranddag för att hjälpa henne med disken och vann en käpphästtävling i lånade skor. En natt tittade de på stjärnfall och bytte handmålade stenar – och där var det bestämt.",
       },
       {
         year: "2020",
-        title: "Äntligen officiellt",
+        title: "Äntligen ett par",
         description:
-          "De höll kontakten hela hösten och tillbringade varje ledig helg tillsammans i Ekebyholm eller Skogås. Mattias drömde en profetisk dröm om att de skulle gifta sig. Året avslutades med att Louisa och Mattias firade nyårsafton med vänner i en stuga i skogen. Klockan tre på natten blev de officiellt ett par.",
+          "Hösten gick åt till helger tillsammans, i Ekebyholm eller Skogås. Mattias drömde att de skulle gifta sig (han fick rätt). På nyårsafton firade de med vänner i en stuga i skogen, och klockan tre på natten blev det officiellt.",
       },
       {
         year: "2021",
-        title: "Två städer, ett vi",
+        title: "På distans",
         description:
-          "När Louisa flyttade till Linköping för att plugga blev det ett distansförhållande. Det som kändes läskigt och jobbigt ledde till slut till nya vänskaper och en starkare relation.",
+          "När Louisa flyttade till Linköping för att plugga blev det distansförhållande. Det var både läskigt och jobbigt, men det gav nya vänner – och gjorde dem ännu starkare tillsammans.",
+      },
+      // Placeholders for 2023, 2024 and 2027 below: edit freely
+      {
+        year: "2023",
+        title: "Frieriet",
+        description:
+          "Den 14 oktober 2023 i Kyoto i Japan friade Mattias till Louisa. Hon sa ja.",
+      },
+      {
+        year: "2024",
+        title: "Ett gemensamt hem",
+        description:
+          "2024 flyttade de ihop och skapade sitt första gemensamma hem.",
+      },
+      {
+        year: "2027",
+        title: "Bröllopet",
+        description:
+          "Den 24 juli 2027 säger de ja till varandra igen, omgivna av familj och vänner, i Stora Rytterne kyrkoruin och på Fiholm.",
       },
     ],
   },
@@ -742,6 +780,25 @@ const es: Translations = {
         title: "Dos ciudades, un nosotros",
         description:
           "Cuando Louisa se mudó a Linköping para estudiar en la universidad, su relación pasó a ser a distancia. Lo que daba miedo y dolía terminó trayéndoles nuevas amistades y una relación más fuerte.",
+      },
+      // Placeholders for 2023, 2024 and 2027 below: edit freely
+      {
+        year: "2023",
+        title: "La propuesta",
+        description:
+          "El 14 de octubre de 2023, en Kioto, Japón, Mattias le pidió matrimonio a Louisa. Ella dijo que sí.",
+      },
+      {
+        year: "2024",
+        title: "Un hogar juntos",
+        description:
+          "En 2024 se mudaron juntos y formaron su primer hogar.",
+      },
+      {
+        year: "2027",
+        title: "La boda",
+        description:
+          "El 24 de julio de 2027 volverán a decirse que sí, rodeados de familia y amigos, en las ruinas de Stora Rytterne y en Fiholm.",
       },
     ],
   },
