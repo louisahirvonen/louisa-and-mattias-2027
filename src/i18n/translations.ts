@@ -106,11 +106,11 @@ const en = {
     info: [
       {
         title: "By Train",
-        description: "Trains run from Stockholm Central to Västerås Central in about an hour. Buy tickets in the SJ app or at sj.se before boarding, as they can't be bought on the train. There are hardly any buses out to Rytterne, so we'll pick you up at Västerås Central: just tick the box when you RSVP.",
+        description: "SJ trains run from Stockholm Central to Västerås Central (travel time: 1 h). We'll arrange pickup from the station – just tick the box when you RSVP. Please book a train that arrives at the station before 2 pm.",
       },
       {
         title: "By Car",
-        description: "Fiholm lies about 25 km southwest of Västerås, around 30 minutes by car, and about 1 hour 45 minutes from Stockholm. Take the E18, then road 56 towards Kvicksund. Set your navigation to “Fiholm, 725 92 Västerås”, not Fiholms slott near Eskilstuna, which is a different place.",
+        description: "Driving to Fiholm takes about 1 h 30 min from Stockholm. Set your navigation to “Fiholm, 725 92 Västerås”, not Fiholms slott near Eskilstuna, which is a different place.",
       },
     ],
     whereToStay: "Where to Stay",
@@ -120,7 +120,7 @@ const en = {
         title: "Rytterne Kyrkskola",
         description: "A cosy B&B in the old church school, the closest place to stay.",
         detail: "5 minutes from Fiholm · from 600 SEK/night",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+        url: "https://www.instagram.com/rytternekyrkskola/",
       },
       {
         title: "Thottska Villan, Strömsholm",
@@ -147,7 +147,7 @@ const en = {
     intro: "We're so grateful you're making the journey! Here's a simple guide from the airport, via Stockholm, all the way to us.",
     beforeTitle: "Before You Go",
     before: [
-      "Many nationalities can visit Sweden for short stays without a visa. Check the EU's entry requirements (EES and ETIAS) at travel-europe.europa.eu.",
+      "Public transport is the recommended way to get around Stockholm. Trains and buses run frequently and reliably, and tickets are bought in the SL app.",
       "Sweden is almost cashless: cards and phone payments work nearly everywhere.",
       "Sockets are the European two-pin type (230 V), and tap water is excellent to drink.",
       "In late July the sun sets around 21:40, so evenings stay light for a long time.",
@@ -155,7 +155,7 @@ const en = {
     steps: [
       {
         title: "Arrive at Arlanda",
-        text: "Fly into Stockholm Arlanda (ARN), Sweden's main international airport, about 40 km north of the city. The Arlanda Express train takes 18 minutes to Stockholm Central Station (about 340 SEK; extra adults travelling with you pay about 120 SEK each, and under-18s ride free). The SL commuter train (about 200 SEK, 40 min) and the Flygbussarna coach (from about 129 SEK, 45 min) are cheaper.",
+        text: "Fly into Stockholm Arlanda. From there, the Arlanda Express takes 18 minutes to Stockholm Central. The SL commuter train (40 min) and the Flygbussarna airport coach (45 min) are slower but cheaper options.",
       },
       {
         title: "Explore Stockholm",
@@ -164,25 +164,74 @@ const en = {
           {
             title: "Where to stay",
             items: [
-              "Norrmalm, around Central Station: the most practical base, as trains to the airport and to Västerås leave from here.",
-              "Gamla Stan: the charming medieval old town, a short walk from Central Station.",
-              "Södermalm: relaxed and creative, with cafés, vintage shops and great views.",
-              "Östermalm: elegant, with waterfront promenades and the Östermalm food hall.",
+              {
+                icon: "station",
+                name: "Norrmalm",
+                text: "Right by Central Station, where the airport trains and the trains to Västerås leave. The most practical base.",
+              },
+              {
+                icon: "lantern",
+                name: "Gamla Stan",
+                text: "The medieval old town: cobbled lanes, candlelit restaurants and the Royal Palace around the corner.",
+              },
+              {
+                icon: "vinyl",
+                name: "Södermalm",
+                text: "Relaxed and creative, with cafés, vintage shops, rooftop bars and the best views of the city.",
+              },
+              {
+                icon: "bag",
+                name: "Östermalm",
+                text: "Elegant streets and boutiques, the waterfront promenade along Strandvägen and the Östermalm food hall.",
+              },
             ],
           },
           {
             title: "What to do",
             items: [
-              "Wander the cobbled lanes of Gamla Stan and see the Royal Palace.",
-              "Visit the Vasa Museum and its almost intact 17th-century warship.",
-              "Spend a day on leafy Djurgården: Skansen open-air museum, ABBA The Museum and Gröna Lund.",
-              "Take a boat out into the archipelago. Vaxholm is an easy day trip.",
-              "Catch the summer evening view from Monteliusvägen on Södermalm.",
-              "See photography with a view at Fotografiska, or modern art at Moderna Museet.",
+              {
+                icon: "houses",
+                name: "Gamla Stan's colourful houses",
+                text: "Snap the famous gabled houses on Stortorget, then squeeze through Mårten Trotzigs gränd, the city's narrowest alley.",
+              },
+              {
+                icon: "fika",
+                name: "Fika",
+                text: "Coffee and a cinnamon bun is a Swedish ritual. Try a classic café like Vete-Katten, or any cosy spot in Gamla Stan.",
+              },
+              {
+                icon: "boat",
+                name: "Archipelago boat trip",
+                text: "Hop on a boat from the city centre out among the islands. Vaxholm and Fjäderholmarna make easy day trips.",
+              },
+              {
+                icon: "sunset",
+                name: "Sunset at Monteliusvägen",
+                text: "The classic view over Gamla Stan and the water, magical on a long July evening.",
+              },
+              {
+                icon: "metro",
+                name: "Subway art",
+                text: "Many metro stations are works of art: T-Centralen's blue cave and the colourful Kungsträdgården are favourites.",
+              },
+              {
+                icon: "ferris",
+                name: "Djurgården",
+                text: "A leafy island with the Gröna Lund amusement park, ABBA The Museum and the Skansen open-air museum.",
+              },
+              {
+                icon: "ship",
+                name: "The Vasa Museum",
+                text: "A 17th-century warship that sank on its maiden voyage and was raised almost intact more than 300 years later.",
+              },
+              {
+                icon: "camera",
+                name: "Fotografiska",
+                text: "World-class photography exhibitions, and a café with one of the best views over the water.",
+              },
             ],
           },
-        ],
-      },
+        ],      },
       {
         title: "On the Big Day",
         text: "When the big day comes, here's how to get from Stockholm to us:",
@@ -195,24 +244,23 @@ const en = {
     items: [
       {
         question: "What is the dress code?",
-        answer: "Formal, as for a typical Swedish wedding: a suit, a jumpsuit, a dress, or whatever you feel wonderful in. Summery colours are very welcome!",
+        answer: "Dressy summer attire – dresses of any length, jumpsuits and suits are all welcome. The ceremony will take place among church ruins with wooden benches, and the reception venue is reached via a gravel path, so please keep this in mind when choosing footwear.",
       },
       {
         question: "Can I bring a plus one?",
-        answer: "We're not able to include plus-ones. Everyone who is invited is named in the message we sent you with the link to this page.",
+        answer: "Unfortunately, we're not able to welcome more guests than those invited. Everyone who is invited is named in the message we sent you with the link to this page.",
       },
       {
         question: "Are children welcome?",
-        answer: "Children who are named in your invitation are very welcome. Beyond that, we've chosen to make our wedding an adults-only celebration, and we hope you understand.",
+        answer: "Yes, children who are named in the invitation are very welcome.",
       },
       {
         question: "Will there be transport to the venue?",
-        answer: "We would be delighted to collect you from Västerås Central Station. Just tick the pickup box when you RSVP and we will be in touch with times closer to the day. Fiholm lies in quiet countryside with very little public transport, so if you are making your own way, please book a taxi in advance. The celebration goes on late into the night. At the end of the evening there will be rides back to Västerås Central Station, or you can book an Uber or a taxi.",
+        answer: "We would be delighted to collect you from Västerås Central Station. Just tick the pickup box when you RSVP and we will be in touch with times closer to the day. Fiholm lies in quiet countryside with very little public transport, so if you are making your own way, please book an Uber or a taxi in advance. The celebration goes on late into the night. At the end of the evening there will be rides back to Västerås Central Station, or you can book an Uber or a taxi.",
       },
       {
         question: "What about dietary requirements?",
-        answer:
-          "Please let us know of any dietary requirements or allergies when you RSVP, and our chef will be delighted to accommodate you.",
+        answer: "Of course – just let us know about any dietary requirements or allergies when you RSVP.",
       },
       {
         question: "Is there parking?",
@@ -399,11 +447,11 @@ const sv: Translations = {
     info: [
       {
         title: "Med tåg",
-        description: "Tåget från Stockholm C till Västerås C tar ungefär en timme. Köp biljett i SJ-appen eller på sj.se innan du kliver på – det går inte att köpa ombord. Det går nästan inga bussar ut till Rytterne, så vi hämtar dig vid Västerås C – kryssa bara i rutan när du OSA:r.",
+        description: "SJ:s tåg går från Stockholm C till Västerås C (restid: 1 h). Vi ordnar upphämtning från stationen – kryssa bara i rutan när du OSA:r. Boka gärna en resa som är framme vid stationen före kl. 14.",
       },
       {
         title: "Med bil",
-        description: "Fiholm ligger cirka 2,5 mil sydväst om Västerås, ungefär 30 minuter med bil och 1 timme 45 minuter från Stockholm. Ta E18 och sedan väg 56 mot Kvicksund. Ställ in navigationen på ”Fiholm, 725 92 Västerås” – inte Fiholms slott vid Eskilstuna, som är en helt annan plats.",
+        description: "Med bil tar det ungefär 1 h 30 min från Stockholm till Fiholm. Ställ in navigationen på ”Fiholm, 725 92 Västerås” – inte Fiholms slott vid Eskilstuna, som är en helt annan plats.",
       },
     ],
     whereToStay: "Boende",
@@ -413,7 +461,7 @@ const sv: Translations = {
         title: "Rytterne Kyrkskola",
         description: "Mysigt B&B i den gamla kyrkskolan – närmast av alla.",
         detail: "5 minuter från Fiholm · från 600 kr/natt",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+        url: "https://www.instagram.com/rytternekyrkskola/",
       },
       {
         title: "Thottska Villan, Strömsholm",
@@ -440,7 +488,7 @@ const sv: Translations = {
     intro: "Vad roligt att du gör den långa resan! Här är en enkel guide från flygplatsen, via Stockholm, hela vägen till oss.",
     beforeTitle: "Före resan",
     before: [
-      "Många nationaliteter kan besöka Sverige en kortare tid utan visum. Kolla EU:s inresekrav (EES och ETIAS) på travel-europe.europa.eu.",
+      "Kollektivtrafiken är det smidigaste sättet att ta sig runt i Stockholm. Tåg och bussar går ofta och pålitligt, och biljetter köper du i SL-appen.",
       "Sverige är nästan kontantfritt – kort och mobilbetalning fungerar nästan överallt.",
       "Eluttagen är av europeisk typ (230 V), och kranvattnet är utmärkt att dricka.",
       "I slutet av juli går solen ner runt 21.40, så kvällarna är ljusa länge.",
@@ -448,7 +496,7 @@ const sv: Translations = {
     steps: [
       {
         title: "Landa på Arlanda",
-        text: "Flyg till Stockholm Arlanda (ARN), Sveriges största internationella flygplats, cirka 4 mil norr om Stockholm. Arlanda Express tar 18 minuter till Stockholm C (cirka 340 kr; fler vuxna som reser tillsammans betalar cirka 120 kr var, och under 18 år åker gratis). SL:s pendeltåg (cirka 200 kr, 40 min) och Flygbussarna (från cirka 129 kr, 45 min) är billigare.",
+        text: "Flyg till Stockholm Arlanda. Därifrån tar Arlanda Express 18 minuter till Stockholm C. SL:s pendeltåg (40 min) och Flygbussarna (45 min) är långsammare men billigare alternativ.",
       },
       {
         title: "Upptäck Stockholm",
@@ -457,25 +505,74 @@ const sv: Translations = {
           {
             title: "Var du kan bo",
             items: [
-              "Norrmalm, runt Centralstationen: smidigast, eftersom tågen till Arlanda och Västerås går härifrån.",
-              "Gamla stan: den charmiga medeltida stadskärnan, en kort promenad från Centralen.",
-              "Södermalm: avslappnat och kreativt, med kaféer, vintagebutiker och fina utsikter.",
-              "Östermalm: elegant, med strandpromenader och Östermalms saluhall.",
+              {
+                icon: "station",
+                name: "Norrmalm",
+                text: "Precis vid Centralstationen, där tågen till Arlanda och Västerås går. Smidigast av allt.",
+              },
+              {
+                icon: "lantern",
+                name: "Gamla stan",
+                text: "Den medeltida stadskärnan: kullerstensgränder, mysiga restauranger och Kungliga slottet runt hörnet.",
+              },
+              {
+                icon: "vinyl",
+                name: "Södermalm",
+                text: "Avslappnat och kreativt, med kaféer, vintagebutiker, takbarer och stadens bästa utsikt.",
+              },
+              {
+                icon: "bag",
+                name: "Östermalm",
+                text: "Eleganta gator och butiker, strandpromenaden längs Strandvägen och Östermalms saluhall.",
+              },
             ],
           },
           {
             title: "Vad du kan göra",
             items: [
-              "Strosa längs kullerstensgränderna i Gamla stan och se Kungliga slottet.",
-              "Besök Vasamuseet och det nästan helt bevarade 1600-talsskeppet.",
-              "Ägna en dag åt gröna Djurgården: Skansen, ABBA The Museum och Gröna Lund.",
-              "Ta båten ut i skärgården – Vaxholm är en enkel dagsutflykt.",
-              "Njut av sommarkvällens utsikt från Monteliusvägen på Södermalm.",
-              "Se fotografi med utsikt på Fotografiska, eller modern konst på Moderna Museet.",
+              {
+                icon: "houses",
+                name: "Gamla stans färgglada hus",
+                text: "Fota de kända gavelhusen på Stortorget och kläm dig sedan igenom Mårten Trotzigs gränd, stadens smalaste gränd.",
+              },
+              {
+                icon: "fika",
+                name: "Fika",
+                text: "Kaffe och kanelbulle är ett måste. Testa ett klassiskt kafé som Vete-Katten, eller något mysigt ställe i Gamla stan.",
+              },
+              {
+                icon: "boat",
+                name: "Skärgårdstur",
+                text: "Ta båten från stan ut bland öarna. Vaxholm och Fjäderholmarna är enkla dagsutflykter.",
+              },
+              {
+                icon: "sunset",
+                name: "Solnedgång på Monteliusvägen",
+                text: "Den klassiska utsikten över Gamla stan och vattnet, magisk en lång julikväll.",
+              },
+              {
+                icon: "metro",
+                name: "Tunnelbanekonst",
+                text: "Många tunnelbanestationer är konstverk – T-Centralens blå grotta och färgsprakande Kungsträdgården är favoriter.",
+              },
+              {
+                icon: "ferris",
+                name: "Djurgården",
+                text: "En grönskande ö med nöjesparken Gröna Lund, ABBA The Museum och friluftsmuseet Skansen.",
+              },
+              {
+                icon: "ship",
+                name: "Vasamuseet",
+                text: "Ett 1600-talsskepp som sjönk på sin första resa och bärgades nästan helt intakt mer än 300 år senare.",
+              },
+              {
+                icon: "camera",
+                name: "Fotografiska",
+                text: "Fotoutställningar i världsklass och ett kafé med en av de finaste utsikterna över vattnet.",
+              },
             ],
           },
-        ],
-      },
+        ],      },
       {
         title: "På den stora dagen",
         text: "När den stora dagen kommer tar du dig från Stockholm till oss så här:",
@@ -488,23 +585,23 @@ const sv: Translations = {
     items: [
       {
         question: "Vilken är klädkoden?",
-        answer: "Kavaj, som på ett vanligt svenskt bröllop: kostym, jumpsuit, klänning eller det du känner dig fin i. Somriga färger uppmuntras!",
+        answer: "Kavaj. Vi önskar en somrig och uppklädd klädsel – klänning, byxdress eller kostym går lika bra. Vigseln äger rum utomhus i kyrkoruiner med träbänkar, och festlokalen nås via en grusväg, så välj gärna skor därefter.",
       },
       {
         question: "Får jag ta med en +1?",
-        answer: "Vi har tyvärr inte möjlighet att bjuda in fler än de inbjudna. Alla som är bjudna står med namn i meddelandet där du fick länken till den här sidan.",
+        answer: "Vi har tyvärr inte möjlighet att ta emot fler gäster än de inbjudna. Alla som är bjudna står med namn i meddelandet där du fick länken till den här sidan.",
       },
       {
         question: "Är barn välkomna?",
-        answer: "Barn som står med namn i inbjudan är varmt välkomna. Utöver dem har vi valt att ha ett bröllop för vuxna – vi hoppas att ni förstår.",
+        answer: "Ja, barn som står med namn i inbjudan är varmt välkomna.",
       },
       {
         question: "Ordnas det transport till festen?",
-        answer: "Vi hämtar dig gärna vid Västerås centralstation – kryssa i rutan för upphämtning när du OSA:r, så hör vi av oss med tider närmare dagen. Fiholm ligger lugnt på landet med väldigt lite kollektivtrafik, så tar du dig dit själv rekommenderar vi att du förbokar taxi. Festen håller på till sent. När kvällen är slut finns skjuts till Västerås centralstation, eller så kan du ta en Uber eller taxi.",
+        answer: "Vi hämtar dig gärna vid Västerås centralstation – kryssa i rutan för upphämtning när du OSA:r, så hör vi av oss med tider närmare dagen. Fiholm ligger lugnt på landet med väldigt lite kollektivtrafik, så tar du dig dit själv rekommenderar vi att du förbokar Uber eller taxi. Festen håller på till sent. När kvällen är slut finns skjuts till Västerås centralstation, eller så kan du ta en Uber eller taxi.",
       },
       {
         question: "Hur gör jag med specialkost?",
-        answer: "Berätta om specialkost eller allergier när du OSA:r, så ordnar vår kock gärna något som passar dig.",
+        answer: "Självklart – ange specialkost eller allergier när du OSA:r.",
       },
       {
         question: "Finns det parkering?",
@@ -689,11 +786,11 @@ const es: Translations = {
     info: [
       {
         title: "En tren",
-        description: "El tren de la estación central de Estocolmo a la de Västerås demora alrededor de una hora. Compra tu pasaje en la app de SJ o en sj.se antes de subir, porque no se venden a bordo. Casi no hay buses hacia Rytterne, así que te recogemos en la estación central de Västerås: solo marca la opción al confirmar tu asistencia.",
+        description: "Los trenes de SJ van de la estación central de Estocolmo a la de Västerås (duración: 1 h). Nosotros te recogemos en la estación; solo marca la opción al confirmar tu asistencia. Por favor, reserva un tren que llegue a la estación antes de las 2:00 p. m.",
       },
       {
         title: "En auto",
-        description: "Fiholm está a unos 25 km al suroeste de Västerås, a unos 30 minutos en auto, y a 1 hora 45 minutos de Estocolmo. Toma la E18 y luego la carretera 56 hacia Kvicksund. Ingresa “Fiholm, 725 92 Västerås” en tu GPS, no “Fiholms slott” cerca de Eskilstuna, que es otro lugar.",
+        description: "En auto, el viaje de Estocolmo a Fiholm dura aproximadamente 1 h 30 min. Ingresa “Fiholm, 725 92 Västerås” en tu GPS, no “Fiholms slott” cerca de Eskilstuna, que es otro lugar.",
       },
     ],
     whereToStay: "Dónde hospedarse",
@@ -703,7 +800,7 @@ const es: Translations = {
         title: "Rytterne Kyrkskola",
         description: "Un acogedor B&B en la antigua escuela parroquial, el hospedaje más cercano.",
         detail: "A 5 minutos de Fiholm · desde 600 coronas por noche",
-        url: "https://www.booking.com/hotel/se/rytterne-kyrkskola-bed-and-breakfast.html",
+        url: "https://www.instagram.com/rytternekyrkskola/",
       },
       {
         title: "Thottska Villan, Strömsholm",
@@ -730,7 +827,7 @@ const es: Translations = {
     intro: "¡Gracias por hacer este viaje tan largo para acompañarnos! Aquí tienes una guía sencilla desde el aeropuerto, pasando por Estocolmo, hasta nosotros.",
     beforeTitle: "Antes de viajar",
     before: [
-      "Muchas nacionalidades pueden visitar Suecia por estadías cortas sin visa. Revisa los requisitos de ingreso de la UE (EES y ETIAS) en travel-europe.europa.eu.",
+      "El transporte público es la mejor forma de moverse por Estocolmo. Los trenes y buses pasan seguido y son puntuales, y los pasajes se compran en la app de SL.",
       "En Suecia casi no se usa efectivo: se paga con tarjeta o con el celular casi en todas partes.",
       "Los enchufes son de tipo europeo de dos clavijas (230 V), y el agua del caño es excelente para tomar.",
       "A fines de julio el sol se pone alrededor de las 9:40 p. m., así que las noches son claras hasta tarde.",
@@ -738,7 +835,7 @@ const es: Translations = {
     steps: [
       {
         title: "Llegada a Arlanda",
-        text: "Vuela al aeropuerto de Estocolmo-Arlanda (ARN), el principal aeropuerto internacional de Suecia, a unos 40 km al norte de la ciudad. El tren Arlanda Express llega en 18 minutos a la estación central de Estocolmo (unas 340 coronas; cada adulto adicional que viaje contigo paga unas 120 coronas y los menores de 18 años viajan gratis). El tren de cercanías SL (unas 200 coronas, 40 min) y el bus Flygbussarna (desde unas 129 coronas, 45 min) son más baratos.",
+        text: "Vuela al aeropuerto de Estocolmo-Arlanda. Desde allí, el Arlanda Express llega en 18 minutos a la estación central de Estocolmo. El tren de cercanías SL (40 min) y el bus Flygbussarna (45 min) son opciones más lentas pero más baratas.",
       },
       {
         title: "Conoce Estocolmo",
@@ -747,25 +844,74 @@ const es: Translations = {
           {
             title: "Dónde hospedarte",
             items: [
-              "Norrmalm, alrededor de la estación central: lo más práctico, porque de ahí salen los trenes al aeropuerto y a Västerås.",
-              "Gamla Stan: el encantador casco antiguo medieval, a pocos minutos a pie de la estación central.",
-              "Södermalm: relajado y creativo, con cafés, tiendas vintage y lindas vistas.",
-              "Östermalm: elegante, con paseos junto al agua y el mercado gastronómico Östermalms Saluhall.",
+              {
+                icon: "station",
+                name: "Norrmalm",
+                text: "Junto a la estación central, de donde salen los trenes al aeropuerto y a Västerås. La opción más práctica.",
+              },
+              {
+                icon: "lantern",
+                name: "Gamla Stan",
+                text: "El casco antiguo medieval: calles empedradas, restaurantes a la luz de las velas y el Palacio Real a la vuelta de la esquina.",
+              },
+              {
+                icon: "vinyl",
+                name: "Södermalm",
+                text: "Relajado y creativo, con cafés, tiendas vintage, bares en azoteas y las mejores vistas de la ciudad.",
+              },
+              {
+                icon: "bag",
+                name: "Östermalm",
+                text: "Calles elegantes y boutiques, el paseo junto al agua de Strandvägen y el mercado gastronómico Östermalms Saluhall.",
+              },
             ],
           },
           {
             title: "Qué hacer",
             items: [
-              "Recorre las calles empedradas de Gamla Stan y visita el Palacio Real.",
-              "Visita el Museo Vasa y su barco de guerra del siglo XVII casi intacto.",
-              "Pasa un día en la verde isla de Djurgården: el museo al aire libre Skansen, ABBA The Museum y el parque de diversiones Gröna Lund.",
-              "Toma un barco hacia el archipiélago; Vaxholm es un paseo fácil de un día.",
-              "Disfruta la vista de las noches de verano desde el mirador Monteliusvägen, en Södermalm.",
-              "Mira fotografía con vista al mar en Fotografiska, o arte moderno en el Moderna Museet.",
+              {
+                icon: "houses",
+                name: "Las casas de colores de Gamla Stan",
+                text: "Fotografía las famosas casas de Stortorget y pasa por Mårten Trotzigs gränd, el callejón más angosto de la ciudad.",
+              },
+              {
+                icon: "fika",
+                name: "Fika",
+                text: "Un café con un rollo de canela es todo un ritual sueco. Prueba un café clásico como Vete-Katten, o cualquier rincón acogedor de Gamla Stan.",
+              },
+              {
+                icon: "boat",
+                name: "Paseo en barco por el archipiélago",
+                text: "Toma un barco desde el centro hacia las islas. Vaxholm y Fjäderholmarna son paseos fáciles de un día.",
+              },
+              {
+                icon: "sunset",
+                name: "Atardecer en Monteliusvägen",
+                text: "La vista clásica sobre Gamla Stan y el agua, mágica en una larga tarde de julio.",
+              },
+              {
+                icon: "metro",
+                name: "Arte en el metro",
+                text: "Muchas estaciones de metro son obras de arte: la cueva azul de T-Centralen y la colorida Kungsträdgården son las favoritas.",
+              },
+              {
+                icon: "ferris",
+                name: "Djurgården",
+                text: "Una isla verde con el parque de diversiones Gröna Lund, ABBA The Museum y el museo al aire libre Skansen.",
+              },
+              {
+                icon: "ship",
+                name: "El Museo Vasa",
+                text: "Un barco de guerra del siglo XVII que se hundió en su primer viaje y fue rescatado casi intacto más de 300 años después.",
+              },
+              {
+                icon: "camera",
+                name: "Fotografiska",
+                text: "Exposiciones de fotografía de primer nivel y un café con una de las mejores vistas sobre el agua.",
+              },
             ],
           },
-        ],
-      },
+        ],      },
       {
         title: "El gran día",
         text: "Cuando llegue el gran día, así puedes llegar desde Estocolmo hasta nosotros:",
@@ -778,24 +924,23 @@ const es: Translations = {
     items: [
       {
         question: "¿Cuál es el código de vestimenta?",
-        answer: "Formal, como en una boda típica en Suecia: terno, enterizo, vestido o lo que te haga sentir bien. ¡Los colores veraniegos son muy bienvenidos!",
+        answer: "Formal de verano: vestidos de cualquier largo, enterizos y ternos son bienvenidos. La ceremonia será al aire libre, entre las ruinas de una iglesia con bancas de madera, y a la recepción se llega por un camino de grava, así que tenlo en cuenta al elegir tus zapatos.",
       },
       {
         question: "¿Puedo ir con acompañante?",
-        answer: "Lamentablemente no podemos recibir acompañantes adicionales. Todas las personas invitadas aparecen con su nombre en el mensaje en el que te enviamos el enlace a esta página.",
+        answer: "Lamentablemente no podemos recibir a más invitados que los que figuran en la invitación. Todas las personas invitadas aparecen con su nombre en el mensaje en el que te enviamos el enlace a esta página.",
       },
       {
         question: "¿Los niños están invitados?",
-        answer: "Los niños que aparecen con su nombre en la invitación son muy bienvenidos. Fuera de ellos, hemos decidido que la boda sea solo para adultos; esperamos que lo entiendas.",
+        answer: "Sí, los niños que aparecen con su nombre en la invitación son muy bienvenidos.",
       },
       {
         question: "¿Habrá transporte hasta el local?",
-        answer: "Con gusto te recogemos en la estación central de Västerås: marca la opción de recojo al confirmar tu asistencia y te escribiremos con los horarios cuando se acerque la fecha. Fiholm está en pleno campo y casi no hay transporte público, así que si llegas por tu cuenta te recomendamos reservar un taxi con anticipación. La fiesta terminará tarde. Al final de la noche habrá movilidad hacia la estación central de Västerås, o puedes pedir un Uber o un taxi.",
+        answer: "Con gusto te recogemos en la estación central de Västerås: marca la opción de recojo al confirmar tu asistencia y te escribiremos con los horarios cuando se acerque la fecha. Fiholm está en pleno campo y casi no hay transporte público, así que si llegas por tu cuenta te recomendamos reservar un Uber o un taxi con anticipación. La fiesta terminará tarde. Al final de la noche habrá movilidad hacia la estación central de Västerås, o puedes pedir un Uber o un taxi.",
       },
       {
         question: "¿Y si tengo alguna restricción alimentaria?",
-        answer:
-          "Indícanos cualquier dieta especial o alergia al confirmar tu asistencia, y nuestro chef con gusto se encargará de atenderte.",
+        answer: "¡Claro! Indícanos cualquier dieta especial o alergia al confirmar tu asistencia.",
       },
       {
         question: "¿Hay estacionamiento?",

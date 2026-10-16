@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, Info, Plane } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import Reveal from "./Reveal";
+import { stockholmIcons } from "./StockholmIcons";
 
 // Extra guide for guests coming from abroad. Only a few guests need it, so it sits
 // folded away behind a button in "Travel & Accommodations", just above the train and
@@ -70,20 +71,27 @@ const InternationalGuests = () => {
                 <h3 className="font-display text-xl text-foreground font-medium mb-2 pt-0.5">{step.title}</h3>
                 <p className="font-body text-base text-muted-foreground leading-relaxed">{step.text}</p>
 
+                {/* Stockholm: where to stay and what to do, each with a small drawing */}
                 {step.columns && (
-                  <div className="grid sm:grid-cols-2 gap-6 mt-5">
+                  <div className="space-y-6 mt-5">
                     {step.columns.map((column) => (
-                      <div key={column.title} className="p-5 border border-border bg-card">
+                      <div key={column.title}>
                         <h4 className="font-body text-xs tracking-[0.2em] uppercase text-foreground mb-3">
                           {column.title}
                         </h4>
-                        <ul className="space-y-2">
-                          {column.items.map((item) => (
-                            <li key={item} className="flex gap-2 font-body text-sm text-muted-foreground leading-relaxed">
-                              <span className="text-taupe">·</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
+                        <ul className="grid sm:grid-cols-2 gap-3">
+                          {column.items.map((item) => {
+                            const ItemIcon = stockholmIcons[item.icon];
+                            return (
+                              <li key={item.name} className="flex gap-3 p-4 border border-border bg-card">
+                                {ItemIcon && <ItemIcon className="w-12 h-12 flex-shrink-0" />}
+                                <div>
+                                  <p className="font-display text-base text-foreground font-medium leading-snug">{item.name}</p>
+                                  <p className="font-body text-sm text-muted-foreground leading-relaxed mt-0.5">{item.text}</p>
+                                </div>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     ))}
